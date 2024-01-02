@@ -1,0 +1,5958 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../using-01/">
+      
+      
+        <link rel="next" href="../../porting/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.1">
+    
+    
+      
+        <title>EM runtime - Platform Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.72749a73.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-12 6 6-6-6-6-1.4 1.4 4.6 4.6-4.6 4.6L10 18Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DX6RZ0VNPT"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DX6RZ0VNPT",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DX6RZ0VNPT",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#programming-with-em" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Platform Documentation" class="md-header__button md-logo" aria-label="Platform Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo12.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Platform Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              EM runtime
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../intro/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducing EM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../install/" class="md-tabs__link">
+        
+  
+    
+  
+  Installing EM
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Using EM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../porting/" class="md-tabs__link">
+          
+  
+    
+  
+  Porting EM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advancing/" class="md-tabs__link">
+          
+  
+    
+  
+  Advancing EM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../discuss/" class="md-tabs__link">
+        
+  
+    
+  
+  Discussing EM
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cargo/" class="md-tabs__link">
+          
+  
+    
+  
+  Browsing EM
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Platform Documentation" class="md-nav__button md-logo" aria-label="Platform Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo12.png" alt="logo">
+
+    </a>
+    Platform Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../intro/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Introducing EM
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducing EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/to-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM modules & interfaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/to-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM composites & templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/to-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM program life-cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/to-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM runtime bundles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing EM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Using EM
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Using EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM tooling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    EM runtime
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    EM runtime
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tour-00-guided-tours" class="md-nav__link">
+    Tour 00 &ndash; guided tours
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-01-basic-blinker" class="md-nav__link">
+    Tour 01 &ndash; basic blinker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-02-real-time-debug" class="md-nav__link">
+    Tour 02 &ndash; real-time debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-03-threading-with-fibers" class="md-nav__link">
+    Tour 03 &ndash; threading with fibers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-04-button-handlers" class="md-nav__link">
+    Tour 04 &ndash; button handlers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-05-button-fibers" class="md-nav__link">
+    Tour 05 &ndash; button fibers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-06-button-objects" class="md-nav__link">
+    Tour 06 &ndash; button objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-07-timer-handlers" class="md-nav__link">
+    Tour 07 &ndash; timer handlers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-08-timer-fibers" class="md-nav__link">
+    Tour 08 &ndash; timer fibers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-09-timer-service" class="md-nav__link">
+    Tour 09 &ndash; timer service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-10-wakeup-alarms" class="md-nav__link">
+    Tour 10 &ndash; wakeup alarms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-11-aligned-wakeups" class="md-nav__link">
+    Tour 11 &ndash; aligned wakeups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-12-cyclic-tickers" class="md-nav__link">
+    Tour 12 &ndash; cyclic tickers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../porting/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Porting EM
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Porting EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../advancing/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advancing EM
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_6">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Advancing EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command-line interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/energy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Energy Consuption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/syntax/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Language Syntax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/coremark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Refactoring CoreMark&reg;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../discuss/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Discussing EM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Browsing EM
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Browsing EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.bench/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.bench
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            em.bench
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.bench/em.coremark/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.coremark
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_2_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            em.coremark
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/ActiveRunnerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ActiveRunnerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/BenchI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BenchI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/ComparatorI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ComparatorI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/CoreBench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CoreBench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/Crc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/IdxComparator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IdxComparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/ListBench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ListBench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/MatrixBench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MatrixBench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/Results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Results
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/SleepyRunnerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SleepyRunnerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/StateBench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StateBench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/ValComparator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ValComparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.core
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            em.core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/em.hal/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.hal
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_3_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            em.hal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/BusyWaitI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BusyWaitI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/BusyWaitN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BusyWaitN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/ButtonI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ButtonI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/ButtonN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ButtonN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/ConsoleUartI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleUartI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/ConsoleUartN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleUartN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/CopierI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CopierI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/FlashI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FlashI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/FlashN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FlashN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GlobalInterruptsI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GlobalInterruptsI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GlobalInterruptsN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GlobalInterruptsN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GpioEdgeDetectMinI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioEdgeDetectMinI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GpioEdgeDetectMinN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioEdgeDetectMinN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GpioI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GpioN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/HostUartI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HostUartI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/HostUartN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HostUartN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/IdleI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IdleI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/IdleN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IdleN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/InterruptSourceI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InterruptSourceI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/IntrVecI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntrVecI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/LedI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/LedN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/McuI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/McuInfoI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuInfoI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/McuInfoN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuInfoN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/McuN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/MsCounterI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MsCounterI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/MsCounterN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MsCounterN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/OneShotMilliI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotMilliI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/OneShotMilliN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotMilliN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/PollerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PollerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/PollerN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PollerN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/RandI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RandI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/RandN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RandN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/SpiMasterI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SpiMasterI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/TimeoutI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TimeoutI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/TimeoutN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TimeoutN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UptimerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UptimerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UptimerN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UptimerN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UsCounterI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UsCounterI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UsCounterN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UsCounterN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UsThreshI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UsThreshI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/WakeupTimerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WakeupTimerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/WakeupTimerN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WakeupTimerN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/WatchdogI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WatchdogI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/WatchdogN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WatchdogN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/em.lang/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.lang
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_3_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            em.lang
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Assert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/AssertProviderI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssertProviderI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/AssertProviderN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssertProviderN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Atom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atom
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/BuildC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BuildC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/BuilderI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BuilderI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/CompositeI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CompositeI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/ConsoleProviderI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleProviderI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/ConsoleProviderN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleProviderN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debug
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/DebugPinI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DebugPinI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/ModuleI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModuleI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/TemplateI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TemplateI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/em.mcu/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.mcu
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_3_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            em.mcu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Common/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/CommonC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CommonC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/ConsoleUart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleUart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Copier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Poller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Timeout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timeout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/em.utils/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.utils
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_3_5">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            em.utils
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/AlarmMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AlarmMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/AppControl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AppControl
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/AssertProvider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssertProvider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BasicListManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BasicListManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardController/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardController
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardDriverI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardDriverI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardDriversGenT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardDriversGenT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardInfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardInfo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardMeta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardMeta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Bootup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BufPrint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BufPrint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ButtonT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ButtonT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Checksum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checksum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ConsoleProtocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleProtocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Copier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Crc16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crc16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/DebugPinAux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DebugPinAux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/DebugPinT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DebugPinT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/EpochTime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EpochTime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/FftC32/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FftC32
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/FftQ15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FftQ15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/FiberMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FiberMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Formatter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Formatter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/FormattingConsole/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FormattingConsole
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/HeapMem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HeapMem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/HeapStatic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HeapStatic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/LedBlinkerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedBlinkerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/LedBlinkerT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedBlinkerT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/LedT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ListManagerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ListManagerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ListMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ListMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/LoaderAuxI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoaderAuxI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Logger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/MemDump/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MemDump
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/MinConsole/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MinConsole
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/MsCounterUptimer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MsCounterUptimer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/PollerAux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PollerAux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ProcMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ProcMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/SoftUart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SoftUart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/TickerMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TickerMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/TimeoutAux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TimeoutAux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.docs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.docs
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            em.docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.docs/em.examples.basic/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.examples.basic
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_4_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            em.examples.basic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Alarm1P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alarm1P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Alarm2P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alarm2P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/BlinkerDbgP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BlinkerDbgP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/BlinkerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BlinkerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Button1P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Button1P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Button2P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Button2P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Button3P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Button3P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/FiberP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FiberP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/HelloP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HelloP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/OneShot1P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShot1P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/OneShot2P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShot2P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/PollerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PollerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/TickerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TickerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/ti.cc23xx/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ti.cc23xx
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_5">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            ti.cc23xx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/ti.cc23xx/ti.build.cc23xx/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ti.build.cc23xx
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_5_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            ti.build.cc23xx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.build.cc23xx/GccBuilder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GccBuilder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.build.cc23xx/SeggerBuilder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SeggerBuilder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/ti.cc23xx/ti.distro.cc23xx/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ti.distro.cc23xx
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_5_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            ti.distro.cc23xx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.distro.cc23xx/BoardC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.distro.cc23xx/BoardMeta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardMeta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.distro.cc23xx/McuC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ti.mcu.cc23xx
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8_5_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            ti.mcu.cc23xx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/BusyWait/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BusyWait
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/BusyWaitSysTick/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BusyWaitSysTick
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/ConsoleUart0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleUart0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/EdgeDetectGpioAux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EdgeDetectGpioAux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/EdgeDetectGpioT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EdgeDetectGpioT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/ExtFlashDisabler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ExtFlashDisabler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/GlobalInterrupts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GlobalInterrupts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/GpioT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Idle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Idle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/InterruptT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InterruptT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/IntrVec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntrVec
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Mcu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mcu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/MsCounter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MsCounter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/OneShotGpt3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotGpt3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/OneShotSysTick/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotSysTick
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/OneShotSysTim0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotSysTim0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Regs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Regs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Rtc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rtc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Uptimer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uptimer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/UsCounter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UsCounter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/WakeupTimer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WakeupTimer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tour-00-guided-tours" class="md-nav__link">
+    Tour 00 &ndash; guided tours
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-01-basic-blinker" class="md-nav__link">
+    Tour 01 &ndash; basic blinker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-02-real-time-debug" class="md-nav__link">
+    Tour 02 &ndash; real-time debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-03-threading-with-fibers" class="md-nav__link">
+    Tour 03 &ndash; threading with fibers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-04-button-handlers" class="md-nav__link">
+    Tour 04 &ndash; button handlers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-05-button-fibers" class="md-nav__link">
+    Tour 05 &ndash; button fibers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-06-button-objects" class="md-nav__link">
+    Tour 06 &ndash; button objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-07-timer-handlers" class="md-nav__link">
+    Tour 07 &ndash; timer handlers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-08-timer-fibers" class="md-nav__link">
+    Tour 08 &ndash; timer fibers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-09-timer-service" class="md-nav__link">
+    Tour 09 &ndash; timer service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-10-wakeup-alarms" class="md-nav__link">
+    Tour 10 &ndash; wakeup alarms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-11-aligned-wakeups" class="md-nav__link">
+    Tour 11 &ndash; aligned wakeups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tour-12-cyclic-tickers" class="md-nav__link">
+    Tour 12 &ndash; cyclic tickers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="programming-with-em">Programming with EM</h1>
+<p>Turning now to the EM runtime, a series of curated "guided tours" will incrementally introduce components of the <span class="em-content-bundle-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 10.96a.985.985 0 0 1-.37-1.37L3.13 7c.11-.2.28-.34.47-.42l7.83-4.4c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.19.1.35.26.44.46l1.45 2.52c.28.48.11 1.09-.36 1.36l-1 .58v4.96c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-5.54c-.3.17-.68.18-1 0m10-6.81v6.7l5.96-3.35L12 4.15M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-3.22l-5 2.9c-.33.18-.7.17-1 .01v3.69l6-3.38m-5.15-2.55 6.28-3.63-.58-1.01-6.28 3.63.58 1.01Z"/></svg></span>&nbsp;<a href="/cargo/em.core">em.core</a></span> bundle &ndash; many of which you may have browsed in your reading of <a class="em-link" href="/intro">Introducing EM</a>.&thinsp;  By convention, each tour revolves around a specific EM program found in the <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic">em.examples.basic</a></span> package &ndash; with each of these small programming examples motivating us to visit key elements of the EM runtime.</p>
+<p>In the material that follows, we'll reference a number of logical MCU "pins" configured by the current EM distro and generally accessible through headers on your target board:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code><span class="filename">&emsp;&emsp;&emsp;&emsp;&emsp;appBut</span></code></td>
+<td style="text-align: left;">application button pin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code><span class="filename">&emsp;&emsp;&emsp;&emsp;&emsp;appLed</span></code></td>
+<td style="text-align: left;">application LED pin (usually green)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code><span class="filename">&emsp;&emsp;&emsp;&emsp;&emsp;appOut</span></code></td>
+<td style="text-align: left;">application console TX pin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code><span class="filename">&emsp;&emsp;&emsp;&emsp;&emsp;sysDbgA</span></code></td>
+<td style="text-align: left;">system debug pin A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code><span class="filename">&emsp;&emsp;&emsp;&emsp;&emsp;sysDbgB</span></code></td>
+<td style="text-align: left;">system debug pin B</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code><span class="filename">&emsp;&emsp;&emsp;&emsp;&emsp;sysDbgC</span></code></td>
+<td style="text-align: left;">system debug pin C</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code><span class="filename">&emsp;&emsp;&emsp;&emsp;&emsp;sysDbgD</span></code></td>
+<td style="text-align: left;">system debug pin D</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code><span class="filename">&emsp;&emsp;&emsp;&emsp;&emsp;sysLed</span></code></td>
+<td style="text-align: left;">system LED pin (usually red)</td>
+</tr>
+</tbody>
+</table>
+<p>A special YAML file named <code><span class="filename">em-boards</span></code> found the <code class="language-em highlight"><span class="n">em$distro</span></code> package folder binds these logical pin names to physical pin numbers of your target board.  <a class="em-link" href="/porting/">Porting EM</a> will have more to say about <code><span class="filename">em-boards</span></code>, as well as explain the special <code><span class="filename">setup-*.properties</span></code> files located in the root of your distro bundle. </p>
+<h2 id="tour-00-guided-tours">Tour 00 &ndash; guided tours</h2>
+<p>The following animation illustrates the <strong>EM - Start Tour</strong> command, which you'll use to view each of the tours described in the remainder of this document.  You'll find these tours in appropriately named&thinsp;<code><span class="filename">.emtour</span></code> files, located inside the&thinsp;<code><span class="filename">.tours/101_Using_EM</span></code> folder delivered with the <code><span class="filename">em.docs</span></code> bundle.</p>
+<div class="em-screen" id="fig0-dead">
+<p><button onclick="screenSwap(document.getElementById('fig0-dead'), document.getElementById('fig0-live'))"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h14m0-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-9 5v8l5-4-5-4Z"/></svg></span></button></p>
+<figure>
+<p><a markdown><img alt="Image info" src="../../assets/screen-gifs/tour-00.png" /></a></p>
+<figcaption>EM - Start Tour</figcaption>
+</figure>
+</div>
+<div class="em-screen" id="fig0-live" style="display:none">
+<p><button onclick="screenSwap(document.getElementById('fig0-live'), document.getElementById('fig0-dead'))"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m11.5 12 8.5 6V6m-9 12V6l-8.5 6 8.5 6Z"/></svg></span></button></p>
+<figure id="fig0-live">
+<p><a class="glightbox" href="../../assets/screen-gifs/tour-00.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="../../assets/screen-gifs/tour-00.gif" /></a></p>
+<figcaption>EM - Start Tour</figcaption>
+</figure>
+</div>
+<p>With that, go ahead and actually take tour <code><span class="filename">00_HelloP.emtour</span></code> within your VS Code environment.  Before proceeding to take <strong>Tour 01</strong>&thinsp;&ndash;&thinsp;<strong>Tour 12</strong>&thinsp;, however, you should feel comfortable with the UI presented in <strong>Tour 00</strong>&thinsp;; and do retake any of these tours whenever necessary.</p>
+<h2 id="tour-01-basic-blinker">Tour 01 &ndash; basic blinker</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/BlinkerP">BlinkerP</a></span> program, which  toggles the <code><span class="filename">appLed</span></code> pin on your target board &ndash; typically connected to a green LED.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/BusyWaitI">BusyWaitI</a></span> and <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/LedI">LedI</a></span> interfaces, as well as presents the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.mcu/Common">Common</a></span> module and its constituent proxies.</p>
+<div class="em-break"></div>
+
+<figure id="fig1">
+<p><a class="glightbox" href="/assets/tour-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-01.png" /></a></p>
+<figcaption>Tour 01 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime quickly blinks your board's <code><span class="filename">sysLed</span></code> at startup.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="nn">BlinkerP</span></code> program toggles <code><span class="filename">appLed</span></code> every ~0.5&thinsp;s.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime turns on <code><span class="filename">sysLed</span></code> upon normal program termination.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The next capture zooms into the <code><span class="filename">appOut</span></code> signal.</p>
+</div>
+<div class="em-break"></div>
+
+<figure id="fig1a">
+<p><a class="glightbox" href="/assets/tour-01-a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-01-a.png" /></a></p>
+<figcaption>Tour 01 &ndash; Logic Capture&ensp;[&thinsp;zoom&thinsp;] 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime outputs this sequence of (non-printable) bytes at startup, <em>after</em> blinking <code><span class="filename">sysLed</span></code>.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime output this single byte upon normal program termination, <em>before</em> turning on <code><span class="filename">sysLed</span></code>.</p>
+</div>
+<h2 id="tour-02-real-time-debug">Tour 02 &ndash; real-time debug</h2>
+<p>This tour focuses upon the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/BlinkerDbgP">BlinkerDbgP</a></span> program, which also toggles the <code><span class="filename">appLed</span></code> pin on your target board.  This tour highlights a number of capabilities within EM for visualizing and troubleshooting program execution in real-time.</p>
+<div class="em-break"></div>
+
+<figure id="fig2">
+<p><a class="glightbox" href="/assets/tour-02.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-02.png" /></a></p>
+<figcaption>Tour 02 &ndash; Logic Capture
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The busy-wait bracketed by <code class="language-em highlight"><span class="nb">%%[d+]</span></code> and <code class="language-em highlight"><span class="nb">%%[d-]</span></code> measures ~498 ms. </p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Executing a <code class="language-em highlight"><span class="nb">fail</span></code> statement causes <code><span class="filename">sysLed</span></code> to blink rapidly. </p>
+</div>
+<div class="em-break"></div>
+
+<figure id="fig2a">
+<p><a class="glightbox" href="/assets/tour-02-a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-02-a.png" /></a></p>
+<figcaption>Tour 02 &ndash; Logic Capture&ensp;[&thinsp;zoom&thinsp;] 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em highlight"><span class="nb">%%[&gt;cnt]</span></code> statement outputs the (non-printable) <code class="language-em highlight"><span class="x">0x82</span></code> control byte followed by 2 bytes of payload.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em highlight"><span class="nb">%%[&gt;bits11]</span></code> statement outputs the (non-printable) <code class="language-em highlight"><span class="x">0x81</span></code> control byte followed by 1 byte of payload.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em highlight"><span class="nb">%%[c:bits11]</span></code> statement causes the <code><span class="filename">dbgC</span></code> pin to rapidly toggle 2 times &ndash; since <code><span class="x">(bits11&thinsp;==&thinsp;0x1)</span></code></p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The ASCII character output of <code class="language-em highlight"><span class="nb">printf</span></code> begins here &ndash; <code><span class="x">0x63('c')</span></code>,  <code><span class="x">0x6E('n')</span></code>, and so on.</p>
+</div>
+<h2 id="tour-03-threading-with-fibers">Tour 03 &ndash; threading with fibers</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/FiberP">FiberP</a></span> program, which introduces a very lightweight threading construct termed a <em>fiber</em>.  This tour also visits the EM runtime's (portable) implementation of fibers found in the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/FiberMgr">FiberMgr</a></span> module.</p>
+<div class="em-break"></div>
+
+<figure id="fig3">
+<p><a class="glightbox" href="/assets/tour-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-03.png" /></a></p>
+<figcaption>Tour 03 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="nb">%%[d]</span></code> statement in <code class="language-em highlight"><span class="nf">blinkFB</span></code> marks each point in time where the <code class="language-em highlight"><span class="n">blinkF</span></code> fiber begins execution.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The ~200 ms between <code class="language-em highlight"><span class="n">blinkF</span></code> cycles includes <code><span class="filename">appLed</span></code> on&thinsp;/&thinsp;off time plus <code class="language-em highlight"><span class="nn">FiberMgr</span></code> dispatch overhead.</p>
+</div>
+<h2 id="tour-04-button-handlers">Tour 04 &ndash; button handlers</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button1P">Button1P</a></span> program, which handles incoming events generated when pressing <code><span class="filename">appBut</span></code> on your board.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/GpioEdgeDetectMinI">GpioEdgeDetectMinI</a></span> interface that in turn extends the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/GpioI">GpioI</a></span> abstraction.</p>
+<div class="em-break"></div>
+
+<figure id="fig4">
+<p><a class="glightbox" href="/assets/tour-04.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-04.png" /></a></p>
+<figcaption>Tour 04 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime uses <code><span class="filename">dbgB</span></code> to mirror the MCU's execution mode [&thinsp;<strong>L</strong> &ndash; actively running, <strong>H</strong> &ndash; awaiting wakeup&thinsp;]</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Pressing your board's button drives the <code><span class="filename">appBut</span></code> pin low; <code><span class="filename">appLed</span></code> then blinks shortly thereafter.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; A 125&thinsp;ns "glitch" on the <code><span class="filename">appBut</span></code> signal fired another event at this time &ndash; causing an extra <code><span class="filename">appLed</span></code> blink.</p>
+</div>
+<div class="em-break"></div>
+
+<figure id="fig4a">
+<p><a class="glightbox" href="/assets/tour-04-a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-04-a.png" /></a></p>
+<figcaption>Tour 04 &ndash; Logic Capture&ensp;[&thinsp;zoom&thinsp;] 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; You've pressed <code><span class="filename">appBut</span></code> at this time, which then begins awakening the MCU from its low-power sleep.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Requiring 34.2&thinsp;&mu;s to fully power the MCU, <code><span class="filename">dbgB</span></code>'s falling edge marks when <code class="language-em highlight"><span class="nn">Button1P</span></code> starts actively running.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Control enters <code class="language-em highlight"><span class="nf">handler</span></code> within 3.4&thinsp;&mu;s, whose initial <code class="language-em highlight"><span class="nb">%%[c]</span></code> statement toggles <code><span class="filename">dbgC</span></code> for 1.2&thinsp;&mu;s</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; After some housekeeping, <code class="language-em highlight"><span class="nn">Button1P</span></code> finally turns-on <code><span class="filename">appLed</span></code> &ndash; 5.9&thinsp;&mu;s since actively running.</p>
+</div>
+<h2 id="tour-05-button-fibers">Tour 05 &ndash; button fibers</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button2P">Button2P</a></span> program, which uses a <code class="language-em highlight"><span class="nc">Fiber</span></code> object to better handle incoming events.  This tour also analyzes the performance impact of this approach compared with the earlier <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button1P">Button1P</a></span> program.</p>
+<div class="em-break"></div>
+
+<figure id="fig5">
+<p><a class="glightbox" href="/assets/tour-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-05.png" /></a></p>
+<figcaption>Tour 05 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code><span class="filename">dbgB</span></code> shows that <code class="language-em highlight"><span class="nn">Button2P</span></code> awoke exactly twice in response to pressing <code><span class="filename">appBut</span></code> &ndash; no glitches this time&thinsp;!!!</p>
+</div>
+<div class="em-break"></div>
+
+<figure id="fig5a">
+<p><a class="glightbox" href="/assets/tour-05-a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-05-a.png" /></a></p>
+<figcaption>Tour 05 &ndash; Logic Capture&ensp;[&thinsp;zoom&thinsp;] 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nn">Button2P</span></code> resumes execution in 35.2&thinsp;&mu;s; keep in mind that low-power MCU wakeup times can vary slightly. </p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Control then enters <code class="language-em highlight"><span class="nf">handler</span></code> 3.4&thinsp;&mu;s later &ndash; consistent with the <code class="language-em highlight"><span class="nn">Button1P</span></code> <a href="#tour-04-button-handlers">capture</a> seen above.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Unlike <code class="language-em highlight"><span class="nn">Button1P</span></code>, the <code class="language-em highlight"><span class="nn">Button2P</span></code> <code class="language-em highlight"><span class="nf">handler</span></code> readies the <code class="language-em highlight"><span class="n">blinkF</span></code> fiber which then gains control 5.3&thinsp;&mu;s later.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Finally, the <code class="language-em highlight"><span class="nf">blinkFB</span></code> function turns-on <code><span class="filename">appLed</span></code> &ndash; with only ~5&thinsp;&mu;s of <code class="language-em highlight"><span class="nn">FiberMgr</span></code> scheduling overhead.</p>
+</div>
+<h2 id="tour-06-button-objects">Tour 06 &ndash; button objects</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button3P">Button3P</a></span> program, which debounces button input signals in a portable fashion.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/ButtonI">ButtonI</a></span> interface along with a module implementing this interface &ndash; the latter generated by the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/ButtonT">ButtonT</a></span> template at build-time.</p>
+<div class="em-break"></div>
+
+<figure id="fig6">
+<p><a class="glightbox" href="/assets/tour-06.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-06.png" /></a></p>
+<figcaption>Tour 06 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once triggered by pressing your board's button, the EM runtime polls the state of <code><span class="filename">appBut</span></code> every 100&thinsp;ms. </p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; If pressed for &ge;&thinsp;100&thinsp;ms but &le;&thinsp;4&thinsp;s, <code class="language-em highlight"><span class="nn">Button3P</span></code> will blink <code><span class="filename">appLed</span></code> within 100&thinsp;ms of <em>releasing</em> the button.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Hitting the 4&thinsp;s mark, <code class="language-em highlight"><span class="nn">Button3P</span></code> immediately blinks <code><span class="filename">sysLed</span></code>&ndash; regardless of how long <code><span class="filename">appBut</span></code> remains low.</p>
+</div>
+<div class="em-break"></div>
+
+<figure id="fig6">
+<p><a class="glightbox" href="/assets/tour-06-a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-06-a.png" /></a></p>
+<figcaption>Tour 06 &ndash; Logic Capture&ensp;[&thinsp;zoom&thinsp;] 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; After polling <code><span class="filename">appBut</span></code> for 4&thinsp;s, the EM runtime invokes <code class="language-em highlight"><span class="nn">Button3P</span><span class="x">.</span><span class="nf">onPressedCB</span></code> which leaves a <code class="language-em highlight"><span class="nb">%%[c]</span></code> mark.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Discovering that <code><span class="filename">appBut</span></code> remains pressed [&thinsp;=&thinsp;<strong>L</strong>&thinsp;], <code class="language-em highlight"><span class="nf">onPressedCB</span></code> then blinks <code><span class="filename">sysLed</span></code> for 40&thinsp;ms.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Only 7.5&thinsp;&mu;s elapses from <code><span class="filename">dbgB</span></code> falling to <code><span class="filename">sysLed</span></code> rising, which includes scheduling fibers plus 1.2&thinsp;&mu;s for <code class="language-em highlight"><span class="nb">%%[c]</span></code>.</p>
+</div>
+<h2 id="tour-07-timer-handlers">Tour 07 &ndash; timer handlers</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/OneShot1P">OneShot1P</a></span> program, which handles timer events that awaken the MCU.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/OneShotMilliI">OneShotMilliI</a></span> interface, which abstracts the functionality of a short-term timer with millisecond resolution.</p>
+<div class="em-break"></div>
+
+<figure id="fig7">
+<p><a class="glightbox" href="/assets/tour-07.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-07.png" /></a></p>
+<figcaption>Tour 07 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code><span class="x">dbgB</span></code> signal shows that <code class="language-em highlight"><span class="nn">OneShot1P</span></code> awakens from low-power sleep every 500&thinsp;ms.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once awake, <code class="language-em highlight"><span class="nn">OneShot1P</span></code> toggles <code><span class="x">dbgC</span></code> and <code><span class="x">dbgD</span></code> before blinking <code><span class="x">appLed</span></code> &ndash; like our earlier <code class="language-em highlight"><span class="nn">Button1P</span></code> <a href="#tour-04-button-handlers">capture</a></p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The 7.5&thinsp;&mu;s "wakeup-to-blink" latency seen here includes the overhead of servicing an on-chip MCU timer.</p>
+</div>
+<h2 id="tour-08-timer-fibers">Tour 08 &ndash; timer fibers</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/OneShot2P">OneShot2P</a></span> program, which now uses <code class="language-em highlight"><span class="nc">Fiber</span></code> objects to enhance robustness when handing timer events.  This tour also invites performance comparision with the earlier <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/OneShot1P">OneShot1P</a></span> program.</p>
+<div class="em-break"></div>
+
+<figure id="fig8">
+<p><a class="glightbox" href="/assets/tour-08.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-08.png" /></a></p>
+<figcaption>Tour 08 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Fiber scheduling adds the extra 1.1&thinsp;&mu;s of latency seen here, compared with our previous <code class="language-em highlight"><span class="nn">OneShot1P</span></code> <a href="#tour-07-timer-handlers">capture</a>. </p>
+</div>
+<h2 id="tour-09-timer-service">Tour 09 &ndash; timer service</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/PollerP">PollerP</a></span> program, which introduces a portable function for pausing execution at run-time.  This tour also visits the top-level <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.mcu/Poller">Poller</a></span> module as well as the lower-level <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/PollerAux">PollerAux</a></span> module &ndash; both implementing the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/PollerI">PollerI</a></span> interface.</p>
+<div class="em-break"></div>
+
+<figure id="fig9">
+<p><a class="glightbox" href="/assets/tour-09.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-09.png" /></a></p>
+<figcaption>Tour 09 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Without <code class="language-em highlight"><span class="nb">%%[c]</span></code> and <code class="language-em highlight"><span class="nb">%%[d]</span></code> marks, <code class="language-em highlight"><span class="nn">PollerP</span></code> further reduces latency compared to <code class="language-em highlight"><span class="nn">OneShot1P</span></code> and <code class="language-em highlight"><span class="nn">OneShot2P</span></code>.</p>
+</div>
+<div class="em-break"></div>
+
+<figure id="fig9a">
+<p><a class="glightbox" href="/assets/tour-09-a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-09-a.png" /></a></p>
+<figcaption>Tour 09 &ndash; Logic Capture&ensp;[&thinsp;zoom&thinsp;] 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <strong>[L]</strong> <code><span class="x">dbgB</span></code> signal indicates that the <code class="language-em highlight"><span class="nn">PollerP</span></code> program has awoken.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nn">PollerP</span></code> then calls <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> within 2.5&thinsp;&mu;s, which then asserts the <code><span class="x">appLed</span></code> pin</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Calling <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> 2.5&thinsp;&mu;s later asserts the <code><span class="x">appLed</span></code> pin and then internally invokes <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code>.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code> proceeds to suspend program execution for 5&thinsp;ms &ndash; the duration of the wink.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime toggles <code><span class="x">dbgB</span></code> once before awaiting the next wakeup <strong>[H]</strong>&thinsp;; we'll explain more in a later tour.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; An MCU timer event will eventually awaken the program 5&thinsp;ms later, with <code><span class="x">dbgB</span></code> now signalling <strong>[L]</strong>&thinsp;.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2v2Z"/></svg></span> &nbsp; Control unwinds from <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code> back to <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code>, which will now lower the <code><span class="x">appLed</span></code> pin.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-8 14 4-8V7H9v2h4l-4 8h2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nf">em$run</span></code> finally regains control, and then suspends execution for 500&thinsp;ms by calling <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code> directly.</p>
+</div>
+<h2 id="tour-10-wakeup-alarms">Tour 10 &ndash; wakeup alarms</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Alarm1P">Alarm1P</a></span> program, which uses <code class="language-em highlight"><span class="nc">Alarm</span></code> objects to schedule longer-term wakeups with (sub-)second resolution.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> module, which internally uses a proxy implementing the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/WakeupTimerI">WakeupTimerI</a></span> interface.</p>
+<div class="em-break"></div>
+
+<figure id="fig10">
+<p><a class="glightbox" href="/assets/tour-10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-10.png" /></a></p>
+<figcaption>Tour 10 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="nn">Alarm1P</span></code> program alternately awakens from a low-power deep-sleep of 2&thinsp;s or else 750&thinsp;ms in duration.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The program's <code class="language-em highlight"><span class="nf">blinkFB</span></code> function winks <code><span class="x">appLed</span></code> for 100&thinsp;ms, with the MCU idling in the interim.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> returns, <code class="language-em highlight"><span class="nn">Alarm1P</span></code> calls <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code> to re-enter an extended period of deep-sleep.</p>
+</div>
+<div class="em-break"></div>
+
+<figure id="fig10a">
+<p><a class="glightbox" href="/assets/tour-10-a.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-10-a.png" /></a></p>
+<figcaption>Tour 10 &ndash; Logic Capture&ensp;[&thinsp;zoom&thinsp;]
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <em>single</em> <code><span class="x">dbgB</span></code> mark indicates the MCU has entered its "lite-sleep" mode, after <code class="language-em highlight"><span class="nn">Alarm1P</span></code> calls <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code></p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The MCU awakens from its lite-sleep within 100&thinsp;ms, returning to <code class="language-em highlight"><span class="nf">wink</span></code> which then turns-off <code><span class="x">appLed</span></code>.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <em>double</em> <code><span class="x">dbgB</span></code> mark indicates the MCU has entered its "deep-sleep" mode, after calling <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code></p>
+</div>
+<h2 id="tour-11-aligned-wakeups">Tour 11 &ndash; aligned wakeups</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Alarm2P">Alarm2P</a></span> program, which now aligns <code class="language-em highlight"><span class="nc">Alarm</span></code> wakeups with a given time-window.  This tour also re-visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> implementation, seeing how it schedules the next wakeup event as well as the role played by the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/EpochTime">EpochTime</a></span> module.</p>
+<div class="em-break"></div>
+
+<figure id="fig11">
+<p><a class="glightbox" href="/assets/tour-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-11.png" /></a></p>
+<figcaption>Tour 11 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Note how the wakeups from deep-sleep align with a series of 1.5&thinsp;s windows along the time-line.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Due to startup overhead, the first <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code> call deep-sleeps the MCU for only 1.250&thinsp;s to stay aligned.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; After a 5&thinsp;ms <code><span class="x">appLed</span></code> wink, this <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code> call deep-sleeps the MCU for 1.495&thinsp;s to stay aligned.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; But after a 100&thinsp;ms wink, this <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code> call deep-sleeps the MCU for just 1.400&thinsp;s to stay aligned.</p>
+</div>
+<h2 id="tour-12-cyclic-tickers">Tour 12 &ndash; cyclic tickers</h2>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/TickerP">TickerP</a></span> program, which takes duty-cycled functions to a higher level. This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/TickerMgr">TickerMgr</a></span> module, whose implementation of <code class="language-em highlight"><span class="nc">Ticker</span></code> objects emulates as well as builds upon the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> and <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/FiberMgr">FiberMgr</a></span> studied earlier.</p>
+<div class="em-break"></div>
+
+<figure id="fig12">
+<p><a class="glightbox" href="/assets/tour-12.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/tour-12.png" /></a></p>
+<figcaption>Tour 12 &ndash; Logic Capture 
+</figcaption>
+</figure>
+<div class="em-small">
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="n">appTicker</span><span class="x">.</span><span class="nf">start</span></code> call by the <code class="language-em highlight"><span class="nn">TickerP</span></code> program initiates a train of 100&thinsp;ms <code><span class="x">appLed</span></code> winks, spaced 1&thinsp;s apart.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="n">sysTicker</span><span class="x">.</span><span class="nf">start</span></code> call by <code class="language-em highlight"><span class="nn">TickerP</span></code> then initiates a train of 100&thinsp;ms <code><span class="x">sydLed</span></code> winks, but spaced 1.5&thinsp;s apart.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; When <code class="language-em highlight"><span class="n">appTicker</span></code> and <code class="language-em highlight"><span class="n">sysTicker</span></code> wakeups coincide, their callbacks run on a first-come, first-served basis.</p>
+</div>
+<div class="em-break"></div>
+
+<p><a class="em-link" href="/intro/to-4/#learning-more-em"><span class="em-walk"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-84.3 104.5c1-.4 1.9-.8 2.9-1.2l-16.9 63.5c-5.6 21.1-.1 43.6 14.7 59.7l70.7 77.1 22 88.1c4.3 17.1 21.7 27.6 38.8 23.3s27.6-21.7 23.3-38.8l-23-92.1c-1.9-7.8-5.8-14.9-11.2-20.8l-49.5-54 19.3-65.5 9.6 23c4.4 10.6 12.5 19.3 22.8 24.5l26.7 13.3c15.8 7.9 35 1.5 42.9-14.3s1.5-35-14.3-42.9L281 232.7l-15.3-36.8c-17.2-41.1-57.4-67.9-102-67.9-22.8 0-45.3 4.8-66.1 14l-8 3.5c-32.9 14.6-58.1 42.4-69.4 76.5l-2.6 7.8c-5.6 16.8 3.5 34.9 20.2 40.5s34.9-3.5 40.5-20.2l2.6-7.8c5.7-17.1 18.3-30.9 34.7-38.2l8-3.5zm-30 135.1-25 62.4-59.3 59.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l61.6-61.7c4.6-4.6 8.2-10.1 10.6-16.1l14.5-36.2-40.7-44.4c-2.5-2.7-4.8-5.6-7-8.6zm456.9-182.2c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l25.4 25.3H384c-17.7 0-32 14.3-32 32s14.3 32 32 32h146.7l-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l80-80c12.5-12.5 12.5-32.8 0-45.3l-80-80z"/></svg></span></span></a></p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 &ndash; The EM Foundation
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/the-em-foundation/about/?viewAsMember=true" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/em-foundation" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+        <script src="../../extra.js"></script>
+      
+        <script src="../../js/open_in_new_tab.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
