@@ -4,13 +4,17 @@
 
 :root {
     --em-vers: "24.0.10";
-    --em-time: "202401021104";
+    --em-time: "202401270058";
 }
 
 [data-md-color-scheme="slate"] {
     --md-hue: 232;
     --md-default-bg-color: hsla(var(--md-hue),15%,18%,1);
     --md-default-fg-color--light: hsla(var(--md-hue),75%,90%,0.7);
+}
+
+.hll {
+    background-color: hsla(165, 85%, 85%, .1) !important;
 }
 
 .md-content {
@@ -106,11 +110,11 @@ div.md-tooltip__inner {
 }
 
 .md-typeset pre code {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
 }
 
 .md-typeset td.linenos {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
 }
 
 .filename {
@@ -150,7 +154,7 @@ span.em-figcaption {
 
 iframe.em-frame {
     width: 100%;
-    height: 280px;
+    height: 520px;
 }
 
 span.em-walk {
@@ -198,6 +202,17 @@ span.em-screen {
     font-size: 0.8rem;
 }
 
+span.em-color-teal {
+    color: hsl(180, 100%, 75%);
+}
+
+span.em-color-orange {
+    color: hsl(39, 100%, 75%);
+}
+
+span.em-color-primary {
+    color: var(--md-primary-fg-color);
+}
 
 
 /* table adjustments */
