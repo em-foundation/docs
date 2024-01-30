@@ -4,7 +4,7 @@
 
 :root {
     --em-vers: "24.0.10";
-    --em-time: "202401270133";
+    --em-time: "202401300405";
 }
 
 [data-md-color-scheme="slate"] {
@@ -157,6 +157,12 @@ iframe.em-frame {
     height: 520px;
 }
 
+span.em-bull {
+    color: hsl(203,100%,75%);
+    margin-left: 1px;
+    margin-right: 5px;
+}
+
 span.em-walk {
     float: right;
     font-size: 180%;
@@ -296,9 +302,11 @@ span.em-color-primary {
 
 :root {
     --md-admonition-icon--bulb: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 6a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V19a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.8c-1.79-1.04-3-2.98-3-5.2a6 6 0 0 1 6-6m2 15v1a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1h4m6-10h3v2h-3v-2M1 11h3v2H1v-2M13 1v3h-2V1h2M4.92 3.5l2.13 2.14-1.42 1.41L3.5 4.93 4.92 3.5m12.03 2.13 2.12-2.13 1.43 1.43-2.13 2.12-1.42-1.42Z"/></svg>');
+    --md-admonition-icon--bullets: url(assets/material-bullets.svg);
     --md-admonition-icon--engr: url(assets/material-engr.svg);
     --md-admonition-icon--forum: url(assets/material-forum.svg);
     --md-admonition-icon--groups: url(assets/material-groups.svg);
+    --md-admonition-icon--summary: url(assets/material-summary.svg);
     --md-admonition-icon--tools: url(assets/material-tools.svg);
 }
 
@@ -362,6 +370,20 @@ span.em-color-primary {
         mask-image: var(--md-admonition-icon--groups);
 }
 
+.md-typeset .admonition.tldr,
+.md-typeset details.tldr {
+    border-color: hsl(165, 80%, 40%);
+}
+.md-typeset .tldr > .admonition-title,
+.md-typeset .tldr > summary {
+    background-color: hsla(165,60%,50%,0.1);
+}
+.md-typeset .tldr > .admonition-title::before,
+.md-typeset .tldr > summary::before {
+    background-color: hsl(165, 80%, 40%);
+    -webkit-mask-image: var(--md-admonition-icon--bullets);
+        mask-image: var(--md-admonition-icon--bullets);
+}
 
 .md-typeset .admonition.tools,
 .md-typeset details.tools {
