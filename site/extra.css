@@ -4,7 +4,7 @@
 
 :root {
     --em-vers: "24.0.10";
-    --em-time: "202401300601";
+    --em-time: "202403101853";
 }
 
 [data-md-color-scheme="slate"] {
@@ -216,6 +216,10 @@ span.em-color-orange {
     color: hsl(39, 100%, 75%);
 }
 
+span.em-color-tan {
+    color: hsl(31, 42%, 86%);
+}
+
 span.em-color-primary {
     color: var(--md-primary-fg-color);
 }
@@ -241,7 +245,11 @@ span.em-color-primary {
     font-style: italic;
 }
 
-.language-em .k {
+.language-emc .c1 {
+    color: #75ad5b;
+}
+
+.language-em .k, .language-emc .k {
     color: hsl(280, 50%, 65%);
     font-weight: 700;
 }
@@ -251,7 +259,7 @@ span.em-color-primary {
     font-weight: 700;
 }
 
-.language-em .n {
+.language-em .n, .language-emc .n {
     color: #9cdcfe;
     font-weight: 700;
 }
@@ -261,22 +269,22 @@ span.em-color-primary {
     font-weight: 700;
 }
 
-.language-em .nc {
+.language-em .nc, .language-emc .nc {
     color: #4EC9B0;
     font-weight: 700;
 }
 
-.language-em .nf {
+.language-em .nf, .language-emc .nf {
     color: #DCDCAA;
     font-weight: 700;
 }
 
-.language-em .nn {
+.language-em .nn, .language-emc .nn {
     color: #53acf5;
     font-weight: 700;
 }
 
-.language-em .s {
+.language-em .s, .language-emc .s {
     color: hsl(10, 70%, 60%);
 }
 
@@ -370,6 +378,21 @@ span.em-color-primary {
         mask-image: var(--md-admonition-icon--groups);
 }
 
+.md-typeset .admonition.question,
+.md-typeset details.question {
+    border-color: hsl(203,100%,75%);
+}
+.md-typeset .question > .admonition-title,
+.md-typeset .question > summary {
+    background-color: hsla(203,100%,75%,0.1);
+}
+.md-typeset .question > .admonition-title::before,
+.md-typeset .question > summary::before {
+    background-color: hsl(203,100%,75%);
+    -webkit-mask-image: var(--md-admonition-icon--question);
+        mask-image: var(--md-admonition-icon--question);
+}
+
 .md-typeset .admonition.tldr,
 .md-typeset details.tldr {
     border-color: hsl(165, 80%, 40%);
@@ -381,8 +404,6 @@ span.em-color-primary {
 .md-typeset .tldr > .admonition-title::before,
 .md-typeset .tldr > summary::before {
     background-color: hsl(165, 80%, 40%);
-    -webkit-mask-image: var(--md-admonition-icon--bullets);
-        mask-image: var(--md-admonition-icon--bullets);
 }
 
 .md-typeset .admonition.tools,

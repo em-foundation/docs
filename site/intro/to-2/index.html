@@ -778,6 +778,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -805,6 +817,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -814,6 +831,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5776,14 +5919,14 @@
 
 
 <h1 id="assembling-application-elements">Assembling application elements</h1>
-<p>By leveraging the <code class="language-em highlight"><span class="k">proxy</span></code>&thinsp;&ndash;&thinsp;<code class="language-em highlight"><span class="k">interface</span></code> design pattern, EM modules exhibit component-like qualities &ndash; enabling third-party integrators to effectively compose a set of modules that otherwise have no direct knowledge of one another.</p>
-<p>To facilitate general aggregation and assembly of discrete modules into larger application entities, the EM language introduces a multi-faceted construct known as a <code class="language-em highlight"><span class="k">composite</span></code> to service these needs.</p>
+<p>By leveraging the <code class="language-em"><span class="k">proxy</span></code>&thinsp;&ndash;&thinsp;<code class="language-em"><span class="k">interface</span></code> design pattern, EM modules exhibit component-like qualities &ndash; enabling third-party integrators to effectively compose a set of modules that otherwise have no direct knowledge of one another.</p>
+<p>To facilitate general aggregation and assembly of discrete modules into larger application entities, the EM language introduces a multi-faceted construct known as a <code class="language-em"><span class="k">composite</span></code> to service these needs.</p>
 <h2 id="aggregating-modules">Aggregating modules</h2>
 <p class="annotate">Like modules and interfaces, each EM composite resides under a named package and will import other units &ndash; modules, interfaces, even composites &ndash; into its top-level namespace. Consistent with their role as higher-level collection points for discrete modules, EM composites will often import surprisingly large numbers of modules in practice.(1)</p>
 <ol>
 <li><span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/McuC">ti.distro.cc23xx/McuC</a></span> for example</li>
 </ol>
-<p>In their most elementary form, EM composites will selectively <code class="language-em highlight"><span class="k">export</span></code> a group of concrete modules under logical names known to higher-level clients.</p>
+<p>In their most elementary form, EM composites will selectively <code class="language-em"><span class="k">export</span></code> a group of concrete modules under logical names known to higher-level clients.</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">bob.pkg/CompC.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -5800,13 +5943,13 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">composite</span><span class="x"> </span><span class="nn">CompC</span><span class="x">             </span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>After re-labeling <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code> at line <span class="em-lineref"><a href="#__codelineno-0-3">3</a></span> using an <code class="language-em highlight"><span class="k">as</span></code> clause, the <code class="language-em highlight"><span class="k">export</span></code> directive at line <span class="em-lineref"><a href="#__codelineno-0-5">5</a></span> publicizes the name <code class="language-em highlight"><span class="nn">ModX</span></code>; clients importing <code class="language-em highlight"><span class="nn">CompC</span></code> can then use the (logical) module named <code class="language-em highlight"><span class="nn">ModX</span></code>, otherwise oblivious to its true identity as <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code>. While not declared explicitly, <code class="language-em highlight"><span class="nn">ModX</span></code> in fact belongs to the <code class="language-em highlight"><span class="nn">ModI</span></code> family of modules &ndash; serving as a <em>concrete delegate</em> suitable for binding to an <em>abstract proxy</em> implementing a common programmatic interface.</p>
+<p>After re-labeling <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code> at line <span class="em-lineref"><a href="#__codelineno-0-3">3</a></span> using an <code class="language-em"><span class="k">as</span></code> clause, the <code class="language-em"><span class="k">export</span></code> directive at line <span class="em-lineref"><a href="#__codelineno-0-5">5</a></span> publicizes the name <code class="language-em"><span class="nn">ModX</span></code>; clients importing <code class="language-em"><span class="nn">CompC</span></code> can then use the (logical) module named <code class="language-em"><span class="nn">ModX</span></code>, otherwise oblivious to its true identity as <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code>. While not declared explicitly, <code class="language-em"><span class="nn">ModX</span></code> in fact belongs to the <code class="language-em"><span class="nn">ModI</span></code> family of modules &ndash; serving as a <em>concrete delegate</em> suitable for binding to an <em>abstract proxy</em> implementing a common programmatic interface.</p>
 <details class="abstract">
 <summary>Component-oriented programming</summary>
-<p>Programming with components &ndash; which takes modularity, separation of concerns, and resilience in the face of change to entirely new levels &ndash; dictates that (abstract) interfaces define all functional interactions between independently-replaceable elements. As such, each (concrete) software component "provides" and "requires" services defined by some set of interfaces &ndash; not unlike the standardized "plugs" and "sockets" found in hardware components. Through disciplined use of <code class="language-em highlight"><span class="k">export</span></code> directives within EM composites and <code class="language-em highlight"><span class="k">proxy</span></code> declarations within EM modules, we can emulate the <em>provides&thinsp;&ndash;&thinsp;requires</em> paradigm that forms the backbone of all component-oriented systems.</p>
+<p>Programming with components &ndash; which takes modularity, separation of concerns, and resilience in the face of change to entirely new levels &ndash; dictates that (abstract) interfaces define all functional interactions between independently-replaceable elements. As such, each (concrete) software component "provides" and "requires" services defined by some set of interfaces &ndash; not unlike the standardized "plugs" and "sockets" found in hardware components. Through disciplined use of <code class="language-em"><span class="k">export</span></code> directives within EM composites and <code class="language-em"><span class="k">proxy</span></code> declarations within EM modules, we can emulate the <em>provides&thinsp;&ndash;&thinsp;requires</em> paradigm that forms the backbone of all component-oriented systems.</p>
 </details>
 <h2 id="binding-proxies">Binding proxies</h2>
-<p>Besides aggregating modules, EM composites will often take on the task of "wiring" together a set of modules into a more integrated assembly &ndash; especially modules like our last version of <code class="language-em highlight"><span class="n">dave</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod2</span></code>, which utilize local proxies to further decouple themselves from potential suppliers. To illustrate:</p>
+<p>Besides aggregating modules, EM composites will often take on the task of "wiring" together a set of modules into a more integrated assembly &ndash; especially modules like our last version of <code class="language-em"><span class="nn">dave.pkg/Mod2</span></code>, which utilize local proxies to further decouple themselves from potential suppliers. To illustrate:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">geof.pkg/CompC.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -5831,13 +5974,13 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="x">    </span><span class="nn">Mod2</span><span class="x">.</span><span class="nn">ModX</span><span class="x"> ?= </span><span class="nn">Mod1</span><span class="x">         </span><span class="c1"># bind proxy to its delegate</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Reflecting its higher-level position within the application hierarchy, this particular composite reaches across multiple packages starting at line <span class="em-lineref"><a href="#__codelineno-1-3">3</a></span> when importing a set of modules. The actual binding of <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code> to <code class="language-em highlight"><span class="n">dave</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod2</span></code> via the latter's <code class="language-em highlight"><span class="nn">ModX</span></code> proxy then occurs at line <span class="em-lineref"><a href="#__codelineno-1-11">11</a></span>, using a special <em>single-assignment</em> operator [&thinsp;<code class="language-em highlight"><span class="x">?=</span></code>&thinsp;] which we'll explain later. We'll also have more to say about the role played by the intrinsic function <code class="language-em highlight"><span class="nf">em$configure</span></code>.</p>
+<p>Reflecting its higher-level position within the application hierarchy, this particular composite reaches across multiple packages starting at line <span class="em-lineref"><a href="#__codelineno-1-3">3</a></span> when importing a set of modules. The actual binding of <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code> to <code class="language-em"><span class="nn">dave.pkg/Mod2</span></code> via the latter's <code class="language-em"><span class="nn">ModX</span></code> proxy then occurs at line <span class="em-lineref"><a href="#__codelineno-1-11">11</a></span>, using a special <em>single-assignment</em> operator [&thinsp;<code class="language-em highlight"><span class="x">?=</span></code>&thinsp;] which we'll explain later. We'll also have more to say about the role played by the intrinsic function <code class="language-em"><span class="nf">em$configure</span></code>.</p>
 <details class="abstract">
 <summary>EM distro packages</summary>
-<p>To use the EM language, you'll need an EM <em>distro</em> &ndash; a multi-tiered sub-system that melds portable runtime content in packages like <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">utils</span></code> with hardware-specific content in packages like <code class="language-em highlight"><span class="n">ti</span><span class="x">.</span><span class="n">mcu</span><span class="x">.</span><span class="n">cc23xx</span></code>. By design, each EM distro will publish a top-level composite with a fully-qualified name like <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/BoardC">ti.distro.cc23xx/BoardC</a></span>. This <code class="language-em highlight"><span class="nn">BoardC</span></code> composite in turn builds upon other composites &ndash; whether hardware-specific <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/McuC">ti.distro.cc23xx/McuC</a></span> or else portable <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.mcu/CommonC">em.mcu/CommonC</a></span>.</p>
+<p>To use the EM language, you'll need an EM <em>distro</em> &ndash; a multi-tiered sub-system that melds portable runtime content in packages like <code class="language-em"><span class="n">em.utils</span></code> with hardware-specific content in packages like <code class="language-em"><span class="n">ti.mcu.cc23xx</span></code>. By design, each EM distro will publish a top-level composite with a fully-qualified name like <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/BoardC">ti.distro.cc23xx/BoardC</a></span>. This <code class="language-em"><span class="nn">BoardC</span></code> composite in turn builds upon other composites &ndash; whether hardware-specific <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/McuC">ti.distro.cc23xx/McuC</a></span> or else portable <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.mcu/CommonC">em.mcu/CommonC</a></span>.</p>
 </details>
 <h2 id="configuring-parameters">Configuring parameters</h2>
-<p>Just as individual functions may have parameters, EM modules as a whole can publicize a special kind of parameter known as a <code class="language-em highlight"><span class="k">config</span></code> which clients in turn can selectively assign inside of <code class="language-em highlight"><span class="nf">em$configure</span></code>. To illustrate typical usage, let's expand our earlier versions of <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code> and <code class="language-em highlight"><span class="n">dave</span><span class="x">.</span><span class="n">pkg2</span><span class="x">/</span><span class="nn">Mod2</span></code> to now expose some new client-visible features in the form of configuration parameters.</p>
+<p>Just as individual functions may have parameters, EM modules as a whole can publicize a special kind of parameter known as a <code class="language-em"><span class="k">config</span></code> which clients in turn can selectively assign inside of <code class="language-em"><span class="nf">em$configure</span></code>. To illustrate typical usage, let's expand our earlier versions of <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code> and <code class="language-em"><span class="nn">dave.pkg2/Mod2</span></code> to now expose some new client-visible features in the form of configuration parameters.</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">bob.pkg/Mod1.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -5882,11 +6025,11 @@
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="c1"># etc...</span>
 </span></code></pre></div></td></tr></table></div>
-<p>As you might glean from the special documentation comments, the <code class="language-em highlight"><span class="n">flag</span></code> parameter declared at <code class="language-em highlight"><span class="nn">Mod1</span></code> <span class="em-lineref"><a href="#__codelineno-2-6">6</a></span> and the <code class="language-em highlight"><span class="n">count</span></code> parameter declared at <code class="language-em highlight"><span class="nn">Mod2</span></code> <span class="em-lineref"><a href="#__codelineno-3-6">6</a></span> should each render these modules more flexible than before, and hence increase opportunities for clients to (re-)use <code class="language-em highlight"><span class="nn">Mod1</span></code> and <code class="language-em highlight"><span class="nn">Mod2</span></code> in a wider range of applications. Syntactically similar to <code class="language-em highlight"><span class="k">const</span></code> and <code class="language-em highlight"><span class="k">var</span></code> declarations within the language, <code class="language-em highlight"><span class="k">config</span></code> parameters have a very special semantic property:</p>
+<p>As you might glean from the special documentation comments, the <code class="language-em"><span class="n">flag</span></code> parameter declared at <code class="language-em"><span class="nn">Mod1</span></code> <span class="em-lineref"><a href="#__codelineno-2-6">6</a></span> and the <code class="language-em"><span class="n">count</span></code> parameter declared at <code class="language-em"><span class="nn">Mod2</span></code> <span class="em-lineref"><a href="#__codelineno-3-6">6</a></span> should each render these modules more flexible than before, and hence increase opportunities for clients to (re-)use <code class="language-em"><span class="nn">Mod1</span></code> and <code class="language-em"><span class="nn">Mod2</span></code> in a wider range of applications. Syntactically similar to <code class="language-em"><span class="k">const</span></code> and <code class="language-em"><span class="k">var</span></code> declarations within the language, <code class="language-em"><span class="k">config</span></code> parameters have a very special semantic property:</p>
 <div class="admonition bulb">
-<p class="admonition-title">An EM <code class="language-em highlight"><span class="k">config</span></code> behaves like an assignable <code class="language-em highlight"><span class="k">var</span></code> at <em>build-time</em>, but like a read-only <code class="language-em highlight"><span class="k">const</span></code> at <em>run-time</em>.</p>
+<p class="admonition-title">An EM <code class="language-em"><span class="k">config</span></code> behaves like an assignable <code class="language-em"><span class="k">var</span></code> at <em>build-time</em>, but like a read-only <code class="language-em"><span class="k">const</span></code> at <em>run-time</em>.</p>
 </div>
-<p>Once we delve into the EM program life-cycle &ndash; from build-time through run-time &ndash; you'll understand the rationale behind this paradox, as well as more fully appreciate the implications of module configuration for resource-constrained embedded applications. For now, suffice it to say that EM composites serve as an ideal site for assigning module <code class="language-em highlight"><span class="k">config</span></code> parameters when assembling application programs.  Expanding our earlier example:</p>
+<p>Once we delve into the EM program life-cycle &ndash; from build-time through run-time &ndash; you'll understand the rationale behind this paradox, as well as more fully appreciate the implications of module configuration for resource-constrained embedded applications. For now, suffice it to say that EM composites serve as an ideal site for assigning module <code class="language-em"><span class="k">config</span></code> parameters when assembling application programs.  Expanding our earlier example:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">geof.pkg/CompC.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -5915,14 +6058,14 @@
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="x">    </span><span class="nn">Mod2</span><span class="x">.</span><span class="n">count</span><span class="x"> ?= 100</span>
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Just as we bound proxies to delegates, the <em>single-assignment</em> statements at lines <span class="em-lineref"><a href="#__codelineno-4-12">12</a></span> and <span class="em-lineref"><a href="#__codelineno-4-13">13</a></span> bind parameter values consistent with the types used in corresponding <code class="language-em highlight"><span class="k">config</span></code> declarations found at <code class="language-em highlight"><span class="nn">Mod1</span></code> <span class="em-lineref"><a href="#__codelineno-2-6">6</a></span> and <code class="language-em highlight"><span class="nn">Mod2</span></code> <span class="em-lineref"><a href="#__codelineno-3-6">6</a></span>. In this light, clients can treat proxies as a special kind of con&shy;figuration parameter &ndash; assigned <code class="language-em highlight"><span class="k">module</span></code> values implementing a declared <code class="language-em highlight"><span class="k">interface</span></code> type.</p>
+<p>Just as we bound proxies to delegates, the <em>single-assignment</em> statements at lines <span class="em-lineref"><a href="#__codelineno-4-12">12</a></span> and <span class="em-lineref"><a href="#__codelineno-4-13">13</a></span> bind parameter values consistent with the types used in corresponding <code class="language-em"><span class="k">config</span></code> declarations found at <code class="language-em"><span class="nn">Mod1</span></code> <span class="em-lineref"><a href="#__codelineno-2-6">6</a></span> and <code class="language-em"><span class="nn">Mod2</span></code> <span class="em-lineref"><a href="#__codelineno-3-6">6</a></span>. In this light, clients can treat proxies as a special kind of con&shy;figuration parameter &ndash; assigned <code class="language-em"><span class="k">module</span></code> values implementing a declared <code class="language-em"><span class="k">interface</span></code> type.</p>
 <details class="abstract">
 <summary>More configuration examples<span id="more-configuration"></summary>
-<p>The <code class="language-em highlight"><span class="nf">em$preconfigure</span></code> and <code class="language-em highlight"><span class="nf">em$configure</span></code> functions defined within <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/McuC">McuC</a></span> provide a realistic example of configuration &ndash; starting with a call to <code class="language-em highlight"><span class="nn">BoardInfo</span><span class="x">.</span><span class="nf">readRecordH</span></code>, which returns a data-structure of board-specific parameter values read from a YAML source file. The (portable) implementation of <code class="language-em highlight"><span class="nf">readRecordH</span></code> found within the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/BoardInfo">em.utils/BoardInfo</a></span> module hints at the range of programmability we can bring to bear during configuration. </p>
+<p>The <code class="language-em"><span class="nf">em$preconfigure</span></code> and <code class="language-em"><span class="nf">em$configure</span></code> functions defined within <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/McuC">McuC</a></span> provide a realistic example of configuration &ndash; starting with a call to <code class="language-em highlight"><span class="nn">BoardInfo</span><span class="x">.</span><span class="nf">readRecordH</span></code>, which returns a data-structure of board-specific parameter values read from a YAML source file. The (portable) implementation of <code class="language-em"><span class="nf">readRecordH</span></code> found within the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/BoardInfo">em.utils/BoardInfo</a></span> module hints at the range of programmability we can bring to bear during configuration. </p>
 </details>
 <h2 id="instantiating-templates">Instantiating templates</h2>
-<p>The EM language provides a general-purpose <code class="language-em highlight"><span class="k">template</span></code> mechanism for synthesizing other source-level artifacts &ndash; from fragments of C code to complete&thinsp;<code><span class="filename">.em</span></code> files &ndash; during the program build process. The latter scenario, which we'll focus on here, enables suppliers to deliver concrete modules in a more generic embodiment &ndash; one that clients will frequently instantiate within the context of an EM composite.</p>
-<p>Starting from the client's perspective, the following composite effectively manufactures a pair of new modules &ndash; locally aliased as <code class="language-em highlight"><span class="nn">Clone1</span></code> and <code class="language-em highlight"><span class="nn">Clone2</span></code> &ndash; by instantiating a common imported template named <code class="language-em highlight"><span class="n">thom</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">GenT</span></code>.</p>
+<p>The EM language provides a general-purpose <code class="language-em"><span class="k">template</span></code> mechanism for synthesizing other source-level artifacts &ndash; from fragments of C code to complete&thinsp;<code><span class="filename">.em</span></code> files &ndash; during the program build process. The latter scenario, which we'll focus on here, enables suppliers to deliver concrete modules in a more generic embodiment &ndash; one that clients will frequently instantiate within the context of an EM composite.</p>
+<p>Starting from the client's perspective, the following composite effectively manufactures a pair of new modules &ndash; locally aliased as <code class="language-em"><span class="nn">Clone1</span></code> and <code class="language-em"><span class="nn">Clone2</span></code> &ndash; by instantiating a common imported template named <code class="language-em"><span class="nn">thom.pkg/GenT</span></code>.</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">geof.pkg/CompC.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -5955,8 +6098,8 @@
 </span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="x">    </span><span class="c1"># delegate other proxies to Clone&lt;n&gt;</span>
 </span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Using an expanded form of <code class="language-em highlight"><span class="k">import</span></code> directive at lines <span class="em-lineref"><a href="#__codelineno-5-3">3</a></span> and <span class="em-lineref"><a href="#__codelineno-5-4">4</a></span>, this composite works with (synthesized) modules <code class="language-em highlight"><span class="nn">Clone1</span></code> and <code class="language-em highlight"><span class="nn">Clone2</span></code> no differently than how we employed the <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code> or <code class="language-em highlight"><span class="n">dave</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod2</span></code> modules defined earlier. Since <code class="language-em highlight"><span class="nn">Clone1</span></code> and <code class="language-em highlight"><span class="nn">Clone2</span></code> have no prior outside identity, composites will often <code class="language-em highlight"><span class="k">export</span></code> these newly-formed modules for use by higher-level clients; composites may further configure and assemble these synthesized modules within the body of their own <code class="language-em highlight"><span class="nf">em$configure</span></code> function.</p>
-<p>The <code class="language-em highlight"><span class="n">flag</span></code> and <code class="language-em highlight"><span class="n">count</span></code> values bound at lines at lines <span class="em-lineref"><a href="#__codelineno-5-3">3</a></span> and <span class="em-lineref"><a href="#__codelineno-5-4">4</a></span> above &ndash; which shape the essential characteristics of the synthesized <code class="language-em highlight"><span class="nn">Clone1</span></code> and <code class="language-em highlight"><span class="nn">Clone2</span></code> modules &ndash; ultimately correspond to public configuration parameters declared within <code class="language-em highlight"><span class="n">thom</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">GenT</span></code>:</p>
+<p>Using an expanded form of <code class="language-em"><span class="k">import</span></code> directive at lines <span class="em-lineref"><a href="#__codelineno-5-3">3</a></span> and <span class="em-lineref"><a href="#__codelineno-5-4">4</a></span>, this composite works with (synthesized) modules <code class="language-em"><span class="nn">Clone1</span></code> and <code class="language-em"><span class="nn">Clone2</span></code> no differently than how we employed the <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code> or <code class="language-em"><span class="nn">dave.pkg/Mod2</span></code> modules defined earlier. Since <code class="language-em"><span class="nn">Clone1</span></code> and <code class="language-em"><span class="nn">Clone2</span></code> have no prior outside identity, composites will often <code class="language-em"><span class="k">export</span></code> these newly-formed modules for use by higher-level clients; composites may further configure and assemble these synthesized modules within the body of their own <code class="language-em"><span class="nf">em$configure</span></code> function.</p>
+<p>The <code class="language-em"><span class="n">flag</span></code> and <code class="language-em"><span class="n">count</span></code> values bound at lines at lines <span class="em-lineref"><a href="#__codelineno-5-3">3</a></span> and <span class="em-lineref"><a href="#__codelineno-5-4">4</a></span> above &ndash; which shape the essential characteristics of the synthesized <code class="language-em"><span class="nn">Clone1</span></code> and <code class="language-em"><span class="nn">Clone2</span></code> modules &ndash; ultimately correspond to public configuration parameters declared within <code class="language-em"><span class="nn">thom.pkg/GenT</span></code>:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">thom.pkg/GenT.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
@@ -5997,13 +6140,13 @@
 </span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="x">            </span><span class="c1"># generate remainder of this module</span>
 </span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Like any other <code class="language-em highlight"><span class="k">config</span></code>, the parameters declared after line <span class="em-lineref"><a href="#__codelineno-6-5">5</a></span> become assignable variables at program build-time &ndash; in this case, via <code class="language-em highlight"><span class="k">import</span></code> directives beginning at line <span class="em-lineref"><a href="#__codelineno-5-3">3</a></span> of <code class="language-em highlight"><span class="nn">CompC</span></code>. The <code class="language-em highlight"><span class="nn">GenT</span></code> template will then consume these configuration parameters within the body of its <code class="language-em highlight"><span class="nf">em$generateUnit</span></code> function, which synthesizes lines of source code using special EM output statements prefixed by the <code class="language-em highlight"><span class="si">|-&gt;</span></code> symbol.</p>
-<p>The <code class="language-em highlight"><span class="n">flag</span></code> config declared at <span class="em-lineref"><a href="#__codelineno-6-6">6</a></span> impacts the generated output by controlling execution flow within <code class="language-em highlight"><span class="nf">em$generateUnit</span></code>; by contrast, this function directly interpolates the <code class="language-em highlight"><span class="n">count</span></code> config declared at <span class="em-lineref"><a href="#__codelineno-6-9">9</a></span> within the generated output. When invoked, <code class="language-em highlight"><span class="nf">em$generateUnit</span></code> receives <code class="language-em highlight"><span class="n">pn</span></code> and <code class="language-em highlight"><span class="n">un</span></code> arguments bound to strings like <code class="language-em highlight"><span class="s">&quot;geof.pkg&quot;</span></code> and <code class="language-em highlight"><span class="s">&quot;CompC__Clone1&quot;</span></code> &ndash; reflecting the original context in which the <code class="language-em highlight"><span class="n">geof</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">CompC</span></code> composite imported and instantiated the <code class="language-em highlight"><span class="nn">GenT</span></code> template back on the earlier line <span class="em-lineref"><a href="#__codelineno-5-3">3</a></span>.</p>
+<p>Like any other <code class="language-em"><span class="k">config</span></code>, the parameters declared after line <span class="em-lineref"><a href="#__codelineno-6-5">5</a></span> become assignable variables at program build-time &ndash; in this case, via <code class="language-em"><span class="k">import</span></code> directives beginning at line <span class="em-lineref"><a href="#__codelineno-5-3">3</a></span> of <code class="language-em"><span class="nn">CompC</span></code>. The <code class="language-em"><span class="nn">GenT</span></code> template will then consume these configuration parameters within the body of its <code class="language-em"><span class="nf">em$generateUnit</span></code> function, which synthesizes lines of source code using special EM output statements prefixed by the <code class="language-em highlight"><span class="si">|-&gt;</span></code> symbol.</p>
+<p>The <code class="language-em"><span class="n">flag</span></code> config declared at <span class="em-lineref"><a href="#__codelineno-6-6">6</a></span> impacts the generated output by controlling execution flow within <code class="language-em"><span class="nf">em$generateUnit</span></code>; by contrast, this function directly interpolates the <code class="language-em"><span class="n">count</span></code> config declared at <span class="em-lineref"><a href="#__codelineno-6-9">9</a></span> within the generated output. When invoked, <code class="language-em"><span class="nf">em$generateUnit</span></code> receives <code class="language-em"><span class="n">pn</span></code> and <code class="language-em"><span class="n">un</span></code> arguments bound to strings like <code class="language-em highlight"><span class="s">&quot;geof.pkg&quot;</span></code> and <code class="language-em highlight"><span class="s">&quot;CompC__Clone1&quot;</span></code> &ndash; reflecting the original context in which the <code class="language-em"><span class="nn">geof.pkg/CompC</span></code> composite imported and instantiated the <code class="language-em"><span class="nn">GenT</span></code> template back on the earlier line <span class="em-lineref"><a href="#__codelineno-5-3">3</a></span>.</p>
 <details class="abstract">
 <summary>More template examples</summary>
-<p>Our <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/McuC">McuC</a></span> composite instantiates a module-per-pin using this <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.mcu.cc23xx/GpioT">GpioT</a></span> template. Inspecting this template's <code class="language-em highlight"><span class="nf">em$generateUnit</span></code> function, note how the <code class="language-em highlight"><span class="n">pin</span></code> config ultimately shapes the synthesized module through interpolation within the <code class="language-em highlight"><span class="si">|-&gt;</span></code> output statements. Though not a rule, synthesized modules will often implement an interface that captures their commonality &ndash; <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/GpioI">em.hal/GpioI</a></span> in the example at hand.</p>
+<p>Our <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx/McuC">McuC</a></span> composite instantiates a module-per-pin using this <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.mcu.cc23xx/GpioT">GpioT</a></span> template. Inspecting this template's <code class="language-em"><span class="nf">em$generateUnit</span></code> function, note how the <code class="language-em"><span class="n">pin</span></code> config ultimately shapes the synthesized module through interpolation within the <code class="language-em highlight"><span class="si">|-&gt;</span></code> output statements. Though not a rule, synthesized modules will often implement an interface that captures their commonality &ndash; <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/GpioI">em.hal/GpioI</a></span> in the example at hand.</p>
 </details>
-<p>To further grasp the special role played by <code class="language-em highlight"><span class="k">composite</span></code> and <code class="language-em highlight"><span class="k">template</span></code> units, let's proceed onward to <a href="../to-3/">Chapter 3</a> and explore EM's rather unique build flow.</p>
+<p>To further grasp the special role played by <code class="language-em"><span class="k">composite</span></code> and <code class="language-em"><span class="k">template</span></code> units, let's proceed onward to <a href="../to-3/">Chapter 3</a> and explore EM's rather unique build flow.</p>
 <div class="em-break"></div>
 
 <p><a class="em-link" href="/intro/to-3"><span class="em-walk"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-84.3 104.5c1-.4 1.9-.8 2.9-1.2l-16.9 63.5c-5.6 21.1-.1 43.6 14.7 59.7l70.7 77.1 22 88.1c4.3 17.1 21.7 27.6 38.8 23.3s27.6-21.7 23.3-38.8l-23-92.1c-1.9-7.8-5.8-14.9-11.2-20.8l-49.5-54 19.3-65.5 9.6 23c4.4 10.6 12.5 19.3 22.8 24.5l26.7 13.3c15.8 7.9 35 1.5 42.9-14.3s1.5-35-14.3-42.9L281 232.7l-15.3-36.8c-17.2-41.1-57.4-67.9-102-67.9-22.8 0-45.3 4.8-66.1 14l-8 3.5c-32.9 14.6-58.1 42.4-69.4 76.5l-2.6 7.8c-5.6 16.8 3.5 34.9 20.2 40.5s34.9-3.5 40.5-20.2l2.6-7.8c5.7-17.1 18.3-30.9 34.7-38.2l8-3.5zm-30 135.1-25 62.4-59.3 59.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l61.6-61.7c4.6-4.6 8.2-10.1 10.6-16.1l14.5-36.2-40.7-44.4c-2.5-2.7-4.8-5.6-7-8.6zm456.9-182.2c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l25.4 25.3H384c-17.7 0-32 14.3-32 32s14.3 32 32 32h146.7l-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l80-80c12.5-12.5 12.5-32.8 0-45.3l-80-80z"/></svg></span></span></a></p>

@@ -700,6 +700,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -727,6 +739,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -736,6 +753,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5766,7 +5909,7 @@
 </div>
 <p>For now, though, we'll stick with the Joulescope JS220 as our energy analyzer.  And even if you don't own a JS220, we recommend downloading the (free) <a href="https://www.joulescope.com/pages/downloads">Joulescope UI software</a> as well as the original <a href="https://storage.googleapis.com/etc.openem.org/power-captures.zip">power capture files</a> presented throughout this article.</p>
 <h2 id="mcu-power-modes">Mcu power modes</h2>
-<p>The <span class="em-figcaption">Tour 10 &ndash; Logic Capture</span> seen <a href="/using/using-02/#fig10a">here</a> in <strong>Using EM</strong> introduced the terms "lite-sleep" and "deep-sleep" corresponding to distinct marks on <code><span class="x">dbgB</span></code>.  Recalling the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Alarm1P">Alarm1P</a></span> example, this program enters the MCU's deep-sleep mode <code class="language-em highlight"><span class="nb">%%[b:2]</span></code> after calling <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code>.  But after calling <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> &ndash; which internally pauses execution for a much shorter period of time &ndash; the program instead enters the MCU's lite-sleep mode <code class="language-em highlight"><span class="nb">%%[b:1]</span></code>.</p>
+<p>The <span class="em-figcaption">Tour 10 &ndash; Logic Capture</span> seen <a href="/using/using-02/#fig10a">here</a> in <strong>Using EM</strong> introduced the terms "lite-sleep" and "deep-sleep" corresponding to distinct marks on <code><span class="x">dbgB</span></code>.  Recalling the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Alarm1P">Alarm1P</a></span> example, this program enters the MCU's deep-sleep mode <code class="language-em"><span class="k">%%[b:2]</span></code> after calling <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code>.  But after calling <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> &ndash; which internally pauses execution for a much shorter period of time &ndash; the program instead enters the MCU's lite-sleep mode <code class="language-em"><span class="k">%%[b:1]</span></code>.</p>
 <p>While each vendor often has their own jargon for these power modes (<code><span class="x">IDLE</span></code>, <code><span class="x">PAUSE</span></code>, <code><span class="x">SLEEP</span></code>, <code><span class="x">STOP</span></code>, <code><span class="x">SUSPEND</span></code>, &hellip;&thinsp;), we'll uniformally use the following terminology when measuring power across different MCUs supported by EM:</p>
 <table>
 <thead>
@@ -5850,7 +5993,7 @@
 <div class="em-break"></div>
 
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nn">Alarm1P</span></code> spends the majority of its time in <code><span class="x">SLEEP</span></code>, typical of many embedded applications.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em"><span class="nn">Alarm1P</span></code> spends the majority of its time in <code><span class="x">SLEEP</span></code>, typical of many embedded applications.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once <code><span class="x">ACTIVE</span></code>, the program calls <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> and then enters <code><span class="x">PAUSE</span></code> mode for 100&thinsp;ms;</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; awoken from <code><span class="x">PAUSE</span></code>, the program calls <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code> and moves from <code><span class="x">ACTIVE</span></code> to <code><span class="x">SLEEP</span></code> mode.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The energy (in millijoules) consumed during this 100+&thinsp;ms <code>SLEEP</code>&thinsp;-&thinsp;<code>ACTIVE</code>&thinsp;-&thinsp;<code>PAUSE</code>&thinsp;-&thinsp;<code>ACTIVE</code>&thinsp;-&thinsp;<code>SLEEP</code> interval.</p>
@@ -5886,9 +6029,9 @@
 </div>
 <div class="em-break"></div>
 
-<p>While we do see a modest 10% gain in energy efficiency here, don't forget that the <code class="language-em highlight"><span class="nn">Alarm1P</span></code> program actually fetches very few instructions &ndash; with the MCU remaining in a (lower-power) <code><span class="x">PAUSE</span></code> mode for most of interval <span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>.&nbsp;  Imagine, though, a duty-cycled "sleepy" application that executes a non-trivial mix of math functions and control code when <code><span class="x">ACTIVE</span></code>:&nbsp; significant improvements during interval <span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> would also lower overall energy consumption reported at <span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>.</p>
+<p>While we do see a modest 10% gain in energy efficiency here, don't forget that the <code class="language-em"><span class="nn">Alarm1P</span></code> program actually fetches very few instructions &ndash; with the MCU remaining in a (lower-power) <code><span class="x">PAUSE</span></code> mode for most of interval <span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>.&nbsp;  Imagine, though, a duty-cycled "sleepy" application that executes a non-trivial mix of math functions and control code when <code><span class="x">ACTIVE</span></code>:&nbsp; significant improvements during interval <span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> would also lower overall energy consumption reported at <span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>.</p>
 <p>With modern MCUs clocked at &asymp;&thinsp;50&thinsp;-&thinsp;150&thinsp;MHz&thinsp;, these architectures invariably employ a HW cache to mitigate <em>wait-states</em> which would otherwise stall the CPU when fetching instructions or constants directly from slower flash memory.  But SRAM has no such limitations, as this class of memory can easily sustain read rates in excess of 500&thinsp;MHz&thinsp;.  The CPU hence runs at maximum efficiency, allowing the application to re-enter <code><span class="x">SLEEP</span></code> that much sooner.</p>
-<p>Assuming the program image can actually fit within SRAM &ndash; a far more scarce  resource than flash &ndash; the EM distro for your target MCU board can actually disable the flash memory and its HW cache during <code class="language-em highlight"><span class="nf">em$startup</span></code> to further reduce ambient power.  Paradoxically, running the CPU at its highest possible clock rate will often <em>decrease</em> overall energy consumption when executing &ndash; again, by minimizing the amount of time spent in the <code><span class="x">ACTIVE</span></code> mode.</p>
+<p>Assuming the program image can actually fit within SRAM &ndash; a far more scarce  resource than flash &ndash; the EM distro for your target MCU board can actually disable the flash memory and its HW cache during <code class="language-em"><span class="nf">em$startup</span></code> to further reduce ambient power.  Paradoxically, running the CPU at its highest possible clock rate will often <em>decrease</em> overall energy consumption when executing &ndash; again, by minimizing the amount of time spent in the <code><span class="x">ACTIVE</span></code> mode.</p>
 <p>In the future, we'll have additional articles under <strong>Advancing EM</strong> that benchmark more sophisticated EM applications that nevertheless can execute entirely from on-chip SRAM.&nbsp; In the meanwhile, ponder the following question:</p>
 <div class="admonition bulb">
 <p class="admonition-title">Knowing EM applications need only a small SRAM to run, how might we architect future MCUs&thinsp;???</p>

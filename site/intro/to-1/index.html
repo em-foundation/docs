@@ -769,6 +769,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -796,6 +808,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -805,6 +822,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5758,10 +5901,10 @@
 
 
 <h1 id="the-clientsupplier-dichotomy">The client/supplier dichotomy</h1>
-<p>EM revolves around the concept of a concrete <code class="language-em highlight"><span class="k">module</span></code>, a programmatic construct that plays a seminal role within the language comparable to the position held by a class within C++ or Java. Not unlike classes, each EM module defines a programmatic boundary between its clients &ndash; users of the module &ndash; and the supplier of the module itself.</p>
-<p>To minimize direct coupling between clients and suppliers &ndash; and therefore to increase software re-use &ndash; EM also supports module abstraction through an <code class="language-em highlight"><span class="k">interface</span></code> construct which clients in turn can leverage through a module <code class="language-em highlight"><span class="k">proxy</span></code>.</p>
+<p>EM revolves around the concept of a concrete <code class="language-em"><span class="k">module</span></code>, a programmatic construct that plays a seminal role within the language comparable to the position held by a class within C++ or Java. Not unlike classes, each EM module defines a programmatic boundary between its clients &ndash; users of the module &ndash; and the supplier of the module itself.</p>
+<p>To minimize direct coupling between clients and suppliers &ndash; and therefore to increase software re-use &ndash; EM also supports module abstraction through an <code class="language-em"><span class="k">interface</span></code> construct which clients in turn can leverage through a module <code class="language-em"><span class="k">proxy</span></code>.</p>
 <h2 id="source-code-structure">Source-code structure</h2>
-<p>Reflecting a basic dichotomy between module clients and module suppliers, consider the overall organization of a sample EM module named <code class="language-em highlight"><span class="nn">Mod1</span></code>, whose source code will reside in a file named <code><span class="filename">Mod1.em</span></code>:</p>
+<p>Reflecting a basic dichotomy between module clients and module suppliers, consider the overall organization of a sample EM module named <code class="language-em"><span class="nn">Mod1</span></code>, whose source code will reside in a file named <code><span class="filename">Mod1.em</span></code>:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">bob.pkg/Mod1.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -5808,19 +5951,19 @@
 </span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a>
 </span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="c1"># etc...</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Starting from the top, each EM module lives within the logical scope of a <code class="language-em highlight"><span class="k">package</span></code> which physically corresponds to a file-system directory of the same name. As in Java or Python, an EM package will generally bear a globally-unique qualified name that identifies its supplier &ndash; <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span></code>, <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">.</span><span class="n">test</span></code>, <code class="language-em highlight"><span class="n">dave</span><span class="x">.</span><span class="n">pkg</span></code>, and so forth. By extension, all EM modules have a (globally-unique) <em>fully-qualified canonical name</em> &ndash; <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code> in the current example &ndash; though in practice you'll invariably refer to modules using simple names like <code class="language-em highlight"><span class="nn">Mod1</span></code>.</p>
+<p>Starting from the top, each EM module lives within the logical scope of a <code class="language-em"><span class="k">package</span></code> which physically corresponds to a file-system directory of the same name. As in Java or Python, an EM package will generally bear a globally-unique qualified name that identifies its supplier &ndash; <code class="language-em"><span class="n">bob.pkg</span></code>, <code class="language-em"><span class="n">bob.pkg.test</span></code>, <code class="language-em"><span class="n">dave.pkg</span></code>, and so forth. By extension, all EM modules have a (globally-unique) <em>fully-qualified canonical name</em> &ndash; <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code> in the current example &ndash; though in practice you'll invariably refer to modules using simple names like <code class="language-em"><span class="nn">Mod1</span></code>.</p>
 <details class="abstract">
 <summary>Flat directory structure</summary>
-<p>But unlike Java or Python, where the contents of a package named <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span></code> would actually reside in a nested directory structure with the path <code><span class="filename">bob/pkg</span></code>, EM employs a flat organization in which the logical package-name and physical directory-name must match exactly.</p>
+<p>But unlike Java or Python, where the contents of a package named <code class="language-em"><span class="n">bob.pkg</span></code> would actually reside in a nested directory structure with the path <code><span class="filename">bob/pkg</span></code>, EM employs a flat organization in which the logical package-name and physical directory-name must match exactly.</p>
 </details>
-<p>Moving on, the declarations beginning at line <span class="em-lineref"><a href="#__codelineno-0-3">3</a></span> comprise the public specification of this module &ndash; a coherent collection of constants, types, and functions (what others might term an "API"&thinsp;) available for direct use by clients of <code class="language-em highlight"><span class="nn">Mod1</span></code>. Taken together, these externally-visible features of the module constitute a programmatic contract in which future changes on the part of the supplier should (hopefully!!!&thinsp;) not violate prior client assumptions.</p>
-<p>By contrast, features of <code class="language-em highlight"><span class="nn">Mod1</span></code> declared beginning at line <span class="em-lineref"><a href="#__codelineno-0-9">9</a></span> along with all definitions of its public and private functions beginning at line <span class="em-lineref"><a href="#__codelineno-0-15">15</a></span> remain hidden from any clients of this module. The supplier of <code class="language-em highlight"><span class="nn">Mod1</span></code> can consequently change the internal implementation of this module &ndash; optimizing performance or improving robustness &ndash; while maintaining a measure of "plug-compatibility" from its clients' perspective.</p>
+<p>Moving on, the declarations beginning at line <span class="em-lineref"><a href="#__codelineno-0-3">3</a></span> comprise the public specification of this module &ndash; a coherent collection of constants, types, and functions (what others might term an "API"&thinsp;) available for direct use by clients of <code class="language-em"><span class="nn">Mod1</span></code>. Taken together, these externally-visible features of the module constitute a programmatic contract in which future changes on the part of the supplier should (hopefully!!!&thinsp;) not violate prior client assumptions.</p>
+<p>By contrast, features of <code class="language-em"><span class="nn">Mod1</span></code> declared beginning at line <span class="em-lineref"><a href="#__codelineno-0-9">9</a></span> along with all definitions of its public and private functions beginning at line <span class="em-lineref"><a href="#__codelineno-0-15">15</a></span> remain hidden from any clients of this module. The supplier of <code class="language-em"><span class="nn">Mod1</span></code> can consequently change the internal implementation of this module &ndash; optimizing performance or improving robustness &ndash; while maintaining a measure of "plug-compatibility" from its clients' perspective.</p>
 <details class="abstract">
 <summary>Separation of concerns</summary>
 <p>By enforcing crisp boundaries between clients and suppliers, EM modules encourage a software "best-practice" known as <em>separation of concerns</em> &ndash; organizing application functionality into discrete programmatic elements that encapsulate specific implementation decisions. Besides helping us digest software-rich systems in "bite-sized" chunks (where each EM module becomes a small world unto itself), our ability to manage change throughout the software life-cycle emerges as the most enduring benefit of modularity in general.</p>
 </details>
 <h2 id="importing-modules">Importing modules</h2>
-<p>To gain access to public features of <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code>, clients must explicitly <code class="language-em highlight"><span class="k">import</span></code> this module within their own&thinsp;<code><span class="filename">.em</span></code> files prior to any direct usage. As an illustration, consider a sample module named <code class="language-em highlight"><span class="n">dave</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod2</span></code>:</p>
+<p>To gain access to public features of <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code>, clients must explicitly <code class="language-em"><span class="k">import</span></code> this module within their own&thinsp;<code><span class="filename">.em</span></code> files prior to any direct usage. As an illustration, consider a sample module named <code class="language-em"><span class="nn">dave.pkg/Mod2</span></code>:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">dave.pkg/Mod2.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -5849,20 +5992,20 @@
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="x">    </span><span class="nn">Mod1</span><span class="x">.</span><span class="nf">f</span><span class="x">( ... )</span>
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>The directive at line <span class="em-lineref"><a href="#__codelineno-1-3">3</a></span> effectively adds the identifier <code class="language-em highlight"><span class="nn">Mod1</span></code> to this file's top-level namespace, which already includes all public&thinsp;/&thinsp;private feature names of <code class="language-em highlight"><span class="nn">Mod2</span></code>; an optional trailing <code class="language-em highlight"><span class="k">as</span></code> clause can resolve name conflicts, should they arise. Through their <code class="language-em highlight"><span class="k">import</span></code> directives, EM modules organize themselves into a static hierarchy of clients and suppliers. As a rule, this client-supplier relation must remain acyclic; an EM module can neither directly nor indirectly import itself.</p>
-<p>After importing <code class="language-em highlight"><span class="nn">Mod1</span></code>, the example accesses this module's public type <code class="language-em highlight"><span class="nc">T</span></code> at line <span class="em-lineref"><a href="#__codelineno-1-9">9</a></span> followed by its public function <code class="language-em highlight"><span class="nf">f</span></code> at line <span class="em-lineref"><a href="#__codelineno-1-13">13</a></span> using a qualified name of the form <code class="language-em highlight"><span class="nn">Mod1</span><span class="x">.</span><span class="n"><i>feature</i></span></code>. This syntax enables client modules using <code class="language-em highlight"><span class="nn">Mod1</span></code> to (coincidentally) declare their own features with identical names, such as the function <code class="language-em highlight"><span class="nf">f</span></code> defined here within the scope of <code class="language-em highlight"><span class="nn">Mod2</span></code>; unqualified identifiers always refer to features defined within the current module.</p>
+<p>The directive at line <span class="em-lineref"><a href="#__codelineno-1-3">3</a></span> effectively adds the identifier <code class="language-em"><span class="nn">Mod1</span></code> to this file's top-level namespace, which already includes all public&thinsp;/&thinsp;private feature names of <code class="language-em"><span class="nn">Mod2</span></code>; an optional trailing <code class="language-em highlight"><span class="k">as</span></code> clause can resolve name conflicts, should they arise. Through their <code class="language-em"><span class="k">import</span></code> directives, EM modules organize themselves into a static hierarchy of clients and suppliers. As a rule, this client-supplier relation must remain acyclic; an EM module can neither directly nor indirectly import itself.</p>
+<p>After importing <code class="language-em"><span class="nn">Mod1</span></code>, the example accesses this module's public type <code class="language-em"><span class="t">T</span></code> at line <span class="em-lineref"><a href="#__codelineno-1-9">9</a></span> followed by its public function <code class="language-em"><span class="nf">f</span></code> at line <span class="em-lineref"><a href="#__codelineno-1-13">13</a></span> using a qualified name of the form <code class="language-em highlight"><span class="nn">Mod1</span><span class="x">.</span><span class="n"><i>feature</i></span></code>. This syntax enables client modules using <code class="language-em"><span class="nn">Mod1</span></code> to (coincidentally) declare their own features with identical names, such as the function <code class="language-em"><span class="nf">f</span></code> defined here within the scope of <code class="language-em"><span class="nn">Mod2</span></code>; unqualified identifiers always refer to features defined within the current module.</p>
 <details class="abstract">
 <summary>Main programs</summary>
-<p>By implementing a special (intrinsic) function named <code class="language-em highlight"><span class="nf">em$run</span></code>, any EM module can potentially serve as the entry-point for an executable application &ndash; a common pattern in many modern languages. Said another way, EM has no inherent notion of a "main-program"; instead, application developers will designate a particular module as the top of a client-supplier hierarchy defined via <code class="language-em highlight"><span class="k">import</span></code> directives.</p>
+<p>By implementing a special (intrinsic) function named <code class="language-em"><span class="nf">em$run</span></code>, any EM module can potentially serve as the entry-point for an executable application &ndash; a common pattern in many modern languages. Said another way, EM has no inherent notion of a "main-program"; instead, application developers will designate a particular module as the top of a client-supplier hierarchy defined via <code class="language-em"><span class="k">import</span></code> directives.</p>
 </details>
 <h2 id="abstracting-suppliers">Abstracting suppliers</h2>
-<p>At the end of the day, EM application programs comprise a set of concrete modules &ndash; each contributing some measure of encapsulated code and data to the final executable image. In the example above, where we directly imported <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code>, this module will auto&shy;matically and unconditionally become an element of any application program that directly or indirectly uses <code class="language-em highlight"><span class="n">dave</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod2</span></code>.</p>
-<p>As an alternative to this mode of direct coupling between modules, EM introduces a language construct known as a <code class="language-em highlight"><span class="k">proxy</span></code> that adds a level of indirection between clients and suppliers &ndash; abstracting a particular supplier's identity from the client's perspective. Akin to polymorphism within object-oriented programming, EM proxies can enhance application flexibility and improve software re-use by further decoupling clients from suppliers; the same client module, as you'll soon see, can effectively (re-)use different supplier imple&shy;mentations of otherwise common functionality.</p>
+<p>At the end of the day, EM application programs comprise a set of concrete modules &ndash; each contributing some measure of encapsulated code and data to the final executable image. In the example above, where we directly imported <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code>, this module will auto&shy;matically and unconditionally become an element of any application program that directly or indirectly uses <code class="language-em"><span class="nn">dave.pkg/Mod2</span></code>.</p>
+<p>As an alternative to this mode of direct coupling between modules, EM introduces a language construct known as a <code class="language-em"><span class="k">proxy</span></code> that adds a level of indirection between clients and suppliers &ndash; abstracting a particular supplier's identity from the client's perspective. Akin to polymorphism within object-oriented programming, EM proxies can enhance application flexibility and improve software re-use by further decoupling clients from suppliers; the same client module, as you'll soon see, can effectively (re-)use different supplier imple&shy;mentations of otherwise common functionality.</p>
 <div class="admonition bulb">
 <p class="admonition-title">And even more important than re-use, we can better manage change&thinsp;!!!</p>
 </div>
 <p>By not having to modify client modules that employ proxies, our software becomes more resilient and malleable <em>when</em> &ndash; and not <em>if</em> &ndash; application requirements evolve over time.</p>
-<p>To capture commonality amongst a family of "plug-compatible" modules, EM enables us to separately publish a set of client-visible features as an <code class="language-em highlight"><span class="k">interface</span></code> &ndash; a public specification independent of any particular supplier implementation. As an illustration, let's refactor the <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code> module presented earlier.</p>
+<p>To capture commonality amongst a family of "plug-compatible" modules, EM enables us to separately publish a set of client-visible features as an <code class="language-em"><span class="k">interface</span></code> &ndash; a public specification independent of any particular supplier implementation. As an illustration, let's refactor the <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code> module presented earlier.</p>
 <p><div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">bob.pkg/ModI.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
@@ -5909,12 +6052,12 @@
 </span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a>
 </span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="c1"># etc...</span>
 </span></code></pre></div></td></tr></table></div></p>
-<p>The declarations beginning at line <span class="em-lineref"><a href="#__codelineno-3-3">3</a></span> mimic the earlier public specification of <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code>; but unlike a concrete module, an abstract EM interface cannot have an internal implementation. Our new rendition of <code class="language-em highlight"><span class="nn">Mod1</span></code> now inherits its public specification from the interface <code class="language-em highlight"><span class="nn">ModI</span></code> at line <span class="em-lineref"><a href="#__codelineno-2-3">3</a></span>, while declaring any additional (public) features unique to this module; the private portion of <code class="language-em highlight"><span class="nn">Mod1</span></code> beginning at line <span class="em-lineref"><a href="#__codelineno-3-8">8</a></span> remains unchanged from before.</p>
+<p>The declarations beginning at line <span class="em-lineref"><a href="#__codelineno-3-3">3</a></span> mimic the earlier public specification of <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code>; but unlike a concrete module, an abstract EM interface cannot have an internal implementation. Our new rendition of <code class="language-em"><span class="nn">Mod1</span></code> now inherits its public specification from the interface <code class="language-em"><span class="nn">ModI</span></code> at line <span class="em-lineref"><a href="#__codelineno-2-3">3</a></span>, while declaring any additional (public) features unique to this module; the private portion of <code class="language-em"><span class="nn">Mod1</span></code> beginning at line <span class="em-lineref"><a href="#__codelineno-3-8">8</a></span> remains unchanged from before.</p>
 <details class="abstract">
 <summary>More on interfaces</summary>
-<p>In practice, abstract interfaces and implementing modules will often reside in different packages:  for instance, the EM runtime contains a package named <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal">em.hal</a></span> holding <code class="language-em highlight"><span class="nn">ConsoleUartI</span></code>, <code class="language-em highlight"><span class="nn">GpioI</span></code>, <code class="language-em highlight"><span class="nn">WakeupTimerI</span></code>, and other interfaces; packages such as <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.mcu.cc23xx">ti.mcu.cc23xx</a></span> then hold concrete implementations of these abstract interfaces targeting a particular MCU architecture.</p>
+<p>In practice, abstract interfaces and implementing modules will often reside in different packages:  for instance, the EM runtime contains a package named <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal">em.hal</a></span> holding <code class="language-em"><span class="nn">ConsoleUartI</span></code>, <code class="language-em"><span class="nn">GpioI</span></code>, <code class="language-em"><span class="nn">WakeupTimerI</span></code>, and other interfaces; packages such as <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.mcu.cc23xx">ti.mcu.cc23xx</a></span> then hold concrete implementations of these abstract interfaces targeting a particular MCU architecture.</p>
 </details>
-<p>Returning to the matter at hand &ndash; abstracting suppliers &ndash; we'll now refactor our original <code class="language-em highlight"><span class="n">dave</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod2</span></code> client module to remove its direct dependence on <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code> and instead leverage a local <code class="language-em highlight"><span class="k">proxy</span></code> implementing the <code class="language-em highlight"><span class="nn">ModI</span></code> interface.</p>
+<p>Returning to the matter at hand &ndash; abstracting suppliers &ndash; we'll now refactor our original <code class="language-em"><span class="nn">dave.pkg/Mod2</span></code> client module to remove its direct dependence on <code class="language-em"><span class="nn">bob.pkg/Mod1</span></code> and instead leverage a local <code class="language-em"><span class="k">proxy</span></code> implementing the <code class="language-em"><span class="nn">ModI</span></code> interface.</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">dave.pkg/Mod2.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -5945,13 +6088,13 @@
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="x">    </span><span class="nn">ModX</span><span class="x">.</span><span class="nf">f</span><span class="x">( ... )</span>
 </span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>The syntax at line <span class="em-lineref"><a href="#__codelineno-4-6">6</a></span> adds the name <code class="language-em highlight"><span class="nn">ModX</span></code> to the top-level scope of <code class="language-em highlight"><span class="nn">Mod2</span></code>, as well as declares that the proxy <code class="language-em highlight"><span class="nn">ModX</span></code> provides all client features specified within the interface <code class="language-em highlight"><span class="nn">ModI</span></code>; access to the public type <code class="language-em highlight"><span class="nc">T</span></code> and the public function <code class="language-em highlight"><span class="nf">f</span></code> at lines <span class="em-lineref"><a href="#__codelineno-4-10">10</a></span> and <span class="em-lineref"><a href="#__codelineno-4-14">14</a></span> respectively mirror earlier direct usage of <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code>.</p>
-<p>Once again, we should emphasize that client <code class="language-em highlight"><span class="nn">Mod2</span></code> has no overt coupling to the concrete module <code class="language-em highlight"><span class="nn">Mod1</span></code>; instead, <code class="language-em highlight"><span class="nn">Mod2</span></code> only knows about the abstract interface <code class="language-em highlight"><span class="nn">ModI</span></code> &ndash; which would admit an unbounded number of alternate implementations beyond that provided by <code class="language-em highlight"><span class="nn">Mod1</span></code>.</p>
+<p>The syntax at line <span class="em-lineref"><a href="#__codelineno-4-6">6</a></span> adds the name <code class="language-em"><span class="nn">ModX</span></code> to the top-level scope of <code class="language-em"><span class="nn">Mod2</span></code>, as well as declares that the proxy <code class="language-em"><span class="nn">ModX</span></code> provides all client features specified within the interface <code class="language-em"><span class="nn">ModI</span></code>; access to the public type <code class="language-em"><span class="t">T</span></code> and the public function <code class="language-em"><span class="nf">f</span></code> at lines <span class="em-lineref"><a href="#__codelineno-4-10">10</a></span> and <span class="em-lineref"><a href="#__codelineno-4-14">14</a></span> respectively mirror earlier direct usage of <code class="language-em highlight"><span class="n">bob</span><span class="x">.</span><span class="n">pkg</span><span class="x">/</span><span class="nn">Mod1</span></code>.</p>
+<p>Once again, we should emphasize that client <code class="language-em"><span class="nn">Mod2</span></code> has no overt coupling to the concrete module <code class="language-em"><span class="nn">Mod1</span></code>; instead, <code class="language-em"><span class="nn">Mod2</span></code> only knows about the abstract interface <code class="language-em"><span class="nn">ModI</span></code> &ndash; which would admit an unbounded number of alternate implementations beyond that provided by <code class="language-em"><span class="nn">Mod1</span></code>.</p>
 <details class="abstract">
 <summary>The proxy&thinsp;&ndash;&thinsp;interface pattern</summary>
-<p>The pattern exemplified here occurs extensively within the EM runtime, and largely holds the key to maintaining platform portability. As a case in point, the package <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils">em.utils</a></span> contains only portable modules such as <code class="language-em highlight"><span class="nn">AlarmMgr</span></code> which declares a local proxy implementing the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/WakeupTimerI">em.hal/WakeupTimerI</a></span> interface. Client application modules likewise desiring hardware independence can simply follow suit, using the <code class="language-em highlight"><span class="k">proxy</span></code>&thinsp;&ndash;&thinsp;<code class="language-em highlight"><span class="k">interface</span></code> pattern at each point of potential variability.</p>
+<p>The pattern exemplified here occurs extensively within the EM runtime, and largely holds the key to maintaining platform portability. As a case in point, the package <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils">em.utils</a></span> contains only portable modules such as <code class="language-em"><span class="nn">AlarmMgr</span></code> which declares a local proxy implementing the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/WakeupTimerI">em.hal/WakeupTimerI</a></span> interface. Client application modules likewise desiring hardware independence can simply follow suit, using the <code class="language-em"><span class="k">proxy</span></code>&thinsp;&ndash;&thinsp;<code class="language-em"><span class="k">interface</span></code> pattern at each point of potential variability.</p>
 </details>
-<p>Moving on to <a href="../to-2/">Chapter 2</a>, we'll now explore the process of <em>binding</em>  the <code class="language-em highlight"><span class="nn">Mod2</span></code><code><span class="x">.</span></code><code class="language-em highlight"><span class="nn">ModX</span></code> proxy to the <code class="language-em highlight"><span class="nn">Mod1</span></code> module.</p>
+<p>Moving on to <a href="../to-2/">Chapter 2</a>, we'll now explore the process of <em>binding</em>  the <code class="language-em"><span class="nn">Mod2</span></code><code><span class="x">.</span></code><code class="language-em"><span class="nn">ModX</span></code> proxy to the <code class="language-em"><span class="nn">Mod1</span></code> module.</p>
 <div class="em-break"></div>
 
 <p><a class="em-link" href="../to-2/"><span class="em-walk"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-84.3 104.5c1-.4 1.9-.8 2.9-1.2l-16.9 63.5c-5.6 21.1-.1 43.6 14.7 59.7l70.7 77.1 22 88.1c4.3 17.1 21.7 27.6 38.8 23.3s27.6-21.7 23.3-38.8l-23-92.1c-1.9-7.8-5.8-14.9-11.2-20.8l-49.5-54 19.3-65.5 9.6 23c4.4 10.6 12.5 19.3 22.8 24.5l26.7 13.3c15.8 7.9 35 1.5 42.9-14.3s1.5-35-14.3-42.9L281 232.7l-15.3-36.8c-17.2-41.1-57.4-67.9-102-67.9-22.8 0-45.3 4.8-66.1 14l-8 3.5c-32.9 14.6-58.1 42.4-69.4 76.5l-2.6 7.8c-5.6 16.8 3.5 34.9 20.2 40.5s34.9-3.5 40.5-20.2l2.6-7.8c5.7-17.1 18.3-30.9 34.7-38.2l8-3.5zm-30 135.1-25 62.4-59.3 59.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l61.6-61.7c4.6-4.6 8.2-10.1 10.6-16.1l14.5-36.2-40.7-44.4c-2.5-2.7-4.8-5.6-7-8.6zm456.9-182.2c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l25.4 25.3H384c-17.7 0-32 14.3-32 32s14.3 32 32 32h146.7l-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l80-80c12.5-12.5 12.5-32.8 0-45.3l-80-80z"/></svg></span></span></a></p>

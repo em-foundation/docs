@@ -700,6 +700,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -727,6 +739,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -736,6 +753,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5887,7 +6030,7 @@
 </div>
 <h2 id="coremark-emmark">CoreMark &rArr; EM&bull;Mark</h2>
 <p>In reality, none of the official CoreMark sources (written in C) will survive their transformation into <strong>EM&bull;Mark</strong> &ndash; a new codebase (re-)written entirely in EM.&thinsp;  At the same time, applying the <em>same</em> CoreMark algorithms to the <em>same</em> input data must yield the <em>same</em> results in EM.</p>
-<p>The input data used by <strong>EM&bull;Mark</strong> (like CoreMark) ultimately derives from a handful of <em>seed</em>&thinsp; variables, statically-initialized with prescribed values.&thinsp;  Declared <code class="language-em highlight"><span class="k">volatile</span></code> in EM as well as C, the integrity of the benchmark requires that the underlying compiler <em>cannot</em> know the initial values of these seed variables and potentially perform overly-aggressive code optimizations.</p>
+<p>The input data used by <strong>EM&bull;Mark</strong> (like CoreMark) ultimately derives from a handful of <em>seed</em>&thinsp; variables, statically-initialized with prescribed values.&thinsp;  Declared <code class="language-em"><span class="k">volatile</span></code> in EM as well as C, the integrity of the benchmark requires that the underlying compiler <em>cannot</em> know the initial values of these seed variables and potentially perform overly-aggressive code optimizations.</p>
 <p>At the same time, the CoreMark sources do make use of C preprocessor <code class="language-em highlight"><span class="si">#define</span></code> directives to efficiently propogate constants and small (inline) functions during compilation.&thinsp; <strong>EM&bull;Mark</strong> not only achieves the same effect automatically via whole-program optimization, but also leverages the full power of EM <em>meta-programming</em> to initialize internal data structures at build-time &ndash; resulting in a far-more compact program image at run-time.</p>
 <div class="admonition tip">
 <p class="admonition-title">If necessary, review the material on program <a class="em-link" href="/intro/to-3/#program-configuration">configuration</a> and <a class="em-link" href="/intro/to-3/#program-compilation">compilation</a> to fully appreciate the opportunities that EM affords for build-time optimization.</p>
@@ -5901,11 +6044,11 @@
 </figure>
 <p>The <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/ActiveRunnerP">ActiveRunnerP</a></span> and <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/SleepyRunnerP">SleepyRunnerP</a></span> programs on top of this hierarchy both execute the same core benchmark algorithms, albeit in two very different contexts:</p>
 <div class="em-ul">
-<p><code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code> performs <em>multiple</em>&thinsp; benchmark iterations, much like the legacy CoreMark program</p>
-<p><code class="language-em highlight"><span class="nn">SleepyRunnerP</span></code> performs a <em>single</em>&thinsp; benchmark iteration, awakening every second from deep-sleep </p>
+<p><code class="language-em"><span class="nn">ActiveRunnerP</span></code> performs <em>multiple</em>&thinsp; benchmark iterations, much like the legacy CoreMark program</p>
+<p><code class="language-em"><span class="nn">SleepyRunnerP</span></code> performs a <em>single</em>&thinsp; benchmark iteration, awakening every second from deep-sleep </p>
 </div>
-<p>The <code class="language-em highlight"><span class="nn">CoreBench</span></code> module (imported by both of these programs) coordinates both configuration as well as execution of the <strong>list processing</strong>, <strong>matrix manipulation</strong>, and <strong>state machine</strong> algorithms; we'll have more to say about its implementation in a little while.</p>
-<p>To capture behavioral commonality between <code class="language-em highlight"><span class="nn">CoreBench</span></code> and the algorithm modules it uses internally [&thinsp;<code class="language-em highlight"><span class="nn">ListBench</span></code>, <code class="language-em highlight"><span class="nn">MatrixBench</span></code>, <code class="language-em highlight"><span class="nn">StateBench</span></code>&thinsp;], our <strong>EM&bull;Mark</strong> design introduces the abstract <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">coremark</span><span class="x">/</span><span class="nn">BenchAlgI</span></code> interface:</p>
+<p>The <code class="language-em"><span class="nn">CoreBench</span></code> module (imported by both of these programs) coordinates both configuration as well as execution of the <strong>list processing</strong>, <strong>matrix manipulation</strong>, and <strong>state machine</strong> algorithms; we'll have more to say about its implementation in a little while.</p>
+<p>To capture behavioral commonality between <code class="language-em"><span class="nn">CoreBench</span></code> and the algorithm modules it uses internally [&thinsp;<code class="language-em"><span class="nn">ListBench</span></code>, <code class="language-em"><span class="nn">MatrixBench</span></code>, <code class="language-em"><span class="nn">StateBench</span></code>&thinsp;], our <strong>EM&bull;Mark</strong> design introduces the abstract <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">coremark</span><span class="x">/</span><span class="nn">BenchAlgI</span></code> interface:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/BenchAlgI.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -5938,10 +6081,10 @@
 </span></code></pre></div></td></tr></table></div>
 <p>Of the handful of functions specified by this interface, two of these play a central role in the implementation of each benchmark algorithm:</p>
 <div class="em-ul">
-<p><code class="language-em highlight"><span class="nn">BenchAlgI</span><span class="x">.</span><span class="nf">setup</span></code>, which initializes the algorithm's input data using <code class="language-em highlight"><span class="k">volatile</span></code> seed variables</p>
+<p><code class="language-em highlight"><span class="nn">BenchAlgI</span><span class="x">.</span><span class="nf">setup</span></code>, which initializes the algorithm's input data using <code class="language-em"><span class="k">volatile</span></code> seed variables</p>
 <p><code class="language-em highlight"><span class="nn">BenchAlgI</span><span class="x">.</span><span class="nf">run</span></code>, which executes one pass of the benchmark algorithm and returns a CRC value</p>
 </div>
-<p>Taking a quick peek inside <code class="language-em highlight"><span class="nn">CoreBench</span></code>, you'll notice how this module's implementation of the <code class="language-em highlight"><span class="nn">BenchI</span></code> interface simply delegates to the other algorithm modules &ndash; which in turn implement the same interface:</p>
+<p>Taking a quick peek inside <code class="language-em"><span class="nn">CoreBench</span></code>, you'll notice how this module's implementation of the <code class="language-em"><span class="nn">BenchI</span></code> interface simply delegates to the other algorithm modules &ndash; which in turn implement the same interface:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/CoreBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-32">32</a></span>
 <span class="normal"><a href="#__codelineno-1-33">33</a></span>
 <span class="normal"><a href="#__codelineno-1-34">34</a></span>
@@ -6014,11 +6157,11 @@
 </span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66"></a><span class="x">    </span><span class="nn">StateBench</span><span class="x">.</span><span class="nf">setup</span><span class="x">()</span>
 </span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p><code class="language-em highlight"><span class="nn">CoreBench</span></code> also uses public <code class="language-em highlight"><span class="nf">get</span></code>&thinsp;/&thinsp;<code class="language-em highlight"><span class="nf">set</span></code> functions provided by the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/Utils">Utils</a></span> module to fetch&thinsp;/&thinsp;store designated CRC and seed values.</p>
+<p><code class="language-em"><span class="nn">CoreBench</span></code> also uses public <code class="language-em"><span class="nf">get</span></code>&thinsp;/&thinsp;<code class="language-em"><span class="nf">set</span></code> functions provided by the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/Utils">Utils</a></span> module to fetch&thinsp;/&thinsp;store designated CRC and seed values.</p>
 <div class="admonition warning">
 <p class="admonition-title">more code ahead &ndash; free free to scroll down to the <a href="#summary-and-next-steps">Summary</a></p>
 </div>
-<p>Each of the benchmark algorithms will call the <code class="language-em highlight"><span class="nn">Crc</span><span class="x">.</span><span class="nf">add16</span></code> or <code class="language-em highlight"><span class="nn">Crc</span><span class="x">.</span><span class="nf">addU32</span></code> functions to fold a new data value into a particular checksum.  Looking at the implementation of the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/Crc">Crc</a></span> module, both of these function definitions ultimately call <code class="language-em highlight"><span class="nn">Crc</span><span class="x">.</span><span class="nf">update</span></code> &ndash; a private function that effectively mimics the <code class="language-em highlight"><span class="nf">crcu8</span></code> routine found in the legacy CoreMark source code:</p>
+<p>Each of the benchmark algorithms will call the <code class="language-em highlight"><span class="nn">Crc</span><span class="x">.</span><span class="nf">add16</span></code> or <code class="language-em highlight"><span class="nn">Crc</span><span class="x">.</span><span class="nf">addU32</span></code> functions to fold a new data value into a particular checksum.  Looking at the implementation of the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/Crc">Crc</a></span> module, both of these function definitions ultimately call <code class="language-em highlight"><span class="nn">Crc</span><span class="x">.</span><span class="nf">update</span></code> &ndash; a private function that effectively mimics the <code class="language-em"><span class="nf">crcu8</span></code> routine found in the legacy CoreMark source code:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">core_util.c</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-164">164</a></span>
 <span class="normal"><a href="#__codelineno-2-165">165</a></span>
 <span class="normal"><a href="#__codelineno-2-166">166</a></span>
@@ -6069,13 +6212,13 @@
 </span><span id="__span-2-187"><a id="__codelineno-2-187" name="__codelineno-2-187"></a><span class="x">    </span><span class="k">return</span><span class="x"> </span><span class="n">crc</span><span class="x">;</span>
 </span><span id="__span-2-188"><a id="__codelineno-2-188" name="__codelineno-2-188"></a><span class="x">}</span>
 </span></code></pre></div></td></tr></table></div>
-<p class="annotate">Finally, <code class="language-em highlight"><span class="nn">CoreBench</span></code> defines a pair of <code class="language-em highlight"><span class="k">config</span></code> params [&thinsp;<code class="language-em highlight"><span class="n">TOTAL_DATA_SIZE</span></code>, <code class="language-em highlight"><span class="n">NUM_ALGS</span></code>&thinsp;] used to bind the <code class="language-em highlight"><span class="nn">BenchAlgI</span><span class="x">.</span><span class="n">memSize</span></code> parameter associated with the other algorithms; refer to <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code> defined <a href="/cargo/em.bench/em.coremark/CoreBench/#__codelineno-0-15">here</a> for further details.&thinsp; Initialized to values tracking the legacy CoreMark code, <code class="language-em highlight"><span class="nn">CoreBench</span></code> assigns <code><span class="x">&lfloor;2000/3&rfloor;&thinsp;&equiv;&thinsp;666</span></code> bytes per algorithm.(1)</p>
+<p class="annotate">Finally, <code class="language-em"><span class="nn">CoreBench</span></code> defines a pair of <code class="language-em"><span class="k">config</span></code> params [&thinsp;<code class="language-em"><span class="n">TOTAL_DATA_SIZE</span></code>, <code class="language-em"><span class="n">NUM_ALGS</span></code>&thinsp;] used to bind the <code class="language-em highlight"><span class="nn">BenchAlgI</span><span class="x">.</span><span class="n">memSize</span></code> parameter associated with the other algorithms; refer to <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code> defined <a href="/cargo/em.bench/em.coremark/CoreBench/#__codelineno-0-15">here</a> for further details.&thinsp; Initialized to values tracking the legacy CoreMark code, <code class="language-em"><span class="nn">CoreBench</span></code> assigns <code><span class="x">&lfloor;2000/3&rfloor;&thinsp;&equiv;&thinsp;666</span></code> bytes per algorithm.(1)</p>
 <ol>
 <li>We'll have more to say about <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code> after we explore the three benchmark algorithms in more detail.</li>
 </ol>
 <h2 id="matrix-manipulation">Matrix manipulation</h2>
-<p>Pivoting to the simplest of the three benchmark algorithms administered by <code class="language-em highlight"><span class="nn">CoreBench</span></code>, the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/MatrixBench">MatrixBench</a></span> module implements each (public) function specified by the <code class="language-em highlight"><span class="nn">BenchAlgI</span></code> interface; and most of the <code class="language-em highlight"><span class="nn">MatrixBench</span></code> private functions defined inside the module [&thinsp;<code class="language-em highlight"><span class="nf">addVal</span></code>, <code class="language-em highlight"><span class="nf">mulVec</span></code>, <code class="language-em highlight"><span class="nf">clip</span></code>, etc&thinsp;] correspond to legacy C functions&thinsp;/&thinsp;macros found in <code><span class="filename">core_matrix.c</span></code>&thinsp;.</p>
-<p>Internally, <code class="language-em highlight"><span class="nn">MatrixBench</span></code> operates upon three matrices [&thinsp;<code class="language-em highlight"><span class="n">matA</span></code>, <code class="language-em highlight"><span class="n">matB</span></code>, <code class="language-em highlight"><span class="n">matC</span></code>&thinsp;] dimensioned at build-time by the module's <code class="language-em highlight"><span class="nf">em$construct</span></code> function &ndash; which uses the <code class="language-em highlight"><span class="nn">BenchI</span><span class="x">.</span><span class="n">memSize</span></code> parameter (bound previously in <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code>) when calculating a value for <code class="language-em highlight"><span class="n">dimN</span></code>:</p>
+<p>Pivoting to the simplest of the three benchmark algorithms administered by <code class="language-em"><span class="nn">CoreBench</span></code>, the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/MatrixBench">MatrixBench</a></span> module implements each (public) function specified by the <code class="language-em"><span class="nn">BenchAlgI</span></code> interface; and most of the <code class="language-em"><span class="nn">MatrixBench</span></code> private functions defined inside the module [&thinsp;<code class="language-em"><span class="nf">addVal</span></code>, <code class="language-em"><span class="nf">mulVec</span></code>, <code class="language-em"><span class="nf">clip</span></code>, etc&thinsp;] correspond to legacy C functions&thinsp;/&thinsp;macros found in <code><span class="filename">core_matrix.c</span></code>&thinsp;.</p>
+<p>Internally, <code class="language-em"><span class="nn">MatrixBench</span></code> operates upon three matrices [&thinsp;<code class="language-em"><span class="n">matA</span></code>, <code class="language-em"><span class="n">matB</span></code>, <code class="language-em"><span class="n">matC</span></code>&thinsp;] dimensioned at build-time by the module's <code class="language-em"><span class="nf">em$construct</span></code> function &ndash; which uses the <code class="language-em highlight"><span class="nn">BenchI</span><span class="x">.</span><span class="n">memSize</span></code> parameter (bound previously in <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code>) when calculating a value for <code class="language-em"><span class="n">dimN</span></code>:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/MatrixBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-3-10">10</a></span>
 <span class="normal"><a href="#__codelineno-3-11">11</a></span>
@@ -6120,7 +6263,7 @@
 </span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46"></a><span class="x">    </span><span class="n">matA</span><span class="x">.</span><span class="k">length</span><span class="x"> = </span><span class="n">matB</span><span class="x">.</span><span class="k">length</span><span class="x"> = </span><span class="n">matC</span><span class="x">.</span><span class="k">length</span><span class="x"> = </span><span class="n">dimN</span><span class="x"> * </span><span class="n">dimN</span>
 </span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>The <code class="language-em highlight"><span class="nn">MatrixBench</span><span class="x">.</span><span class="nf">setup</span></code> function initializes "input" matrices [&thinsp;<code class="language-em highlight"><span class="n">matA</span></code>, <code class="language-em highlight"><span class="n">matB</span></code>&thinsp;] at run-time, using values derived from two of the <code class="language-em highlight"><span class="k">volatile</span></code> seed variables prescribed by legacy CoreMark:</p>
+<p>The <code class="language-em highlight"><span class="nn">MatrixBench</span><span class="x">.</span><span class="nf">setup</span></code> function initializes "input" matrices [&thinsp;<code class="language-em"><span class="n">matA</span></code>, <code class="language-em"><span class="n">matB</span></code>&thinsp;] at run-time, using values derived from two of the <code class="language-em"><span class="k">volatile</span></code> seed variables prescribed by legacy CoreMark:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/MatrixBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-173">173</a></span>
 <span class="normal"><a href="#__codelineno-5-174">174</a></span>
 <span class="normal"><a href="#__codelineno-5-175">175</a></span>
@@ -6200,9 +6343,9 @@
 </span><span id="__span-6-170"><a id="__codelineno-6-170" name="__codelineno-6-170"></a><span class="x">    </span><span class="k">return</span><span class="x"> </span><span class="nn">Crc</span><span class="x">.</span><span class="nf">add16</span><span class="x">(&lt;</span><span class="kt">int16</span><span class="x">&gt;</span><span class="n">crc</span><span class="x">, </span><span class="nn">Utils</span><span class="x">.</span><span class="nf">getCrc</span><span class="x">(</span><span class="nn">Utils</span><span class="x">.</span><span class="nc">Kind</span><span class="x">.</span><span class="n">FINAL</span><span class="x">))</span>
 </span><span id="__span-6-171"><a id="__codelineno-6-171" name="__codelineno-6-171"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Once again, the [EM] implementations of private functions like <code class="language-em highlight"><span class="nf">addVal</span></code> and <code class="language-em highlight"><span class="nf">mulMat</span></code> track their [C] counterparts found in the CoreMark <code><span class="filename">core_matrix.c</span></code> source file.</p>
+<p>Once again, the [EM] implementations of private functions like <code class="language-em"><span class="nf">addVal</span></code> and <code class="language-em"><span class="nf">mulMat</span></code> track their [C] counterparts found in the CoreMark <code><span class="filename">core_matrix.c</span></code> source file.</p>
 <h2 id="state-machine">State machine</h2>
-<p>The <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/StateBench">StateBench</a></span> module &ndash; which also conforms to the <code class="language-em highlight"><span class="nn">BenchAlgI</span></code> interface &ndash; scans an internal array [&thinsp;<code class="language-em highlight"><span class="n">memBuf</span></code>&thinsp;] for text matching a variety of numeric formats.&thinsp;  Similar to what we've seen in <code class="language-em highlight"><span class="nn">MatrixBench</span></code>, the build-time <code class="language-em highlight"><span class="nf">em$construct</span></code> function sizes <code class="language-em highlight"><span class="n">memBuf</span></code> as well as initializes some private <code class="language-em highlight"><span class="k">config</span></code> parameters used as run-time constants:</p>
+<p>The <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/StateBench">StateBench</a></span> module &ndash; which also conforms to the <code class="language-em"><span class="nn">BenchAlgI</span></code> interface &ndash; scans an internal array [&thinsp;<code class="language-em"><span class="n">memBuf</span></code>&thinsp;] for text matching a variety of numeric formats.&thinsp;  Similar to what we've seen in <code class="language-em"><span class="nn">MatrixBench</span></code>, the build-time <code class="language-em"><span class="nf">em$construct</span></code> function sizes <code class="language-em"><span class="n">memBuf</span></code> as well as initializes some private <code class="language-em"><span class="k">config</span></code> parameters used as run-time constants:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/StateBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-28">28</a></span>
 <span class="normal"><a href="#__codelineno-7-29">29</a></span>
 <span class="normal"><a href="#__codelineno-7-30">30</a></span>
@@ -6255,7 +6398,7 @@
 </span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61"></a><span class="x">    </span><span class="n">errPatLen</span><span class="x"> = </span><span class="n">errPat</span><span class="x">[0].</span><span class="k">length</span>
 </span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>The <code class="language-em highlight"><span class="nn">StateBench</span><span class="x">.</span><span class="nf">setup</span></code> function uses the <code class="language-em"><span class="n"><i>xxx</i>Pat</span></code> and <code class="language-em"><span class="n"><i>xxx</i>PatLen</span></code> <code class="language-em highlight"><span class="k">config</span></code> parameters in combination with a local <code class="language-em highlight"><span class="n">seed</span></code> variable to initializing the <code class="language-em highlight"><span class="n">memBuf</span></code> characters at run-time:</p>
+<p>The <code class="language-em highlight"><span class="nn">StateBench</span><span class="x">.</span><span class="nf">setup</span></code> function uses the <code class="language-em"><span class="n"><i>xxx</i>Pat</span></code> and <code class="language-em"><span class="n"><i>xxx</i>PatLen</span></code> <code class="language-em"><span class="k">config</span></code> parameters in combination with a local <code class="language-em"><span class="n">seed</span></code> variable to initializing the <code class="language-em"><span class="n">memBuf</span></code> characters at run-time:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/StateBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-212">212</a></span>
 <span class="normal"><a href="#__codelineno-9-213">213</a></span>
 <span class="normal"><a href="#__codelineno-9-214">214</a></span>
@@ -6332,7 +6475,7 @@
 </span><span id="__span-9-248"><a id="__codelineno-9-248" name="__codelineno-9-248"></a><span class="x">    </span><span class="k">end</span>
 </span><span id="__span-9-249"><a id="__codelineno-9-249" name="__codelineno-9-249"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Details aside, <code class="language-em highlight"><span class="nn">StateBench</span><span class="x">.</span><span class="nf">run</span></code> calls a private <code class="language-em highlight"><span class="nf">scan</span></code> function which in turn drives the algorithm's state machine; <code class="language-em highlight"><span class="nf">run</span></code> also calls a private <code class="language-em highlight"><span class="nf">scramble</span></code> function to "corrupt" <code class="language-em highlight"><span class="n">memBuf</span></code> contents ahead of the next scanning cycle:</p>
+<p>Details aside, <code class="language-em highlight"><span class="nn">StateBench</span><span class="x">.</span><span class="nf">run</span></code> calls a private <code class="language-em"><span class="nf">scan</span></code> function which in turn drives the algorithm's state machine; <code class="language-em"><span class="nf">run</span></code> also calls a private <code class="language-em"><span class="nf">scramble</span></code> function to "corrupt" <code class="language-em"><span class="n">memBuf</span></code> contents ahead of the next scanning cycle:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/StateBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-180">180</a></span>
 <span class="normal"><a href="#__codelineno-10-181">181</a></span>
 <span class="normal"><a href="#__codelineno-10-182">182</a></span>
@@ -6395,17 +6538,17 @@
 </span><span id="__span-10-209"><a id="__codelineno-10-209" name="__codelineno-10-209"></a><span class="x">    </span><span class="k">end</span>
 </span><span id="__span-10-210"><a id="__codelineno-10-210" name="__codelineno-10-210"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>The <code class="language-em highlight"><span class="n">crc</span></code> returned by <code class="language-em highlight"><span class="nn">StateBench</span><span class="x">.</span><span class="nf">run</span></code> effectively summarizes the number of transitory and finals states encountered when scanning.</p>
+<p>The <code class="language-em"><span class="n">crc</span></code> returned by <code class="language-em highlight"><span class="nn">StateBench</span><span class="x">.</span><span class="nf">run</span></code> effectively summarizes the number of transitory and finals states encountered when scanning.</p>
 <div class="admonition warning">
 <p class="admonition-title">even <em>more</em>&thinsp; code ahead &ndash; free free to scroll down to the <a href="#summary-and-next-steps">Summary</a></p>
 </div>
 <h2 id="list-processing">List processing</h2>
 <p>Unlike its peer benchmark algorithms, the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/ListBench">ListBench</a></span> module introduces some new design elements into the <strong>EM&bull;Mark</strong> hierarchy depicted <a href="#fig1">earlier</a>:</p>
 <div class="em-ul">
-<p>the <code class="language-em highlight"><span class="nn">ComparatorI</span></code> abstraction, used by <code class="language-em highlight"><span class="nn">ListBench</span></code> to generalize its internal implementation of list sorting through a function-valued parameter that compares element values</p>
-<p>the <code class="language-em highlight"><span class="nn">ValComparator</span></code> module, an implementation of <code class="language-em highlight"><span class="nn">ComparatorI</span></code> which invokes the <em>other</em>&thinsp; benchmark algorithms (through a <code class="language-em highlight"><span class="k">proxy</span></code>) in a data-dependent fashion</p>
+<p>the <code class="language-em"><span class="nn">ComparatorI</span></code> abstraction, used by <code class="language-em"><span class="nn">ListBench</span></code> to generalize its internal implementation of list sorting through a function-valued parameter that compares element values</p>
+<p>the <code class="language-em"><span class="nn">ValComparator</span></code> module, an implementation of <code class="language-em"><span class="nn">ComparatorI</span></code> which invokes the <em>other</em>&thinsp; benchmark algorithms (through a <code class="language-em"><span class="k">proxy</span></code>) in a data-dependent fashion</p>
 </div>
-<p class="annotate">The <code class="language-em highlight"><span class="nn">ComparatorI</span></code> interface names just a single function [&thinsp;<code class="language-em highlight"><span class="nf">compare</span></code>&thinsp;]&thinsp;; the <code class="language-em highlight"><span class="nn">ListBench</span></code> module in turn specifies the <em>signature</em> of this function through a public type [&thinsp;<code class="language-em highlight"><span class="nc">Comparator</span></code>&thinsp;]&thinsp;:&thinsp;(1)</p>
+<p class="annotate">The <code class="language-em"><span class="nn">ComparatorI</span></code> interface names just a single function [&thinsp;<code class="language-em"><span class="nf">compare</span></code>&thinsp;]&thinsp;; the <code class="language-em"><span class="nn">ListBench</span></code> module in turn specifies the <em>signature</em> of this function through a public type [&thinsp;<code class="language-em"><span class="t">Comparator</span></code>&thinsp;]&thinsp;:&thinsp;(1)</p>
 <ol>
 <li>a design-pattern similar to a Java <code class="language-em"><span class="nc">@FunctionalInterface</span></code> annotation or a C# <code class="language-em"><span class="k">delegate</span></code> object </li>
 </ol>
@@ -6449,7 +6592,7 @@
 </span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="x">    </span><span class="k">config</span><span class="x"> </span><span class="n">idxCompare</span><span class="x">: </span><span class="nc">Comparator</span>
 </span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21"></a><span class="x">    </span><span class="k">config</span><span class="x"> </span><span class="n">valCompare</span><span class="x">: </span><span class="nc">Comparator</span>
 </span></code></pre></div></td></tr></table></div>
-<p><code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code> (which we'll examine shortly) performs build-time binding of conformant <code class="language-em highlight"><span class="nc">Comparator</span></code> functions to the pair of <code class="language-em highlight"><span class="nn">ListBench</span></code> <code class="language-em highlight"><span class="k">config</span></code> parameters declared above.  But first, let's look at some private declarations within the <code class="language-em highlight"><span class="nn">ListBench</span></code> module:</p>
+<p><code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code> (which we'll examine shortly) performs build-time binding of conformant <code class="language-em"><span class="t">Comparator</span></code> functions to the pair of <code class="language-em"><span class="nn">ListBench</span></code> <code class="language-em"><span class="k">config</span></code> parameters declared above.  But first, let's look at some private declarations within the <code class="language-em"><span class="nn">ListBench</span></code> module:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/ListBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-23">23</a></span>
 <span class="normal"><a href="#__codelineno-13-24">24</a></span>
 <span class="normal"><a href="#__codelineno-13-25">25</a></span>
@@ -6488,8 +6631,8 @@
 </span></span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40"></a>
 </span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>The <code class="language-em highlight"><span class="nc">Elem</span></code> <code class="language-em highlight"><span class="k">struct</span></code> supports the conventional representation of a singly-linked list, with the <code class="language-em highlight"><span class="nn">ListBench</span></code> private functions manipulating references to objects of this type. The <code class="language-em highlight"><span class="n">maxElems</span></code> parameter effectively sizes the pool of <code class="language-em highlight"><span class="nc">Elem</span></code> objects, while the <code class="language-em highlight"><span class="n">curHead</span></code> variable references a particular <code class="language-em highlight"><span class="nc">Elem</span></code> object that presently anchors the list. </p>
-<p>Similar to the other <code class="language-em highlight"><span class="nn">BenchAlgI</span></code> modules we've seen, <code class="language-em highlight"><span class="nn">ListBench</span></code> cannot fully initialize its internal data structures until <code class="language-em highlight"><span class="nf">setup</span></code> fetches a <code class="language-em highlight"><span class="k">volatile</span></code> seed at run-time. Nevertheless, we still can perform a sizeable amount of <em>build-time</em> initialization within <code class="language-em highlight"><span class="nf">em$construct</span></code>: </p>
+<p>The <code class="language-em"><span class="t">Elem</span></code> <code class="language-em"><span class="k">struct</span></code> supports the conventional representation of a singly-linked list, with the <code class="language-em"><span class="nn">ListBench</span></code> private functions manipulating references to objects of this type. The <code class="language-em"><span class="n">maxElems</span></code> parameter effectively sizes the pool of <code class="language-em"><span class="t">Elem</span></code> objects, while the <code class="language-em"><span class="n">curHead</span></code> variable references a particular <code class="language-em"><span class="t">Elem</span></code> object that presently anchors the list. </p>
+<p>Similar to the other <code class="language-em"><span class="nn">BenchAlgI</span></code> modules we've seen, <code class="language-em"><span class="nn">ListBench</span></code> cannot fully initialize its internal data structures until <code class="language-em"><span class="nf">setup</span></code> fetches a <code class="language-em"><span class="k">volatile</span></code> seed at run-time. Nevertheless, we still can perform a sizeable amount of <em>build-time</em> initialization within <code class="language-em"><span class="nf">em$construct</span></code>: </p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/ListBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-43">43</a></span>
 <span class="normal"><a href="#__codelineno-14-44">44</a></span>
 <span class="normal"><a href="#__codelineno-14-45">45</a></span>
@@ -6518,15 +6661,15 @@
 </span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55"></a><span class="x">    </span><span class="n">p</span><span class="x">.</span><span class="n">next</span><span class="x"> = </span><span class="k">null</span>
 </span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Like all EM <code class="language-em highlight"><span class="k">config</span></code> params, <code class="language-em highlight"><span class="n">maxElems</span></code> behaves like a <code class="language-em highlight"><span class="k">var</span></code> at build-time but like a <code class="language-em highlight"><span class="k">const</span></code> at run-time; and the value assigned by <code class="language-em highlight"><span class="nf">em$construct</span></code> will itself depend on other build-time parameters and variables [&thinsp;<code class="language-em highlight"><span class="n">itemSize</span></code>, <code class="language-em highlight"><span class="n">memSize</span></code>&thinsp;].&thinsp;  In theory, initialization of <code class="language-em highlight"><span class="n">maxElem</span></code> could have occurred at run-time &ndash; and with EM code that looks virtually identical to what we see here.</p>
+<p>Like all EM <code class="language-em"><span class="k">config</span></code> params, <code class="language-em"><span class="n">maxElems</span></code> behaves like a <code class="language-em"><span class="k">var</span></code> at build-time but like a <code class="language-em"><span class="k">const</span></code> at run-time; and the value assigned by <code class="language-em"><span class="nf">em$construct</span></code> will itself depend on other build-time parameters and variables [&thinsp;<code class="language-em"><span class="n">itemSize</span></code>, <code class="language-em"><span class="n">memSize</span></code>&thinsp;].&thinsp;  In theory, initialization of <code class="language-em"><span class="n">maxElem</span></code> could have occurred at run-time &ndash; and with EM code that looks virtually identical to what we see here.</p>
 <div class="admonition bulb">
 <p class="admonition-title">But by executing this EM code at <em>build-time</em>&thinsp;, we'll enjoy higher-levels of performance at <em>run-time</em>&thinsp;.</p>
 </div>
-<p class="annotate">Taking this facet of EM one step further,(1)<code class="language-em highlight"><span class="nf">em$construct</span></code> "wires up" a singly-linked chain of newly allocated&thinsp;/&thinsp;initialized <code class="language-em highlight"><span class="nc">Elem</span></code> objects anchored by the <code class="language-em highlight"><span class="n">curHead</span></code> variable &ndash; a programming idiom you've learned in <em>Data Structures 101</em>&thinsp;.&thinsp;  Notice how each <code class="language-em highlight"><span class="nc">Elem</span><span class="x">.</span><span class="n">data</span></code> field similarly references a newly-allocated (but <em>uninitialized</em>&thinsp;) <code class="language-em highlight"><span class="nc">Data</span></code> object.</p>
+<p class="annotate">Taking this facet of EM one step further,(1)<code class="language-em"><span class="nf">em$construct</span></code> "wires up" a singly-linked chain of newly allocated&thinsp;/&thinsp;initialized <code class="language-em"><span class="t">Elem</span></code> objects anchored by the <code class="language-em"><span class="n">curHead</span></code> variable &ndash; a programming idiom you've learned in <em>Data Structures 101</em>&thinsp;.&thinsp;  Notice how each <code class="language-em highlight"><span class="nc">Elem</span><span class="x">.</span><span class="n">data</span></code> field similarly references a newly-allocated (but <em>uninitialized</em>&thinsp;) <code class="language-em"><span class="t">Data</span></code> object.</p>
 <ol>
 <li>that the EM language serves as its own <em>meta-language</em></li>
 </ol>
-<p>Turning now to <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">setup</span></code>, the pseudo-random values assigned to each element's <code class="language-em highlight"><span class="n">e</span><span class="x">.</span><span class="n">data</span><span class="x">.</span><span class="n">val</span></code> and <code class="language-em highlight"><span class="n">e</span><span class="x">.</span><span class="n">data</span><span class="x">.</span><span class="n">idx</span></code> fields originate with one of the <code class="language-em highlight"><span class="k">volatile</span></code> seed variables prescribed by CoreMark.&thinsp;  Before returning, the private <code class="language-em highlight"><span class="nf">sort</span></code> function (which we'll visit shortly) re-orders the list elements by comparing their <code class="language-em highlight"><span class="n">e</span><span class="x">.</span><span class="n">data</span><span class="x">.</span><span class="n">idx</span></code> fields:</p>
+<p>Turning now to <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">setup</span></code>, the pseudo-random values assigned to each element's <code class="language-em highlight"><span class="n">e</span><span class="x">.</span><span class="n">data</span><span class="x">.</span><span class="n">val</span></code> and <code class="language-em highlight"><span class="n">e</span><span class="x">.</span><span class="n">data</span><span class="x">.</span><span class="n">idx</span></code> fields originate with one of the <code class="language-em"><span class="k">volatile</span></code> seed variables prescribed by CoreMark.&thinsp;  Before returning, the private <code class="language-em"><span class="nf">sort</span></code> function (which we'll visit shortly) re-orders the list elements by comparing their <code class="language-em highlight"><span class="n">e</span><span class="x">.</span><span class="n">data</span><span class="x">.</span><span class="n">idx</span></code> fields:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/ListBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-167">167</a></span>
 <span class="normal"><a href="#__codelineno-15-168">168</a></span>
 <span class="normal"><a href="#__codelineno-15-169">169</a></span>
@@ -6573,7 +6716,7 @@
 </span><span id="__span-15-188"><a id="__codelineno-15-188" name="__codelineno-15-188"></a><span class="hll"><span class="x">    </span><span class="n">curHead</span><span class="x"> = </span><span class="nf">sort</span><span class="x">(</span><span class="n">curHead</span><span class="x">, </span><span class="n">idxCompare</span><span class="x">)</span>
 </span></span><span id="__span-15-189"><a id="__codelineno-15-189" name="__codelineno-15-189"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Finally, the following implementation of <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">run</span></code> calls many private functions [&thinsp;<code class="language-em highlight"><span class="nf">find</span></code>, <code class="language-em highlight"><span class="nf">remove</span></code>, <code class="language-em highlight"><span class="nf">reverse</span></code>, &hellip;&thinsp;] to continually rearrange the list elements; <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">run</span></code> also uses another <code class="language-em highlight"><span class="k">volatile</span></code> seed as well as calls <code class="language-em highlight"><span class="nf">sort</span></code> with two different <code class="language-em highlight"><span class="nc">Comparator</span></code> functions:</p>
+<p>Finally, the following implementation of <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">run</span></code> calls many private functions [&thinsp;<code class="language-em"><span class="nf">find</span></code>, <code class="language-em"><span class="nf">remove</span></code>, <code class="language-em"><span class="nf">reverse</span></code>, &hellip;&thinsp;] to continually rearrange the list elements; <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">run</span></code> also uses another <code class="language-em"><span class="k">volatile</span></code> seed as well as calls <code class="language-em"><span class="nf">sort</span></code> with two different <code class="language-em"><span class="t">Comparator</span></code> functions:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/ListBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-120">120</a></span>
 <span class="normal"><a href="#__codelineno-16-121">121</a></span>
 <span class="normal"><a href="#__codelineno-16-122">122</a></span>
@@ -6668,9 +6811,9 @@
 </span></code></pre></div></td></tr></table></div>
 <p>Refer to <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/ListBench">ListBench</a></span> for the definitions of the internal functions called by <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">run</span></code>&thinsp;.</p>
 <h2 id="generalized-sorting">Generalized sorting</h2>
-<p class="annotate">As already illustrated, the <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">sort</span></code> accepts a <code class="language-em highlight"><span class="n">cmp</span></code> argument of type <code class="language-em highlight"><span class="nc">Comparator</span></code> &ndash; invoked when merging <code class="language-em highlight"><span class="nc">Data</span></code> objects from a pair of sorted sub-lists: (1)</p>
+<p class="annotate">As already illustrated, the <code class="language-em highlight"><span class="nn">ListBench</span><span class="x">.</span><span class="nf">sort</span></code> accepts a <code class="language-em"><span class="n">cmp</span></code> argument of type <code class="language-em"><span class="t">Comparator</span></code> &ndash; invoked when merging <code class="language-em"><span class="t">Data</span></code> objects from a pair of sorted sub-lists: (1)</p>
 <ol>
-<li>The implementation seen here (including the inline comments) mimics the <code class="language-em highlight"><span class="nf">core_list_mergesort</span></code> function found in the legacy <code><span class="filename">core_list_join.c</span></code> source file.</li>
+<li>The implementation seen here (including the inline comments) mimics the <code class="language-em"><span class="nf">core_list_mergesort</span></code> function found in the legacy <code><span class="filename">core_list_join.c</span></code> source file.</li>
 </ol>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/ListBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-191">191</a></span>
 <span class="normal"><a href="#__codelineno-17-192">192</a></span>
@@ -6798,7 +6941,7 @@
 </span><span id="__span-17-252"><a id="__codelineno-17-252" name="__codelineno-17-252"></a><span class="x">    </span><span class="k">return</span><span class="x"> </span><span class="n">list</span>
 </span><span id="__span-17-253"><a id="__codelineno-17-253" name="__codelineno-17-253"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Looking first at the <code class="language-em highlight"><span class="nn">IdxComparator</span></code> module, you couldn't imagine a simpler implementation of its <code class="language-em highlight"><span class="nn">ComparatorI</span><span class="x">.</span><span class="nf">compare</span></code> function &ndash; which returns the signed difference of the <code class="language-em highlight"><span class="n">idx</span></code> fields after scrambling the <code class="language-em highlight"><span class="n">val</span></code> fields:</p>
+<p>Looking first at the <code class="language-em"><span class="nn">IdxComparator</span></code> module, you couldn't imagine a simpler implementation of its <code class="language-em highlight"><span class="nn">ComparatorI</span><span class="x">.</span><span class="nf">compare</span></code> function &ndash; which returns the signed difference of the <code class="language-em"><span class="n">idx</span></code> fields after scrambling the <code class="language-em"><span class="n">val</span></code> fields:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/IdxComparator.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
 <span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
 <span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
@@ -6817,9 +6960,9 @@
 </span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="hll"><span class="x">    </span><span class="k">return</span><span class="x"> </span><span class="n">a</span><span class="x">.</span><span class="n">idx</span><span class="x"> - </span><span class="n">b</span><span class="x">.</span><span class="n">idx</span>
 </span></span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p class="annotate">Turning now to the <code class="language-em highlight"><span class="nn">ValComparator</span></code> module, you couldn't imagine a more <em>convoluted</em>&thinsp; implementation of <code class="language-em highlight"><span class="nn">ComparatorI</span><span class="x">.</span><span class="nf">compare</span></code> &ndash; which returns the signed difference of values computed by the private <code class="language-em highlight"><span class="nf">calc</span></code> function:&thinsp;(1)</p>
+<p class="annotate">Turning now to the <code class="language-em"><span class="nn">ValComparator</span></code> module, you couldn't imagine a more <em>convoluted</em>&thinsp; implementation of <code class="language-em highlight"><span class="nn">ComparatorI</span><span class="x">.</span><span class="nf">compare</span></code> &ndash; which returns the signed difference of values computed by the private <code class="language-em"><span class="nf">calc</span></code> function:&thinsp;(1)</p>
 <ol>
-<li>the twin of <code class="language-em highlight"><span class="nf">calc_func</span></code> found in the legacy <code><span class="filename">core_list_join.c</span></code> source file</li>
+<li>the twin of <code class="language-em"><span class="nf">calc_func</span></code> found in the legacy <code><span class="filename">core_list_join.c</span></code> source file</li>
 </ol>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/ValComparator.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
@@ -6909,9 +7052,9 @@
 </span><span id="__span-19-50"><a id="__codelineno-19-50" name="__codelineno-19-50"></a><span class="hll"><span class="x">    </span><span class="k">return</span><span class="x"> </span><span class="n">val1</span><span class="x"> - </span><span class="n">val2</span>
 </span></span><span id="__span-19-51"><a id="__codelineno-19-51" name="__codelineno-19-51"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Besides scrambling the contents of a <code class="language-em highlight"><span class="n">val</span></code> field reference passed as its argument, <code class="language-em highlight"><span class="nf">calc</span></code> actually runs <em>other</em> benchmark algorithms via a pair of <code class="language-em highlight"><span class="nn">BenchAlgI</span></code> proxies [&thinsp;<code class="language-em highlight"><span class="nn">Bench0</span></code>, <code class="language-em highlight"><span class="nn">Bench1</span></code>&thinsp;]&thinsp;.  </p>
+<p>Besides scrambling the contents of a <code class="language-em"><span class="n">val</span></code> field reference passed as its argument, <code class="language-em"><span class="nf">calc</span></code> actually runs <em>other</em> benchmark algorithms via a pair of <code class="language-em"><span class="nn">BenchAlgI</span></code> proxies [&thinsp;<code class="language-em"><span class="nn">Bench0</span></code>, <code class="language-em"><span class="nn">Bench1</span></code>&thinsp;]&thinsp;.  </p>
 <h2 id="benchmark-configuration">Benchmark configuration</h2>
-<p>Having visited most of the individual modules found in the <strong>EM&bull;Mark</strong> <a href="#fig1">design hierarchy</a>, let's return to <code class="language-em highlight"><span class="nn">CoreBench</span></code> and review its build-time configuration functions:</p>
+<p>Having visited most of the individual modules found in the <strong>EM&bull;Mark</strong> <a href="#fig1">design hierarchy</a>, let's return to <code class="language-em"><span class="nn">CoreBench</span></code> and review its build-time configuration functions:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/CoreBench.em [exc]</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-14">14</a></span>
 <span class="normal"><a href="#__codelineno-20-15">15</a></span>
 <span class="normal"><a href="#__codelineno-20-16">16</a></span>
@@ -6958,14 +7101,14 @@
 </span><span id="__span-20-35"><a id="__codelineno-20-35" name="__codelineno-20-35"></a><span class="x">    </span><span class="nn">Utils</span><span class="x">.</span><span class="nf">bindSeedH</span><span class="x">(3, 0x66)</span>
 </span><span id="__span-20-36"><a id="__codelineno-20-36" name="__codelineno-20-36"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>In addition to calculating and assigning the <code class="language-em highlight"><span class="n">memSize</span></code> <code class="language-em highlight"><span class="k">config</span></code> parameter for each of the benchmarks, <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code> binds a pair of <code class="language-em highlight"><span class="nc">Comparator</span></code> functions to <code class="language-em highlight"><span class="nn">ListBench</span></code> as well as binds the <code class="language-em highlight"><span class="nn">StateBench</span></code> and <code class="language-em highlight"><span class="nn">MatrixBench</span></code> modules to the <code class="language-em highlight"><span class="nn">ValComparator</span></code> proxies.</p>
-<p><code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$construct</span></code> completes build-time configuration by binding a prescribed set of values to the <code class="language-em highlight"><span class="k">volatile</span></code> seed variables accessed at run-time by the individual benchmarks.</p>
+<p>In addition to calculating and assigning the <code class="language-em"><span class="n">memSize</span></code> <code class="language-em"><span class="k">config</span></code> parameter for each of the benchmarks, <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$configure</span></code> binds a pair of <code class="language-em"><span class="t">Comparator</span></code> functions to <code class="language-em"><span class="nn">ListBench</span></code> as well as binds the <code class="language-em"><span class="nn">StateBench</span></code> and <code class="language-em"><span class="nn">MatrixBench</span></code> modules to the <code class="language-em"><span class="nn">ValComparator</span></code> proxies.</p>
+<p><code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">em$construct</span></code> completes build-time configuration by binding a prescribed set of values to the <code class="language-em"><span class="k">volatile</span></code> seed variables accessed at run-time by the individual benchmarks.</p>
 <h2 id="summary-and-next-steps">Summary and next steps</h2>
 <p>Whether you've arrived here by studying (or skipping&thinsp;!!) all of that EM code, let's summarize some key takeaways from the exercise of transforming CoreMark into <strong>EM&bull;Mark</strong>&thinsp;:</p>
 <div class="em-ul">
 <p>The CoreMark source code &ndash; written in C with "plenty of room for improvement" &ndash; typifies much of the legacy software targeting resource-constrained MCUs.</p>
 <p>The high-level design of <strong>EM&bull;Mark</strong> (depicted <a href="#fig1">here</a>) showcases many aspects of the EM langage &ndash; separation of concerns, client-supplier decoupling, build-time configuration, etc.</p>
-<p>The <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/ActiveRunnerP">ActiveRunnerP</a></span> and <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/SleepyRunnerP">SleepyRunnerP</a></span> programs can run on <em>any</em>&thinsp; MCU for which an <code class="language-em highlight"><span class="n">em$distro</span></code> package exists &ndash; making <strong>EM&bull;Mark</strong> ideal for benchmarking MCU performance.</p>
+<p>The <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/ActiveRunnerP">ActiveRunnerP</a></span> and <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.bench/em.coremark/SleepyRunnerP">SleepyRunnerP</a></span> programs can run on <em>any</em>&thinsp; MCU for which an <code class="language-em"><span class="n">em$distro</span></code> package exists &ndash; making <strong>EM&bull;Mark</strong> ideal for benchmarking MCU performance.</p>
 </div>
 <div class="admonition bulb">
 <p class="admonition-title">Besides embodying a higher-level of programming, <strong>EM&bull;Mark</strong> also <em>outperforms</em>&thinsp; legacy CoreMark.</p>

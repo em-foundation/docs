@@ -708,6 +708,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -735,6 +747,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -744,6 +761,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5661,45 +5804,155 @@
                   
 
 
-<style>.md-nav--primary {display: none;}</style>
-
 <h1 id="the-em-programming-language">The EM&trade; Programming Language</h1>
-<p>Welcome to the world of <strong>EM</strong> &ndash; a novel programming language and runtime environment targeting resource-constrained embedded systems. To increase your understanding of the language and its runtime, this site documents all aspects of the EM software platform.</p>
-<p>If you haven't already done so, we strongly suggest starting with <a class="em-link" href="intro/">Introducing EM</a> which offers a 10,000' overview of the EM language and runtime &ndash; even if you just can't wait to install the EM software and start hacking some code&thinsp;!!!&nbsp;&nbsp;  Besides rationalizing the need for EM, this overview introduces concepts as well as defines terminology used throughout the site.</p>
-<p>Building upon this introductory overview of EM, we've then organized the remaining documents found at this site as follows:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><a class="em-link" href="install/">Installing EM</a></td>
-<td style="text-align: left;">software and hardware required to build and run EM programs</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a class="em-link" href="using/">Using EM</a></td>
-<td style="text-align: left;">language immersion through a graduated series of portable EM examples</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a class="em-link" href="porting/">Porting EM</a></td>
-<td style="text-align: left;">steps required for (re-)targeting EM to a specific HW/SW environment</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a class="em-link" href="advancing/">Advancing EM</a></td>
-<td style="text-align: left;">deep-dives into specific facets of the EM platform</td>
-</tr>
-</tbody>
-</table>
-<details class="note">
-<summary>Click here to see more (less) details</summary>
-<p>We'll often insert additional commentary on the material at hand in this collapsible format, providing deeper insights into some aspect of EM. While (hopefully) insightful, feel free to skip these comments at any time.</p>
-</details>
+<p>Welcome to the world of <strong>EM</strong> [<em>ˈɛm</em>&thinsp;] &ndash; a novel programming language and runtime environment targeting resource-constrained embedded systems. To increase your understanding of the language and its runtime, this site documents all aspects of the EM software platform.</p>
+<!-- imagemapper.noc.io -->
+
+<div style="margin-bottom: -15px">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1262 674">
+  <image width="1262" height="674" xlink:href="/assets/splash.png"></image>
+  <a xlink:href="https://www.linkedin.com/company/the-em-foundation/about/?viewAsMember=true" target="_blank">
+    <rect x="6" y="500" fill="#fff" opacity="0" width="188" height="77"></rect>
+  </a>
+  <a xlink:href="https://blog.openem.org" target="_blank">
+    <rect x="1019" y="496" fill="#fff" opacity="0" width="237" height="77"></rect>
+  </a>
+</svg>
+</div>
+
+<div class="admonition question">
+<p class="admonition-title">1 &mdash; Why another language</p>
+<p>To fill a void...&thinsp; While <strong>C</strong> remains the dominant programming language for 8&thinsp;/&thinsp;16&thinsp;/&thinsp;32-bit microcontrollers [MCUs] with limited memory and processing resources, we see opportunites for a <em>higher-level</em> language which at the same time paves the way for <em>higher-levels</em> of embedded system performance.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">2 &mdash; Where does EM make its greatest impact</p>
+<p>Quite simply, by reducing overall program size &ndash; a careabout for software developers working with resource-constrained MCUs.&thinsp; Reducing runtime memory requirements not only can improve program execution time, but can dramatically lower overall power consumption within the MCU as well.</p>
+<p>Though the EM language translator ultimately generates (portable) C/C++ code as output, a novel <em>configuration</em> phase within the program build-flow serves as the "secret sauce" behind these performance improvements.</p>
+<p>A quick pass through&thinsp; <a class="em-link" href="//blog.openem.org/post-005/">EM&thinsp;.&thinsp;optimize = WPO&thinsp;+&thinsp;ACO</a> &thinsp;should offer some more insights.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">3 &mdash; Show me some sample EM code</p>
+<p><div class="language-em highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">package</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">examples</span><span class="x">.</span><span class="n">basic</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">from</span><span class="x"> </span><span class="n">em$distro</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">BoardC</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">from</span><span class="x"> </span><span class="nn">BoardC</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">AppLed</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">from</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">mcu</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">Common</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">module</span><span class="x"> </span><span class="nn">BlinkerP</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">end</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">def</span><span class="x"> </span><span class="nf">em$run</span><span class="x">()</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="x">    </span><span class="nn">AppLed</span><span class="x">.</span><span class="nf">on</span><span class="x">()</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="x">    </span><span class="k">for</span><span class="x"> </span><span class="k">auto</span><span class="x"> </span><span class="n">i</span><span class="x"> = 0; </span><span class="n">i</span><span class="x"> &lt; 10; </span><span class="n">i</span><span class="x">++</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="x">        </span><span class="nn">Common</span><span class="x">.</span><span class="nn">BusyWait</span><span class="x">.</span><span class="nf">wait</span><span class="x">(500 * 1000L)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="x">        </span><span class="nn">AppLed</span><span class="x">.</span><span class="nf">toggle</span><span class="x">()</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="x">    </span><span class="k">end</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="x">    </span><span class="nn">AppLed</span><span class="x">.</span><span class="nf">off</span><span class="x">()</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">end</span>
+</span></code></pre></div>
+If you <em>really</em> can't wait to see some more code, visit <a class="em-link" href="/cargo/em.docs/em.examples.basic/BlinkerP">Browsing EM</a>. </p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">4 &mdash; How can I benchmark EM against C</p>
+<p>Comparing the more modern "look-and-feel" of EM against legacy C can take us down a slippery slope where personal taste quickly dominates the discussion.&thinsp; EM must trump C <em>quantitatively</em>.&thinsp;</p>
+<p>To that end, we've provided a robust framework for benchmarking EM against C &ndash; not only by quantifying program size and execution time, but also by measuring power consumption and energy efficiency.</p>
+<p>Have a look at <a class="em-link" href="//blog.openem.org/post-006/">CoreMark reimagined &ndash; the EM&bull;Mark suite</a> to learn about our latest efforts in this arena. </p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">5 &mdash; What markets&thinsp;/&thinsp;applications does EM best serve</p>
+<p>Broadly speaking, any "thing" under the <em>Internet of Things</em>&thinsp;[&thinsp;<strong>IoT</strong>&thinsp;] umbrella.&thinsp; More specifically, what pundits now term the <em>Ambient IoT</em>&thinsp;&ndash; dominated by MCUs which push the size&thinsp;/&thinsp;power&thinsp;/&thinsp;cost envelope to ever-lower points.</p>
+<p>Many of the applications served by EM will rely upon small batteries or harvested energy to power the underlying MCU &ndash; used to sense&thinsp;/&thinsp;control part of its environment, as well as to communicate wirelessly with IoT hubs.</p>
+</div>
 <div class="em-break"></div>
 
-<p>So follow me, and let the journey begin&thinsp;.... <a class="em-link" href="intro/"><span class="em-walk"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-84.3 104.5c1-.4 1.9-.8 2.9-1.2l-16.9 63.5c-5.6 21.1-.1 43.6 14.7 59.7l70.7 77.1 22 88.1c4.3 17.1 21.7 27.6 38.8 23.3s27.6-21.7 23.3-38.8l-23-92.1c-1.9-7.8-5.8-14.9-11.2-20.8l-49.5-54 19.3-65.5 9.6 23c4.4 10.6 12.5 19.3 22.8 24.5l26.7 13.3c15.8 7.9 35 1.5 42.9-14.3s1.5-35-14.3-42.9L281 232.7l-15.3-36.8c-17.2-41.1-57.4-67.9-102-67.9-22.8 0-45.3 4.8-66.1 14l-8 3.5c-32.9 14.6-58.1 42.4-69.4 76.5l-2.6 7.8c-5.6 16.8 3.5 34.9 20.2 40.5s34.9-3.5 40.5-20.2l2.6-7.8c5.7-17.1 18.3-30.9 34.7-38.2l8-3.5zm-30 135.1-25 62.4-59.3 59.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l61.6-61.7c4.6-4.6 8.2-10.1 10.6-16.1l14.5-36.2-40.7-44.4c-2.5-2.7-4.8-5.6-7-8.6zm456.9-182.2c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l25.4 25.3H384c-17.7 0-32 14.3-32 32s14.3 32 32 32h146.7l-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l80-80c12.5-12.5 12.5-32.8 0-45.3l-80-80z"/></svg></span></span></a></p>
+<div class="admonition question">
+<p class="admonition-title">6 &mdash; Where did EM originate</p>
+<p>Conceived at UC Santa Barbara in 2010, the EM language and runtime has now found its way onto more than twenty MCUs from almost a dozen silicon vendors.</p>
+<p>Targeting high-volume commercial applications over the past decade, EM's uncanny ability to reduce firmware footprint proved critical in keeping system size, power, and cost in check.</p>
+<p><a class="em-link" href="/intro/#the-history-of-em">The history of EM</a> offers a more detailed telling of the language's origin story.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">7 &mdash; Why should silicon vendors care about EM</p>
+<p>While most MCU roadmaps point upwards &ndash; faster cores, more memory, advanced peripherals &ndash; the Ambient IoT space creates new opportunities for silicon vendors to take their MCUs down the "low-road", so to speak.</p>
+<p>Many vendors also maintain a wide-range of "hidden" MCUs embedded within advanced peripherals (such as radios or accelerators) as well as within custom ASICs targeting high-volume vertical markets.</p>
+<p>EM could benefit all of these scenarios, enabling more MCU functionality with less MCU firmware.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">8 &mdash; Why should universities care about EM</p>
+<p>Birthed in academia and matured in industry, EM offers many collaborative opportunities for CS/CE departments to assume a leadership role in advancing the language and its runtime.</p>
+<p>Faculty and students alike can learn more in <a class="em-link" href="/edu">Academia &ndash; say "hello world" to EM</a>.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">9 &mdash; Does EM fit within the RISC-V eco-system</p>
+<p>The emergence of <strong>RISC-V</strong> as an open instruction-set architecture has triggered an abundance of innovation in MCU design.&thinsp;  While much of the focus remains on high-performance computing from the edge up to the cloud, EM could play a pivotal role in driving RISC-V "over the edge" towards the Ambient IoT fringe.</p>
+<p>Consider our <a class="em-link" href="/intro/#tiny-code-tiny-chips">Tiny code &rarr; Tiny chips</a>&thinsp; premise as a starting point.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">10 &mdash; How will EM mesh with AI&thinsp;/&thinsp;ML</p>
+<p>Pushing intelligence from the cloud down to distributed edge devices has become standard practice; and as we move further towards Ambient IoT, we'll want to push AI&thinsp;/&thinsp;ML algorithms even closer to our input sources.</p>
+<p>While <strong>TinyML</strong> has emerged as a standard for embedded MCUs, early prototypes integrating EM with the <strong>Meta AI Glow</strong> compiler have yielded significantly smaller runtime images for the same <code class="language-em highlight"><span class="si">.tflite</span></code> input model.</p>
+</div>
+<div class="em-break"></div>
+
+<div class="admonition question">
+<p class="admonition-title">11 &mdash; How do I work with EM</p>
+<p>To help flatten the learning curve, we offer <strong>EM Builder</strong> &ndash; a <strong>VS Code</strong> extension which integrates the language and its runtime into this popular IDE.&thinsp;  Visit <a class="em-link" href="//blog.openem.org/post-004/">Learning EM through VS Code</a> for a quick introduction.</p>
+<p>At the same time, we recognize the importance of having a robust <em>command-line interface</em> for use in automated build flows.&thinsp;  We've therefore exposed the <code class="language-em highlight"><span class="si">em-cli</span></code> command to streamline integration into your environment.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">12 &mdash; What type of license covers EM</p>
+<p>We've made all of the EM software &ndash; the language translator and its runtime components &ndash; openly and freely available under the terms of an <em>Amended MIT License</em>&thinsp;, which you can find <a href="https://marketplace.visualstudio.com/items/the-em-foundation.em-builder/license">here</a>&thinsp;.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">13 &mdash; Can I access the EM source code</p>
+<p>Techincally speaking, the <strong>EM SDK</strong> (&thinsp;downloaded as part of <a class="em-link" href="/install">Installing EM</a>&thinsp;) already contains sources for the language translator as well as the runtime components.</p>
+<p>Over time, you'll find all of the <strong>EM-SDK</strong> sources publically accessible on <a href="https://github.com/em-foundation/em-sdk">GitHub</a>&thinsp;. </p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">14 &mdash; Which MCUs does EM support</p>
+<p>While EM has supported over twenty 8&thinsp;/&thinsp;16&thinsp;/&thinsp;32-bit MCUs from a dozen silicon vendors since inception, we've chosen the <a href="https://www.ti.com/product/CC2340R5">TI CC2340R5</a>&thinsp; for the public launch of EM &ndash; exemplifying a "typical" MCU targeted by the language.</p>
+<p>Support for the <a href="https://www.microchip.com/en-us/product/atsamd21g18">ATSAMD21G18</a> &ndash; used in the <a href="https://docs.arduino.cc/hardware/zero/">Arduino Zero</a>&thinsp; and its many derivatives &ndash; will then follow; we also plan on targeting a comparable <strong>RISC-V</strong> MCU soon thereafter.</p>
+<p><a class="em-link" href="blog.openem.org/post-002/">Choosing the next EM&thinsp;&bull;&thinsp;MCU target hardware</a> describes our thought process in greater detail.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">15 &mdash; Can I port EM to my favorite MCU</p>
+<p>Yes, you can &ndash; assuming you have knowledge of the MCU's architecture as well as experience writing "bare-metal" firmware for the target device.&thinsp;  Needless to say, you'll also have to learn a little EM&thinsp;!!</p>
+<p><a class="em-link" href="/porting/">Porting EM</a> will lay out a detailed process for incrementally developing an <strong>EM distro</strong> &ndash; all of the software required to support a new MCU.&thinsp; Existing distros for MCUs already supported by EM will serve as exemplars.</p>
+</div>
+<div class="em-break"></div>
+
+<div class="admonition question">
+<p class="admonition-title">16 &mdash; Who supports EM</p>
+<p><strong>The EM Foundation</strong> &ndash; a non-profit organization which promotes, sustains, and evolves the EM programming language and runtime environment for use by the broader embedded systems community.</p>
+<p>We anticipate receiving 501(c)(3) tax-exempt status later this year.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">17 &mdash; Does EM have any competition</p>
+<p class="annotate">Grace Murray Hopper(1) famously said,&thinsp; "The most dangerous phrase [...] is:&nbsp; <em>We've always done it that way</em>&thinsp;".</p>
+<ol>
+<li>an early pioneer in computer science, credited for her leadership role in bring the COBOL language to fruition as well as for first coining the term "bug" </li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">18 &mdash; How do I learn more about EM</p>
+<p>Start with <a class="em-link" href="/intro/">Introducing EM</a> and go as far as you'd like &ndash; and don't worry about quickly skimming any material.&thinsp;  If you want to play with the language and its runtime, set your sights on <a class="em-link" href="/install/">Installing EM</a> and then <a class="em-link" href="/using/">Using EM</a>.</p>
+<p>You'll find more informal discussions of this novel language in "byte-sized" posts found at <a class="em-link" href="//blog.openem.org/">Blogging EM</a>.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">19 &mdash; How can I get involved in moving EM forward</p>
+<p><span class="em-color-orange">&thinsp;<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></strong>&ensp;</span> learn as much as you can about the EM language and its runtime;</p>
+<p><span class="em-color-orange">&thinsp;<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></strong>&ensp;</span> follow <strong>The EM Foundation</strong> on <a href="https://www.linkedin.com/company/the-em-foundation/about/?viewAsMember=true">LinkedIn</a>&thinsp;, tell your professional network about EM; and</p>
+<p><span class="em-color-orange">&thinsp;<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></strong>&ensp;</span> don't hesitate to contact us (see below) if you'd like to engage more actively with <strong>The EM Foundation</strong>.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">20 &mdash; I still have more questions about EM</p>
+<p><span class="em-color-orange">&thinsp;<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></strong>&ensp;</span> once you start coding, we'll direct you to <a href="https://github.com/em-foundation/em-sdk">GitHub</a>&thinsp; for general comments and specific issues;</p>
+<p><span class="em-color-orange">&thinsp;<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></strong>&ensp;</span> for higher-level queries about the language, use <a class="em-link" href="//blog.openem.org/post-007/">Blogging EM</a> as your starting point;</p>
+<p><span class="em-color-orange">&thinsp;<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></strong>&ensp;</span> you can always message <strong>The EM Foundation</strong> (privately) on <a href="https://www.linkedin.com/company/the-em-foundation/about/?viewAsMember=true">LinkedIn</a>&thinsp;; and </p>
+<p><span class="em-color-orange">&thinsp;<strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></strong>&ensp;</span> if all else fails, just contact us by emailing <a href="mailto:hello@openem.org">hello@openem.org</a>&thinsp;!!</p>
+</div>
 
 
 

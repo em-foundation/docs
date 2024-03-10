@@ -859,6 +859,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -886,6 +898,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -895,6 +912,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5982,7 +6125,7 @@
 </tr>
 </tbody>
 </table>
-<p>A special YAML file named <code><span class="filename">em-boards</span></code> found the <code class="language-em highlight"><span class="n">em$distro</span></code> package folder binds these logical pin names to physical pin numbers of your target board.  <a class="em-link" href="/porting/">Porting EM</a> will have more to say about <code><span class="filename">em-boards</span></code>, as well as explain the special <code><span class="filename">setup-*.properties</span></code> files located in the root of your distro bundle. </p>
+<p>A special YAML file named <code><span class="filename">em-boards</span></code> found the <code class="language-em"><span class="n">em$distro</span></code> package folder binds these logical pin names to physical pin numbers of your target board.  <a class="em-link" href="/porting/">Porting EM</a> will have more to say about <code><span class="filename">em-boards</span></code>, as well as explain the special <code><span class="filename">setup-*.properties</span></code> files located in the root of your distro bundle. </p>
 <h2 id="tour-00-guided-tours">Tour 00 &ndash; guided tours</h2>
 <p>The following animation illustrates the <strong>EM - Start Tour</strong> command, which you'll use to view each of the tours described in the remainder of this document.  You'll find these tours in appropriately named&thinsp;<code><span class="filename">.emtour</span></code> files, located inside the&thinsp;<code><span class="filename">.tours/101_Using_EM</span></code> folder delivered with the <code><span class="filename">em.docs</span></code> bundle.</p>
 <div class="em-screen" id="fig0-dead">
@@ -6011,7 +6154,7 @@
 </figure>
 <div class="em-small">
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime quickly blinks your board's <code><span class="filename">sysLed</span></code> at startup.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="nn">BlinkerP</span></code> program toggles <code><span class="filename">appLed</span></code> every ~0.5&thinsp;s.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em"><span class="nn">BlinkerP</span></code> program toggles <code><span class="filename">appLed</span></code> every ~0.5&thinsp;s.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime turns on <code><span class="filename">sysLed</span></code> upon normal program termination.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The next capture zooms into the <code><span class="filename">appOut</span></code> signal.</p>
 </div>
@@ -6036,8 +6179,8 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The busy-wait bracketed by <code class="language-em highlight"><span class="nb">%%[d+]</span></code> and <code class="language-em highlight"><span class="nb">%%[d-]</span></code> measures ~498 ms. </p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Executing a <code class="language-em highlight"><span class="nb">fail</span></code> statement causes <code><span class="filename">sysLed</span></code> to blink rapidly. </p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The busy-wait bracketed by <code class="language-em"><span class="k">%%[d+]</span></code> and <code class="language-em"><span class="k">%%[d-]</span></code> measures ~498 ms. </p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Executing a <code class="language-em"><span class="k">fail</span></code> statement causes <code><span class="filename">sysLed</span></code> to blink rapidly. </p>
 </div>
 <div class="em-break"></div>
 
@@ -6047,10 +6190,10 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em highlight"><span class="nb">%%[&gt;cnt]</span></code> statement outputs the (non-printable) <code class="language-em highlight"><span class="x">0x82</span></code> control byte followed by 2 bytes of payload.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em highlight"><span class="nb">%%[&gt;bits11]</span></code> statement outputs the (non-printable) <code class="language-em highlight"><span class="x">0x81</span></code> control byte followed by 1 byte of payload.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em highlight"><span class="nb">%%[c:bits11]</span></code> statement causes the <code><span class="filename">dbgC</span></code> pin to rapidly toggle 2 times &ndash; since <code><span class="x">(bits11&thinsp;==&thinsp;0x1)</span></code></p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The ASCII character output of <code class="language-em highlight"><span class="nb">printf</span></code> begins here &ndash; <code><span class="x">0x63('c')</span></code>,  <code><span class="x">0x6E('n')</span></code>, and so on.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em"><span class="k">%%[&gt;cnt]</span></code> statement outputs the (non-printable) <code class="language-em"><span class="k">0x82</span></code> control byte followed by 2 bytes of payload.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em"><span class="k">%%[&gt;bits11]</span></code> statement outputs the (non-printable) <code class="language-em"><span class="k">0x81</span></code> control byte followed by 1 byte of payload.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The <code class="language-em"><span class="k">%%[c:bits11]</span></code> statement causes the <code><span class="filename">dbgC</span></code> pin to rapidly toggle 2 times &ndash; since <code><span class="x">(bits11&thinsp;==&thinsp;0x1)</span></code></p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp;  The ASCII character output of <code class="language-em"><span class="k">printf</span></code> begins here &ndash; <code><span class="x">0x63('c')</span></code>,  <code><span class="x">0x6E('n')</span></code>, and so on.</p>
 </div>
 <h2 id="tour-03-threading-with-fibers">Tour 03 &ndash; threading with fibers</h2>
 <p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/FiberP">FiberP</a></span> program, which introduces a very lightweight threading construct termed a <em>fiber</em>.  This tour also visits the EM runtime's (portable) implementation of fibers found in the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/FiberMgr">FiberMgr</a></span> module.</p>
@@ -6062,8 +6205,8 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="nb">%%[d]</span></code> statement in <code class="language-em highlight"><span class="nf">blinkFB</span></code> marks each point in time where the <code class="language-em highlight"><span class="n">blinkF</span></code> fiber begins execution.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The ~200 ms between <code class="language-em highlight"><span class="n">blinkF</span></code> cycles includes <code><span class="filename">appLed</span></code> on&thinsp;/&thinsp;off time plus <code class="language-em highlight"><span class="nn">FiberMgr</span></code> dispatch overhead.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em"><span class="k">%%[d]</span></code> statement in <code class="language-em"><span class="nf">blinkFB</span></code> marks each point in time where the <code class="language-em"><span class="n">blinkF</span></code> fiber begins execution.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The ~200 ms between <code class="language-em"><span class="n">blinkF</span></code> cycles includes <code><span class="filename">appLed</span></code> on&thinsp;/&thinsp;off time plus <code class="language-em"><span class="nn">FiberMgr</span></code> dispatch overhead.</p>
 </div>
 <h2 id="tour-04-button-handlers">Tour 04 &ndash; button handlers</h2>
 <p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button1P">Button1P</a></span> program, which handles incoming events generated when pressing <code><span class="filename">appBut</span></code> on your board.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/GpioEdgeDetectMinI">GpioEdgeDetectMinI</a></span> interface that in turn extends the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/GpioI">GpioI</a></span> abstraction.</p>
@@ -6088,12 +6231,12 @@
 </figure>
 <div class="em-small">
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; You've pressed <code><span class="filename">appBut</span></code> at this time, which then begins awakening the MCU from its low-power sleep.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Requiring 34.2&thinsp;&mu;s to fully power the MCU, <code><span class="filename">dbgB</span></code>'s falling edge marks when <code class="language-em highlight"><span class="nn">Button1P</span></code> starts actively running.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Control enters <code class="language-em highlight"><span class="nf">handler</span></code> within 3.4&thinsp;&mu;s, whose initial <code class="language-em highlight"><span class="nb">%%[c]</span></code> statement toggles <code><span class="filename">dbgC</span></code> for 1.2&thinsp;&mu;s</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; After some housekeeping, <code class="language-em highlight"><span class="nn">Button1P</span></code> finally turns-on <code><span class="filename">appLed</span></code> &ndash; 5.9&thinsp;&mu;s since actively running.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Requiring 34.2&thinsp;&mu;s to fully power the MCU, <code><span class="filename">dbgB</span></code>'s falling edge marks when <code class="language-em"><span class="nn">Button1P</span></code> starts actively running.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Control enters <code class="language-em"><span class="nf">handler</span></code> within 3.4&thinsp;&mu;s, whose initial <code class="language-em"><span class="k">%%[c]</span></code> statement toggles <code><span class="filename">dbgC</span></code> for 1.2&thinsp;&mu;s</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; After some housekeeping, <code class="language-em"><span class="nn">Button1P</span></code> finally turns-on <code><span class="filename">appLed</span></code> &ndash; 5.9&thinsp;&mu;s since actively running.</p>
 </div>
 <h2 id="tour-05-button-fibers">Tour 05 &ndash; button fibers</h2>
-<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button2P">Button2P</a></span> program, which uses a <code class="language-em highlight"><span class="nc">Fiber</span></code> object to better handle incoming events.  This tour also analyzes the performance impact of this approach compared with the earlier <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button1P">Button1P</a></span> program.</p>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button2P">Button2P</a></span> program, which uses a <code class="language-em"><span class="t">Fiber</span></code> object to better handle incoming events.  This tour also analyzes the performance impact of this approach compared with the earlier <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button1P">Button1P</a></span> program.</p>
 <div class="em-break"></div>
 
 <figure id="fig5">
@@ -6102,7 +6245,7 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code><span class="filename">dbgB</span></code> shows that <code class="language-em highlight"><span class="nn">Button2P</span></code> awoke exactly twice in response to pressing <code><span class="filename">appBut</span></code> &ndash; no glitches this time&thinsp;!!!</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code><span class="filename">dbgB</span></code> shows that <code class="language-em"><span class="nn">Button2P</span></code> awoke exactly twice in response to pressing <code><span class="filename">appBut</span></code> &ndash; no glitches this time&thinsp;!!!</p>
 </div>
 <div class="em-break"></div>
 
@@ -6112,10 +6255,10 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nn">Button2P</span></code> resumes execution in 35.2&thinsp;&mu;s; keep in mind that low-power MCU wakeup times can vary slightly. </p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Control then enters <code class="language-em highlight"><span class="nf">handler</span></code> 3.4&thinsp;&mu;s later &ndash; consistent with the <code class="language-em highlight"><span class="nn">Button1P</span></code> <a href="#tour-04-button-handlers">capture</a> seen above.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Unlike <code class="language-em highlight"><span class="nn">Button1P</span></code>, the <code class="language-em highlight"><span class="nn">Button2P</span></code> <code class="language-em highlight"><span class="nf">handler</span></code> readies the <code class="language-em highlight"><span class="n">blinkF</span></code> fiber which then gains control 5.3&thinsp;&mu;s later.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Finally, the <code class="language-em highlight"><span class="nf">blinkFB</span></code> function turns-on <code><span class="filename">appLed</span></code> &ndash; with only ~5&thinsp;&mu;s of <code class="language-em highlight"><span class="nn">FiberMgr</span></code> scheduling overhead.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em"><span class="nn">Button2P</span></code> resumes execution in 35.2&thinsp;&mu;s; keep in mind that low-power MCU wakeup times can vary slightly. </p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Control then enters <code class="language-em"><span class="nf">handler</span></code> 3.4&thinsp;&mu;s later &ndash; consistent with the <code class="language-em"><span class="nn">Button1P</span></code> <a href="#tour-04-button-handlers">capture</a> seen above.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Unlike <code class="language-em"><span class="nn">Button1P</span></code>, the <code class="language-em"><span class="nn">Button2P</span></code> <code class="language-em"><span class="nf">handler</span></code> readies the <code class="language-em"><span class="n">blinkF</span></code> fiber which then gains control 5.3&thinsp;&mu;s later.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Finally, the <code class="language-em"><span class="nf">blinkFB</span></code> function turns-on <code><span class="filename">appLed</span></code> &ndash; with only ~5&thinsp;&mu;s of <code class="language-em"><span class="nn">FiberMgr</span></code> scheduling overhead.</p>
 </div>
 <h2 id="tour-06-button-objects">Tour 06 &ndash; button objects</h2>
 <p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Button3P">Button3P</a></span> program, which debounces button input signals in a portable fashion.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/ButtonI">ButtonI</a></span> interface along with a module implementing this interface &ndash; the latter generated by the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/ButtonT">ButtonT</a></span> template at build-time.</p>
@@ -6128,8 +6271,8 @@
 </figure>
 <div class="em-small">
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once triggered by pressing your board's button, the EM runtime polls the state of <code><span class="filename">appBut</span></code> every 100&thinsp;ms. </p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; If pressed for &ge;&thinsp;100&thinsp;ms but &le;&thinsp;4&thinsp;s, <code class="language-em highlight"><span class="nn">Button3P</span></code> will blink <code><span class="filename">appLed</span></code> within 100&thinsp;ms of <em>releasing</em> the button.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Hitting the 4&thinsp;s mark, <code class="language-em highlight"><span class="nn">Button3P</span></code> immediately blinks <code><span class="filename">sysLed</span></code>&ndash; regardless of how long <code><span class="filename">appBut</span></code> remains low.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; If pressed for &ge;&thinsp;100&thinsp;ms but &le;&thinsp;4&thinsp;s, <code class="language-em"><span class="nn">Button3P</span></code> will blink <code><span class="filename">appLed</span></code> within 100&thinsp;ms of <em>releasing</em> the button.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Hitting the 4&thinsp;s mark, <code class="language-em"><span class="nn">Button3P</span></code> immediately blinks <code><span class="filename">sysLed</span></code>&ndash; regardless of how long <code><span class="filename">appBut</span></code> remains low.</p>
 </div>
 <div class="em-break"></div>
 
@@ -6139,9 +6282,9 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; After polling <code><span class="filename">appBut</span></code> for 4&thinsp;s, the EM runtime invokes <code class="language-em highlight"><span class="nn">Button3P</span><span class="x">.</span><span class="nf">onPressedCB</span></code> which leaves a <code class="language-em highlight"><span class="nb">%%[c]</span></code> mark.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Discovering that <code><span class="filename">appBut</span></code> remains pressed [&thinsp;=&thinsp;<strong>L</strong>&thinsp;], <code class="language-em highlight"><span class="nf">onPressedCB</span></code> then blinks <code><span class="filename">sysLed</span></code> for 40&thinsp;ms.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Only 7.5&thinsp;&mu;s elapses from <code><span class="filename">dbgB</span></code> falling to <code><span class="filename">sysLed</span></code> rising, which includes scheduling fibers plus 1.2&thinsp;&mu;s for <code class="language-em highlight"><span class="nb">%%[c]</span></code>.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; After polling <code><span class="filename">appBut</span></code> for 4&thinsp;s, the EM runtime invokes <code class="language-em highlight"><span class="nn">Button3P</span><span class="x">.</span><span class="nf">onPressedCB</span></code> which leaves a <code class="language-em"><span class="k">%%[c]</span></code> mark.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Discovering that <code><span class="filename">appBut</span></code> remains pressed [&thinsp;=&thinsp;<strong>L</strong>&thinsp;], <code class="language-em"><span class="nf">onPressedCB</span></code> then blinks <code><span class="filename">sysLed</span></code> for 40&thinsp;ms.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Only 7.5&thinsp;&mu;s elapses from <code><span class="filename">dbgB</span></code> falling to <code><span class="filename">sysLed</span></code> rising, which includes scheduling fibers plus 1.2&thinsp;&mu;s for <code class="language-em"><span class="k">%%[c]</span></code>.</p>
 </div>
 <h2 id="tour-07-timer-handlers">Tour 07 &ndash; timer handlers</h2>
 <p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/OneShot1P">OneShot1P</a></span> program, which handles timer events that awaken the MCU.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/OneShotMilliI">OneShotMilliI</a></span> interface, which abstracts the functionality of a short-term timer with millisecond resolution.</p>
@@ -6153,12 +6296,12 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code><span class="x">dbgB</span></code> signal shows that <code class="language-em highlight"><span class="nn">OneShot1P</span></code> awakens from low-power sleep every 500&thinsp;ms.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once awake, <code class="language-em highlight"><span class="nn">OneShot1P</span></code> toggles <code><span class="x">dbgC</span></code> and <code><span class="x">dbgD</span></code> before blinking <code><span class="x">appLed</span></code> &ndash; like our earlier <code class="language-em highlight"><span class="nn">Button1P</span></code> <a href="#tour-04-button-handlers">capture</a></p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code><span class="x">dbgB</span></code> signal shows that <code class="language-em"><span class="nn">OneShot1P</span></code> awakens from low-power sleep every 500&thinsp;ms.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once awake, <code class="language-em"><span class="nn">OneShot1P</span></code> toggles <code><span class="x">dbgC</span></code> and <code><span class="x">dbgD</span></code> before blinking <code><span class="x">appLed</span></code> &ndash; like our earlier <code class="language-em"><span class="nn">Button1P</span></code> <a href="#tour-04-button-handlers">capture</a></p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The 7.5&thinsp;&mu;s "wakeup-to-blink" latency seen here includes the overhead of servicing an on-chip MCU timer.</p>
 </div>
 <h2 id="tour-08-timer-fibers">Tour 08 &ndash; timer fibers</h2>
-<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/OneShot2P">OneShot2P</a></span> program, which now uses <code class="language-em highlight"><span class="nc">Fiber</span></code> objects to enhance robustness when handing timer events.  This tour also invites performance comparision with the earlier <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/OneShot1P">OneShot1P</a></span> program.</p>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/OneShot2P">OneShot2P</a></span> program, which now uses <code class="language-em"><span class="t">Fiber</span></code> objects to enhance robustness when handing timer events.  This tour also invites performance comparision with the earlier <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/OneShot1P">OneShot1P</a></span> program.</p>
 <div class="em-break"></div>
 
 <figure id="fig8">
@@ -6167,7 +6310,7 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Fiber scheduling adds the extra 1.1&thinsp;&mu;s of latency seen here, compared with our previous <code class="language-em highlight"><span class="nn">OneShot1P</span></code> <a href="#tour-07-timer-handlers">capture</a>. </p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Fiber scheduling adds the extra 1.1&thinsp;&mu;s of latency seen here, compared with our previous <code class="language-em"><span class="nn">OneShot1P</span></code> <a href="#tour-07-timer-handlers">capture</a>. </p>
 </div>
 <h2 id="tour-09-timer-service">Tour 09 &ndash; timer service</h2>
 <p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/PollerP">PollerP</a></span> program, which introduces a portable function for pausing execution at run-time.  This tour also visits the top-level <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.mcu/Poller">Poller</a></span> module as well as the lower-level <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/PollerAux">PollerAux</a></span> module &ndash; both implementing the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/PollerI">PollerI</a></span> interface.</p>
@@ -6179,7 +6322,7 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Without <code class="language-em highlight"><span class="nb">%%[c]</span></code> and <code class="language-em highlight"><span class="nb">%%[d]</span></code> marks, <code class="language-em highlight"><span class="nn">PollerP</span></code> further reduces latency compared to <code class="language-em highlight"><span class="nn">OneShot1P</span></code> and <code class="language-em highlight"><span class="nn">OneShot2P</span></code>.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Without <code class="language-em"><span class="k">%%[c]</span></code> and <code class="language-em"><span class="k">%%[d]</span></code> marks, <code class="language-em"><span class="nn">PollerP</span></code> further reduces latency compared to <code class="language-em"><span class="nn">OneShot1P</span></code> and <code class="language-em"><span class="nn">OneShot2P</span></code>.</p>
 </div>
 <div class="em-break"></div>
 
@@ -6189,17 +6332,17 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <strong>[L]</strong> <code><span class="x">dbgB</span></code> signal indicates that the <code class="language-em highlight"><span class="nn">PollerP</span></code> program has awoken.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nn">PollerP</span></code> then calls <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> within 2.5&thinsp;&mu;s, which then asserts the <code><span class="x">appLed</span></code> pin</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <strong>[L]</strong> <code><span class="x">dbgB</span></code> signal indicates that the <code class="language-em"><span class="nn">PollerP</span></code> program has awoken.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em"><span class="nn">PollerP</span></code> then calls <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> within 2.5&thinsp;&mu;s, which then asserts the <code><span class="x">appLed</span></code> pin</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Calling <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> 2.5&thinsp;&mu;s later asserts the <code><span class="x">appLed</span></code> pin and then internally invokes <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code>.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code> proceeds to suspend program execution for 5&thinsp;ms &ndash; the duration of the wink.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The EM runtime toggles <code><span class="x">dbgB</span></code> once before awaiting the next wakeup <strong>[H]</strong>&thinsp;; we'll explain more in a later tour.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; An MCU timer event will eventually awaken the program 5&thinsp;ms later, with <code><span class="x">dbgB</span></code> now signalling <strong>[L]</strong>&thinsp;.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2v2Z"/></svg></span> &nbsp; Control unwinds from <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code> back to <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code>, which will now lower the <code><span class="x">appLed</span></code> pin.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-8 14 4-8V7H9v2h4l-4 8h2Z"/></svg></span> &nbsp; <code class="language-em highlight"><span class="nf">em$run</span></code> finally regains control, and then suspends execution for 500&thinsp;ms by calling <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code> directly.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-8 14 4-8V7H9v2h4l-4 8h2Z"/></svg></span> &nbsp; <code class="language-em"><span class="nf">em$run</span></code> finally regains control, and then suspends execution for 500&thinsp;ms by calling <code class="language-em highlight"><span class="nn">Poller</span><span class="x">.</span><span class="nf">pause</span></code> directly.</p>
 </div>
 <h2 id="tour-10-wakeup-alarms">Tour 10 &ndash; wakeup alarms</h2>
-<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Alarm1P">Alarm1P</a></span> program, which uses <code class="language-em highlight"><span class="nc">Alarm</span></code> objects to schedule longer-term wakeups with (sub-)second resolution.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> module, which internally uses a proxy implementing the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/WakeupTimerI">WakeupTimerI</a></span> interface.</p>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Alarm1P">Alarm1P</a></span> program, which uses <code class="language-em"><span class="t">Alarm</span></code> objects to schedule longer-term wakeups with (sub-)second resolution.  This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> module, which internally uses a proxy implementing the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal/WakeupTimerI">WakeupTimerI</a></span> interface.</p>
 <div class="em-break"></div>
 
 <figure id="fig10">
@@ -6208,9 +6351,9 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="nn">Alarm1P</span></code> program alternately awakens from a low-power deep-sleep of 2&thinsp;s or else 750&thinsp;ms in duration.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The program's <code class="language-em highlight"><span class="nf">blinkFB</span></code> function winks <code><span class="x">appLed</span></code> for 100&thinsp;ms, with the MCU idling in the interim.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> returns, <code class="language-em highlight"><span class="nn">Alarm1P</span></code> calls <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code> to re-enter an extended period of deep-sleep.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em"><span class="nn">Alarm1P</span></code> program alternately awakens from a low-power deep-sleep of 2&thinsp;s or else 750&thinsp;ms in duration.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The program's <code class="language-em"><span class="nf">blinkFB</span></code> function winks <code><span class="x">appLed</span></code> for 100&thinsp;ms, with the MCU idling in the interim.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; Once <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code> returns, <code class="language-em"><span class="nn">Alarm1P</span></code> calls <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code> to re-enter an extended period of deep-sleep.</p>
 </div>
 <div class="em-break"></div>
 
@@ -6220,12 +6363,12 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <em>single</em> <code><span class="x">dbgB</span></code> mark indicates the MCU has entered its "lite-sleep" mode, after <code class="language-em highlight"><span class="nn">Alarm1P</span></code> calls <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code></p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The MCU awakens from its lite-sleep within 100&thinsp;ms, returning to <code class="language-em highlight"><span class="nf">wink</span></code> which then turns-off <code><span class="x">appLed</span></code>.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <em>single</em> <code><span class="x">dbgB</span></code> mark indicates the MCU has entered its "lite-sleep" mode, after <code class="language-em"><span class="nn">Alarm1P</span></code> calls <code class="language-em highlight"><span class="nn">AppLed</span><span class="x">.</span><span class="nf">wink</span></code></p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The MCU awakens from its lite-sleep within 100&thinsp;ms, returning to <code class="language-em"><span class="nf">wink</span></code> which then turns-off <code><span class="x">appLed</span></code>.</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <em>double</em> <code><span class="x">dbgB</span></code> mark indicates the MCU has entered its "deep-sleep" mode, after calling <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code></p>
 </div>
 <h2 id="tour-11-aligned-wakeups">Tour 11 &ndash; aligned wakeups</h2>
-<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Alarm2P">Alarm2P</a></span> program, which now aligns <code class="language-em highlight"><span class="nc">Alarm</span></code> wakeups with a given time-window.  This tour also re-visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> implementation, seeing how it schedules the next wakeup event as well as the role played by the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/EpochTime">EpochTime</a></span> module.</p>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/Alarm2P">Alarm2P</a></span> program, which now aligns <code class="language-em"><span class="t">Alarm</span></code> wakeups with a given time-window.  This tour also re-visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> implementation, seeing how it schedules the next wakeup event as well as the role played by the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/EpochTime">EpochTime</a></span> module.</p>
 <div class="em-break"></div>
 
 <figure id="fig11">
@@ -6240,7 +6383,7 @@
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; But after a 100&thinsp;ms wink, this <code class="language-em highlight"><span class="n">alarm</span><span class="x">.</span><span class="nf">wakeup</span></code> call deep-sleeps the MCU for just 1.400&thinsp;s to stay aligned.</p>
 </div>
 <h2 id="tour-12-cyclic-tickers">Tour 12 &ndash; cyclic tickers</h2>
-<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/TickerP">TickerP</a></span> program, which takes duty-cycled functions to a higher level. This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/TickerMgr">TickerMgr</a></span> module, whose implementation of <code class="language-em highlight"><span class="nc">Ticker</span></code> objects emulates as well as builds upon the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> and <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/FiberMgr">FiberMgr</a></span> studied earlier.</p>
+<p>This tour centers around the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/TickerP">TickerP</a></span> program, which takes duty-cycled functions to a higher level. This tour also visits the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/TickerMgr">TickerMgr</a></span> module, whose implementation of <code class="language-em"><span class="t">Ticker</span></code> objects emulates as well as builds upon the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/AlarmMgr">AlarmMgr</a></span> and <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils/FiberMgr">FiberMgr</a></span> studied earlier.</p>
 <div class="em-break"></div>
 
 <figure id="fig12">
@@ -6249,9 +6392,9 @@
 </figcaption>
 </figure>
 <div class="em-small">
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="n">appTicker</span><span class="x">.</span><span class="nf">start</span></code> call by the <code class="language-em highlight"><span class="nn">TickerP</span></code> program initiates a train of 100&thinsp;ms <code><span class="x">appLed</span></code> winks, spaced 1&thinsp;s apart.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="n">sysTicker</span><span class="x">.</span><span class="nf">start</span></code> call by <code class="language-em highlight"><span class="nn">TickerP</span></code> then initiates a train of 100&thinsp;ms <code><span class="x">sydLed</span></code> winks, but spaced 1.5&thinsp;s apart.</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; When <code class="language-em highlight"><span class="n">appTicker</span></code> and <code class="language-em highlight"><span class="n">sysTicker</span></code> wakeups coincide, their callbacks run on a first-come, first-served basis.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="n">appTicker</span><span class="x">.</span><span class="nf">start</span></code> call by the <code class="language-em"><span class="nn">TickerP</span></code> program initiates a train of 100&thinsp;ms <code><span class="x">appLed</span></code> winks, spaced 1&thinsp;s apart.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; The <code class="language-em highlight"><span class="n">sysTicker</span><span class="x">.</span><span class="nf">start</span></code> call by <code class="language-em"><span class="nn">TickerP</span></code> then initiates a train of 100&thinsp;ms <code><span class="x">sydLed</span></code> winks, but spaced 1.5&thinsp;s apart.</p>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span> &nbsp; When <code class="language-em"><span class="n">appTicker</span></code> and <code class="language-em"><span class="n">sysTicker</span></code> wakeups coincide, their callbacks run on a first-come, first-served basis.</p>
 </div>
 <div class="em-break"></div>
 

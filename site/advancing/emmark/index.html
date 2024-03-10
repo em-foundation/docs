@@ -700,6 +700,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -727,6 +739,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -736,6 +753,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5837,7 +5980,7 @@
 </div>
 </div>
 <h2 id="program-size">Program size</h2>
-<p>Much like the legacy CoreMark C code, the <code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code> EM program performs multiple iterations of the benchmark algorithms and displays results when finished:</p>
+<p>Much like the legacy CoreMark C code, the <code class="language-em"><span class="nn">ActiveRunnerP</span></code> EM program performs multiple iterations of the benchmark algorithms and displays results when finished:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/ActiveRunnerP.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -5918,7 +6061,7 @@
 </span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="x">    </span><span class="nb">printf</span><span class="x"> </span><span class="s">&quot;final crc = %04x\n&quot;</span><span class="x">, </span><span class="nn">Utils</span><span class="x">.</span><span class="nf">getCrc</span><span class="x">(</span><span class="nn">Utils</span><span class="x">.</span><span class="nc">Kind</span><span class="x">.</span><span class="n">FINAL</span><span class="x">)</span>
 </span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Recalling the central role played by the <code class="language-em highlight"><span class="nn">CoreBench</span></code> module in the <strong>EM&bull;Mark</strong> <a href="/advancing/coremark/#high-level-design">high-level design</a>, the implementation of its <code class="language-em highlight"><span class="nf">setup</span></code> and <code class="language-em highlight"><span class="nf">run</span></code> functions dominate the code&thinsp;/&thinsp;data sizes of the <code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code> program image:</p>
+<p>Recalling the central role played by the <code class="language-em"><span class="nn">CoreBench</span></code> module in the <strong>EM&bull;Mark</strong> <a href="/advancing/coremark/#high-level-design">high-level design</a>, the implementation of its <code class="language-em"><span class="nf">setup</span></code> and <code class="language-em"><span class="nf">run</span></code> functions dominate the code&thinsp;/&thinsp;data sizes of the <code class="language-em"><span class="nn">ActiveRunnerP</span></code> program image:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">LP-EM-CC2340R5</label><label for="__tabbed_2_2">Board #2</label><label for="__tabbed_2_3">Board #3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5958,7 +6101,7 @@
 </div>
 </div>
 <h2 id="execution-time">Execution time</h2>
-<p>We've used a <a href="https://www.saleae.com/">Saleae Logic Analyzer</a> to capture logic traces of the legacy CoreMark and <code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code> programs executing ten iterations of the benchmark. To help measure execution time, both programs blink <code><span class="x">appLed</span></code> for 250&thinsp;ms before&thinsp;/&thinsp;after the main benchmark loop:</p>
+<p>We've used a <a href="https://www.saleae.com/">Saleae Logic Analyzer</a> to capture logic traces of the legacy CoreMark and <code class="language-em"><span class="nn">ActiveRunnerP</span></code> programs executing ten iterations of the benchmark. To help measure execution time, both programs blink <code><span class="x">appLed</span></code> for 250&thinsp;ms before&thinsp;/&thinsp;after the main benchmark loop:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">LP-EM-CC2340R5</label><label for="__tabbed_3_2">Board #2</label><label for="__tabbed_3_3">Board #3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6004,7 +6147,7 @@
 </tbody>
 </table>
 <p><figure>
-<figcaption>Execution Times &ndash; Summary
+<figcaption>Execution Time &ndash; Summary
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -6016,7 +6159,7 @@
 </div>
 </div>
 <h2 id="active-power">Active power</h2>
-<p>We've used a <a href="https://www.joulescope.com/products/js220-joulescope-precision-energy-analyzer">Joulescope JS220</a> to capture power profiles of legacy CoreMark and <code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code> executing ten iterations of the benchmark. To help measure power consumption, both programs blink <code><span class="x">appLed</span></code> for 250&thinsp;ms before&thinsp;/&thinsp;after the main benchmark loop:</p>
+<p>We've used a <a href="https://www.joulescope.com/products/js220-joulescope-precision-energy-analyzer">Joulescope JS220</a> to capture power profiles of legacy CoreMark and <code class="language-em"><span class="nn">ActiveRunnerP</span></code> executing ten iterations of the benchmark. To help measure power consumption, both programs blink <code><span class="x">appLed</span></code> for 250&thinsp;ms before&thinsp;/&thinsp;after the main benchmark loop:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">LP-EM-CC2340R5</label><label for="__tabbed_4_2">Board #2</label><label for="__tabbed_4_3">Board #3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6062,7 +6205,7 @@
 </tbody>
 </table>
 <p><figure>
-<figcaption>Execution Times &ndash; Summary
+<figcaption>Active Power &ndash; Summary
 </figure></p>
 </div>
 <div class="tabbed-block">
@@ -6075,13 +6218,13 @@
 </div>
 <h2 id="energy-efficiency">Energy efficiency</h2>
 <p>Applications targeting resource-constrained (ultra-low-power) MCUs often spend most of their time in deep-sleep &ndash; awakening at rates from once-per-second down to once-per-day, and actively executing for time windows measured in just milliseconds.</p>
-<p>The CPU-centric nature of legacy CoreMark (and hence <code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code>) doesn't necessarily reflect "real-world" duty-cycled applications targeting ULP MCUs, where maximizing energy efficiency becomes paramount.</p>
+<p>The CPU-centric nature of legacy CoreMark (and hence <code class="language-em"><span class="nn">ActiveRunnerP</span></code>) doesn't necessarily reflect "real-world" duty-cycled applications targeting ULP MCUs, where maximizing energy efficiency becomes paramount.</p>
 <details class="abstract">
 <summary>ULPMark&reg; benchmark suite</summary>
 <p>In addition to legacy CoreMark, the EEMBC organization offers <a href="https://www.eembc.org/ulpmark/">ULPMark</a> &ndash; a benchmark suite that quantifies many aspects of ultra-low-power MCUs.  One of the profiles in the suite in fact measures active power consumption, using CoreMark as the workload; other profiles quantify the true energy cost of deep-sleep.</p>
 <p>Unlike CoreMark, however, ULPMark requires a paid license to access its source code &mdash; an obstacle for purely inquisitive engineers working with ULP MCUs.&thinsp; <strong>EM&bull;Mark</strong> attempts to fill this niche with a complementary pair of portable programs for benchmarking code size and execution time, as well as power consumption.</p>
 </details>
-<p>To that end, <strong>EM&bull;Mark</strong> also incorporates the <code class="language-em highlight"><span class="nn">SleepyRunnerP</span></code> program &ndash; which executes the same underlying benchmark algorithms as <code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code>, but in a very different setting:</p>
+<p>To that end, <strong>EM&bull;Mark</strong> also incorporates the <code class="language-em"><span class="nn">SleepyRunnerP</span></code> program &ndash; which executes the same underlying benchmark algorithms as <code class="language-em"><span class="nn">ActiveRunnerP</span></code>, but in a very different setting:</p>
 <div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.coremark/SleepyRunnerP.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -6168,13 +6311,13 @@
 </span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="x">    </span><span class="nb">halt</span>
 </span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="k">end</span>
 </span></code></pre></div></td></tr></table></div>
-<p class="annotate">Here too, <code class="language-em highlight"><span class="nn">SleepyRunnerP</span></code> calls <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">setup</span></code> at startup; but instead of the "main loop" seen <a href="/advancing/emmark/#__codelineno-0-26">earlier</a> in <code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code>, we now make a <em>single</em>&thinsp; call to <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">run</span></code> just once-per-second.  Relying only on modules found in the <code><span class="x">em.core</span></code> bundle [&thinsp;<code class="language-em highlight"><span class="nn">FiberMgr</span></code>, <code class="language-em highlight"><span class="nn">TickerMgr</span></code>&thinsp;], <code class="language-em highlight"><span class="nn">SleepyRunnerP</span></code> can execute on any target MCU for which an  <code class="language-em highlight"><span class="n">em$distro</span></code> package exists.&thinsp;(1)</p>
+<p class="annotate">Here too, <code class="language-em"><span class="nn">SleepyRunnerP</span></code> calls <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">setup</span></code> at startup; but instead of the "main loop" seen <a href="/advancing/emmark/#__codelineno-0-26">earlier</a> in <code class="language-em"><span class="nn">ActiveRunnerP</span></code>, we now make a <em>single</em>&thinsp; call to <code class="language-em highlight"><span class="nn">CoreBench</span><span class="x">.</span><span class="nf">run</span></code> just once-per-second.  Relying only on modules found in the <code><span class="x">em.core</span></code> bundle [&thinsp;<code class="language-em"><span class="nn">FiberMgr</span></code>, <code class="language-em"><span class="nn">TickerMgr</span></code>&thinsp;], <code class="language-em"><span class="nn">SleepyRunnerP</span></code> can execute on any target MCU for which an  <code class="language-em"><span class="n">em$distro</span></code> package exists.&thinsp;(1)</p>
 <ol>
 <li>Review the material in <a href="/using/using-02/#tour-12-cyclic-tickers">Tour 12 &ndash; cyclic tickers</a> if necessary</li>
 </ol>
 <div class="em-break"></div>
 
-<p>The following sets of Saleae logic-captures first show <code class="language-em highlight"><span class="nn">SleepyRunner</span></code> awakening once-per-second, and then zoom-in to view the execution time of a single active cycle:</p>
+<p>The following sets of Saleae logic-captures first show <code class="language-em"><span class="nn">SleepyRunner</span></code> awakening once-per-second, and then zoom-in to view the execution time of a single active cycle:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">LP-EM-CC2340R5</label><label for="__tabbed_5_2">Board #2</label><label for="__tabbed_5_3">Board #3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6195,10 +6338,10 @@
 </div>
 </div>
 </div>
-<p>Note that measurement <code><span class="x">M0</span></code> reflects the total active time as framed by <code><span class="x">dbgB</span></code> (managed automatically by EM), whereas measurement <code><span class="x">M1</span></code> reflects the actual benchmark interval between the <code><span class="x">dbgD</span></code> toggles seen <a href="/advancing/emmark/#__codelineno-1-35">earlier</a> in <code class="language-em highlight"><span class="nn">SleepyRunnerP</span></code>.&thinsp;  Also note that the latter measurement does <em>not</em>&thinsp; include the time to format&thinsp;/&thinsp;output the <code class="language-em highlight"><span class="s">&quot;crc = 72be\n&quot;</span></code> character string.</p>
+<p>Note that measurement <code><span class="x">M0</span></code> reflects the total active time as framed by <code><span class="x">dbgB</span></code> (managed automatically by EM), whereas measurement <code><span class="x">M1</span></code> reflects the actual benchmark interval between the <code><span class="x">dbgD</span></code> toggles seen <a href="/advancing/emmark/#__codelineno-1-35">earlier</a> in <code class="language-em"><span class="nn">SleepyRunnerP</span></code>.&thinsp;  Also note that the latter measurement does <em>not</em>&thinsp; include the time to format&thinsp;/&thinsp;output the <code class="language-em highlight"><span class="s">&quot;crc = 72be\n&quot;</span></code> character string.</p>
 <div class="em-break"></div>
 
-<p>The following sets of Joulescope power-captures report the total amount of energy consumed over a one-second interval, as well as the amount of energy consumed when the <code class="language-em highlight"><span class="nn">SleepyRunnerP</span></code> program awakens and executes a single iteration of the benchmark:</p>
+<p>The following sets of Joulescope power-captures report the total amount of energy consumed over a one-second interval, as well as the amount of energy consumed when the <code class="language-em"><span class="nn">SleepyRunnerP</span></code> program awakens and executes a single iteration of the benchmark:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">LP-EM-CC2340R5</label><label for="__tabbed_6_2">Board #2</label><label for="__tabbed_6_3">Board #3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6225,7 +6368,7 @@
 <p>Improvements in <strong>EM&bull;Mark</strong> program size and execution time compared with legacy CoreMark hopefully supports EM's claim of <em>higher-level programming and higher-levels of performance</em>&thinsp;.</p>
 <p>Building <strong>EM&bull;Mark</strong> with the most aggressive "optimize-for-size" options passed to the underlying C/C++ compiler reflects the reality of targeting resource-constrained MCUs.</p>
 <p>Placing runtime code and constants into SRAM (versus Flash) not only improves execution time but also reduces active power consumption &mdash; a corrolary of optimizing for program size.</p>
-<p>While <code class="language-em highlight"><span class="nn">ActiveRunnerP</span></code> maintains the same focus as legacy CoreMark (inviting side-by-side comparison), the <code class="language-em highlight"><span class="nn">SleepyRunnerP</span></code> benchmark more accurately quantifies the energy efficiency of ULP MCUs.</p>
+<p>While <code class="language-em"><span class="nn">ActiveRunnerP</span></code> maintains the same focus as legacy CoreMark (inviting side-by-side comparison), the <code class="language-em"><span class="nn">SleepyRunnerP</span></code> benchmark more accurately quantifies the energy efficiency of ULP MCUs.</p>
 </div>
 <div class="em-break"></div>
 

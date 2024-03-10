@@ -776,6 +776,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -803,6 +815,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -812,6 +829,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5774,7 +5917,7 @@
 
 
 <h1 id="getting-started-with-em">Getting started with EM</h1>
-<p class="annotate">Using the EM language and its runtime requires a <em>cross-development</em> environment, in which <em>hosted</em> tooling will build&thinsp;/&thinsp;load executable EM programs onto <em>target</em> hardware. For the host, you'll use a PC running <strong>Windows</strong>, <strong>Linux</strong>, or <strong>MacOS</strong>(1); for the target, you can choose any MCU board for which an <code class="language-em highlight"><span class="n">em$distro</span></code> package already exists.</p>
+<p class="annotate">Using the EM language and its runtime requires a <em>cross-development</em> environment, in which <em>hosted</em> tooling will build&thinsp;/&thinsp;load executable EM programs onto <em>target</em> hardware. For the host, you'll use a PC running <strong>Windows</strong>, <strong>Linux</strong>, or <strong>MacOS</strong>(1); for the target, you can choose any MCU board for which an <code class="language-em"><span class="n">em$distro</span></code> package already exists.</p>
 <ol>
 <li>MacOS support coming in 1Q24</li>
 </ol>
@@ -5832,7 +5975,7 @@
 <div class="tabbed-block">
 <p>The Texas Instruments <a href="https://www.ti.com/product/CC2340R5">CC2340R5</a> wireless MCU features an Arm Cortex-M0+ CPU together with a familiar suite of peripherals &ndash; including a generic 2.4&thinsp;GHz radio with BLE 5.x support.  Texas Instruments also offers an inexpensive <a href="https://www.ti.com/tool/LP-EM-CC2340R5">LP-EM-CC2340R5</a> evaluation board in their familiar <strong>LaunchPad</strong> format &ndash; available from TI as well as their distributors.</p>
 <p>You should also purchase this <a href="https://www.ti.com/tool/LP-XDS110ET">emulator board</a> from TI &ndash; unless you already own a "classic" TI LaunchPad with on-board XDS110 support.  In that case, you can easily connect this legacy LP to your new LP-EM-CC2340R5 board using a cable supplied by TI.  If you haven't used an XDS110 before, run the <code><span class="filename">one_time_setup</span></code> script found in <code><span class="filename">&laquo;EM-SDK&raquo;/tools/ti-uniflash</span></code>.</p>
-<p>The <code class="language-em highlight"><span class="n">ti</span><span class="x">.</span><span class="n">cc23xx</span></code> distro supports the following <strong>Setups</strong> for the <strong>EM-SDK</strong> tools:</p>
+<p>The <code class="language-em"><span class="n">ti.cc23xx</span></code> distro supports the following <strong>Setups</strong> for the <strong>EM-SDK</strong> tools:</p>
 <table>
 <thead>
 <tr>
@@ -5871,7 +6014,7 @@
 <p>TBD &ndash; <em>open for suggestions</em></p>
 </div>
 <div class="tabbed-block">
-<p>Nothing to buy, of course&thinsp;!!!&nbsp;  You can still <em>build</em> executable programs using any <code class="language-em highlight"><span class="n">em$distro</span></code> package within the <strong>EM SDK</strong>; you just can't <em>load</em> these programs onto target hardware.</p>
+<p>Nothing to buy, of course&thinsp;!!!&nbsp;  You can still <em>build</em> executable programs using any <code class="language-em"><span class="n">em$distro</span></code> package within the <strong>EM SDK</strong>; you just can't <em>load</em> these programs onto target hardware.</p>
 <p>Familiarize yourself, however, with the <strong>Setups</strong> available for one (or more) of the <em>other</em> hardware tracks enumerated above.</p>
 </div>
 </div>

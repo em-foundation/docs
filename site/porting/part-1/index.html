@@ -1,0 +1,6474 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../part-2/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>The bare minimum - Platform Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-12 6 6-6-6-6-1.4 1.4 4.6 4.6-4.6 4.6L10 18Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DX6RZ0VNPT"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DX6RZ0VNPT",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DX6RZ0VNPT",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#xxyyyza-buildload-a-target-program" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Platform Documentation" class="md-header__button md-logo" aria-label="Platform Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo12.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Platform Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The bare minimum
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../intro/" class="md-tabs__link">
+          
+  
+    
+  
+  Introducing EM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../install/" class="md-tabs__link">
+        
+  
+    
+  
+  Installing EM
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../using/" class="md-tabs__link">
+          
+  
+    
+  
+  Using EM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Porting EM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advancing/" class="md-tabs__link">
+          
+  
+    
+  
+  Advancing EM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../discuss/" class="md-tabs__link">
+        
+  
+    
+  
+  Discussing EM
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cargo/" class="md-tabs__link">
+          
+  
+    
+  
+  Browsing EM
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Platform Documentation" class="md-nav__button md-logo" aria-label="Platform Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo12.png" alt="logo">
+
+    </a>
+    Platform Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../intro/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Introducing EM
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducing EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/to-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM modules & interfaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/to-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM composites & templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/to-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM program life-cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/to-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM runtime bundles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing EM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../using/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Using EM
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Using EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using/using-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM tooling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using/using-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM runtime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Porting EM
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Porting EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../advancing/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advancing EM
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Advancing EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command-line interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/coremark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CoreMark Reimagined
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/emmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EM&bull;Mark Results
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/energy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Energy Consuption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advancing/syntax/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Language Syntax
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../discuss/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Discussing EM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Browsing EM
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Browsing EM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.bench/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.bench
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            em.bench
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.bench/em.coremark/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.coremark
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_2_2" id="__nav_8_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            em.coremark
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/ActiveRunnerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ActiveRunnerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/BenchAlgI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BenchAlgI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/ComparatorI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ComparatorI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/CoreBench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CoreBench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/Crc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/IdxComparator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IdxComparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/ListBench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ListBench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/MatrixBench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MatrixBench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/SleepyRunnerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SleepyRunnerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/StateBench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StateBench
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/Utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Utils
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.bench/em.coremark/ValComparator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ValComparator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.core
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            em.core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/em.hal/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.hal
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_3_2" id="__nav_8_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            em.hal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/BusyWaitI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BusyWaitI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/BusyWaitN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BusyWaitN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/ButtonI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ButtonI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/ButtonN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ButtonN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/ConsoleUartI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleUartI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/ConsoleUartN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleUartN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/CopierI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CopierI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/FlashI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FlashI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/FlashN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FlashN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GlobalInterruptsI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GlobalInterruptsI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GlobalInterruptsN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GlobalInterruptsN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GpioEdgeDetectMinI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioEdgeDetectMinI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GpioEdgeDetectMinN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioEdgeDetectMinN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GpioI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/GpioN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/HostUartI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HostUartI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/HostUartN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HostUartN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/IdleI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IdleI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/IdleN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IdleN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/InterruptSourceI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InterruptSourceI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/IntrVecI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntrVecI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/LedI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/LedN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/McuI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/McuInfoI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuInfoI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/McuInfoN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuInfoN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/McuN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/MsCounterI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MsCounterI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/MsCounterN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MsCounterN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/OneShotMilliI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotMilliI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/OneShotMilliN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotMilliN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/PollerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PollerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/PollerN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PollerN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/RandI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RandI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/RandN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RandN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/SpiMasterI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SpiMasterI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/TimeoutI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TimeoutI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/TimeoutN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TimeoutN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UptimerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UptimerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UptimerN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UptimerN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UsCounterI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UsCounterI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UsCounterN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UsCounterN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/UsThreshI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UsThreshI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/WakeupTimerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WakeupTimerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/WakeupTimerN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WakeupTimerN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/WatchdogI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WatchdogI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.hal/WatchdogN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WatchdogN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/em.lang/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.lang
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_3_3" id="__nav_8_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            em.lang
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Assert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/AssertProviderI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssertProviderI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/AssertProviderN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssertProviderN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Atom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atom
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/BuildC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BuildC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/BuilderI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BuilderI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/CompositeI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CompositeI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/ConsoleProviderI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleProviderI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/ConsoleProviderN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleProviderN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debug
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/DebugPinI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DebugPinI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/DebugPinN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DebugPinN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/Math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/ModuleI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModuleI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/RunC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RunC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.lang/TemplateI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TemplateI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/em.mcu/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.mcu
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_3_4" id="__nav_8_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            em.mcu
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Common/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/CommonC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CommonC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/ConsoleUart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleUart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Copier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Poller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.mcu/Timeout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timeout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.core/em.utils/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.utils
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_3_5" id="__nav_8_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            em.utils
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/AlarmMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AlarmMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/AppControl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AppControl
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/AssertProvider/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssertProvider
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BasicListManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BasicListManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardController/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardController
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardDriverI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardDriverI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardDriversGenT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardDriversGenT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardInfo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardInfo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BoardMeta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardMeta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Bootup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/BufPrint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BufPrint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ButtonT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ButtonT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Checksum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checksum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ConsoleProtocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleProtocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Copier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Copier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Crc16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crc16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/DebugPinAux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DebugPinAux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/DebugPinT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DebugPinT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/EpochTime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EpochTime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/FftC32/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FftC32
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/FftQ15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FftQ15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/FiberMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FiberMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Formatter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Formatter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/FormattingConsole/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FormattingConsole
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/HeapMem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HeapMem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/HeapStatic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HeapStatic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/LedBlinkerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedBlinkerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/LedBlinkerT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedBlinkerT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/LedT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LedT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ListManagerI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ListManagerI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ListMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ListMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/LoaderAuxI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LoaderAuxI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/Logger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/MemDump/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MemDump
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/MinConsole/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MinConsole
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/MsCounterUptimer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MsCounterUptimer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/PollerAux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PollerAux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/ProcMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ProcMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/SoftUart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SoftUart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/TickerMgr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TickerMgr
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.core/em.utils/TimeoutAux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TimeoutAux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.docs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.docs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            em.docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/em.docs/em.examples.basic/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    em.examples.basic
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_4_2" id="__nav_8_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            em.examples.basic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Alarm1P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alarm1P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Alarm2P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alarm2P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/BlinkerDbgP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BlinkerDbgP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/BlinkerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BlinkerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Button1P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Button1P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Button2P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Button2P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/Button3P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Button3P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/EmptyP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmptyP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/FiberP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FiberP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/HelloP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HelloP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/OneShot1P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShot1P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/OneShot2P/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShot2P
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/PollerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PollerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/em.docs/em.examples.basic/TickerP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TickerP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/ti.cc23xx/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ti.cc23xx
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            ti.cc23xx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/ti.cc23xx/ti.build.cc23xx/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ti.build.cc23xx
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_5_2" id="__nav_8_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            ti.build.cc23xx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.build.cc23xx/GccBuilder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GccBuilder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.build.cc23xx/SeggerBuilder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SeggerBuilder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/ti.cc23xx/ti.distro.cc23xx/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ti.distro.cc23xx
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_5_3" id="__nav_8_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            ti.distro.cc23xx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.distro.cc23xx/BoardC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.distro.cc23xx/BoardMeta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BoardMeta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.distro.cc23xx/McuC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    McuC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    ti.mcu.cc23xx
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_5_4" id="__nav_8_5_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            ti.mcu.cc23xx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/BusyWait/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BusyWait
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/BusyWaitSysTick/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BusyWaitSysTick
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/ConsoleUart0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConsoleUart0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/EdgeDetectGpioAux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EdgeDetectGpioAux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/EdgeDetectGpioT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EdgeDetectGpioT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/ExtFlashDisabler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ExtFlashDisabler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/GlobalInterrupts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GlobalInterrupts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/GpioT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GpioT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Idle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Idle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/InterruptT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InterruptT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/IntrVec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IntrVec
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Mcu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mcu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/MsCounter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MsCounter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/OneShotGpt3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotGpt3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/OneShotSysTick/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotSysTick
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/OneShotSysTim0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OneShotSysTim0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Regs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Regs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Rtc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rtc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/Uptimer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Uptimer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/UsCounter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UsCounter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cargo/ti.cc23xx/ti.mcu.cc23xx/WakeupTimer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WakeupTimer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="xxyyyza-buildload-a-target-program"><code><span class="filename"><em>xx</em>.<em>yyyz</em>.A</span></code> &mdash;&thinsp; build&thinsp;/&thinsp;load a target program</h1>
+<div class="admonition tools">
+<p class="admonition-title">Under Construction &mdash; estimated completion in 2Q24 &thinsp; <img alt="🗓" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f5d3.svg" title=":calendar_spiral:" /></p>
+</div>
+<!--
+
+We'll begin with the smallest possible EM program:
+
+
+<div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">em.examples.basic/EmptyP.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">package</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">examples</span><span class="x">.</span><span class="n">basic</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">from</span><span class="x"> </span><span class="n">em$distro</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">BoardC</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">module</span><span class="x"> </span><span class="nn">EmptyP</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">end</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span><span class="x"> </span><span class="nf">em$run</span><span class="x">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">end</span>
+</span></code></pre></div></td></tr></table></div>
+
+
+
+To verify your **EM Builder** configuration, the following output should appear when building <code class="language-em"><span class="nn">EmptyP</span></code> example using <code><span class="x">ti.cc23xx.A://default</span></code> as your **EM Setup**&thinsp;:
+
+<figure markdown id="fig1">
+![Image info](/assets/porting-1-1.png)
+<figcaption>EmptyP Build Output
+</figure>
+
+While you can certainly load the <code class="language-em"><span class="nn">EmptyP</span></code> program onto your <code><span class="x">LP-EM-CC2340R5</span></code> hardware, the board will seem completely inert &ndash; no <code><span class="x">SysLed</span></code> activity, no <code><span class="x">AppOut</span></code> characters &ndash; even when traced with a Saleae logic analyzer.&thinsp;  We'll eventually add this basic functionality to our generic <code><span class="filename">_xx_._yyyz_.A</span></code> distro in step :material-numeric-2-circle:{.em-color-tan} of the porting process.
+
+## Minimal behavior
+
+To help verify that you can actually build&thinsp;/&thinsp;load the simplest program using distro <code><span class="filename">_xx_._yyyz_.A</span></code>, we'll use the <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code> program &ndash; an extension of <code class="language-em"><span class="nn">EmptyP</span></code> which adds some minimal detectable behavior:
+
+<div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">gist.yyyz/Gist00_Min.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">package</span><span class="x"> </span><span class="n">gist</span><span class="x">.</span><span class="n">cc23xx</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">from</span><span class="x"> </span><span class="n">em$distro</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">BoardC</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="k">module</span><span class="x"> </span><span class="nn">Gist00_Min</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">end</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="hll"><span class="k">def</span><span class="x"> </span><span class="nf">em$run</span><span class="x">()</span>
+</span></span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="hll"><span class="x">    </span><span class="c1"># change the state of an LED pin    </span>
+</span></span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="hll"><span class="k">end</span>
+</span></span></code></pre></div></td></tr></table></div>
+
+The definition of <code class="language-em"><span class="nf">em$run</span></code> will, of course, depend entirely on the <code><span class="x">_xx_._yyyz_</span></code> MCU development board supported by a specific distro bundle:
+
+=== " ti.cc23xx.A &mdash; LP-EM-CC2340R5"
+
+    <div class="language-em highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="x"> </span><span class="nf">em$run</span><span class="x">()</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="x">    </span><span class="c1"># turn on the green LED</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="x">    </span><span class="k">auto</span><span class="x"> </span><span class="n">pin</span><span class="x"> = 15</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="x">    </span><span class="k">auto</span><span class="x"> </span><span class="n">mask</span><span class="x"> = (1 &lt;&lt; </span><span class="n">pin</span><span class="x">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="x">    </span><span class="se">^^HWREG(GPIO_BASE + GPIO_O_DOESET31_0)^^</span><span class="x"> = </span><span class="n">mask</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="x">    </span><span class="se">^^HWREG(IOC_BASE + IOC_O_IOC0 + pin * 4)^^</span><span class="x"> &amp;= ~</span><span class="se">^IOC_IOC0_INPEN</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="x">    </span><span class="se">^^HWREG(GPIO_BASE + GPIO_O_DOUTSET31_0)^^</span><span class="x"> = </span><span class="n">mask</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">end</span>
+</span></code></pre></div>
+
+=== "mchp.samd21.A &mdash; FEATHER_M0"
+
+    <div class="language-em highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="x"> </span><span class="nf">em$run</span><span class="x">()</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="x">    </span><span class="c1"># set the system clock to 8MHz</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="x">    </span><span class="se">^^SYSCTRL-&gt;OSC8M.bit.PRESC = 0^^</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="x">    </span><span class="c1"># turn on the green LED</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="x">    </span><span class="se">^^PORT-&gt;Group[0].DIRSET.reg = (1 &lt;&lt; 19)^^</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="x">    </span><span class="se">^^PORT-&gt;Group[0].PINCFG[19].reg |= PORT_PINCFG_INEN^^</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="x">    </span><span class="se">^^PORT-&gt;Group[0].OUTSET.reg = (1 &lt;&lt; 19)^^</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">end</span>
+</span></code></pre></div>
+
+=== "sifive.fe310.A &mdash; HIFIVE1_B"
+
+    <div class="language-em highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="x"> </span><span class="nf">em$run</span><span class="x">()</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="x">    </span><span class="c1"># turn on the green LED (active low)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="x">    </span><span class="k">auto</span><span class="x"> </span><span class="n">mask</span><span class="x"> = (1 &lt;&lt; 19)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="x">    *&lt;</span><span class="nc">io32_t</span><span class="x">&gt;(</span><span class="se">^^METAL_SIFIVE_GPIO0_0_BASE_ADDRESS + METAL_SIFIVE_GPIO0_OUTPUT_EN^^</span><span class="x">) |= </span><span class="n">mask</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="x">    *&lt;</span><span class="nc">io32_t</span><span class="x">&gt;(</span><span class="se">^^METAL_SIFIVE_GPIO0_0_BASE_ADDRESS + METAL_SIFIVE_GPIO0_IOF_EN^^</span><span class="x">) &amp;= ~</span><span class="n">mask</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="x">    *&lt;</span><span class="nc">io32_t</span><span class="x">&gt;(</span><span class="se">^^METAL_SIFIVE_GPIO0_0_BASE_ADDRESS + METAL_SIFIVE_GPIO0_PORT^^</span><span class="x">) &amp;= ~</span><span class="n">mask</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">end</span>
+</span></code></pre></div>
+
+!!! warning "Our <code class="language-em"><span class="nn">Gist&ast;</span></code> programs contain &quot;quick-and-dirty&quot; code; don't spend extra cycles on &quot;tidying-up&quot;&thinsp;!!"
+
+Building a version of <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code> using any of these specific distros will yield a program only slightly larger than <code class="language-em"><span class="nn">EmptyP</span></code> &ndash; but a program with observable behavior, once loaded on the corresponding target board.
+
+## MCU register access
+
+Each instance of our <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code> program directly accessed memory-mapped I/O registers inside the <code><span class="x">_xx_._yyyz_</span></code> MCU to turn on a target board LED &ndash; using a special <code class="language-em highlight"><span class="se">^^</span></code> escape token that interposes C/C++ expressions within the current EM statement.(1)
+{ .annotate }
+
+1. playing a similar role to the <code class="language-em"><span class="k">asm</span></code> operator in C/C++
+
+These inline C/C++ fragments usually reference memory-mapped MCU <code><span class="x">_yyyz_</span></code> registers and their individual bit-fields using <code class="language-em"><span class="k">#define</span></code> macros and constants supplied by MCU vendor <code><span class="x">_xx_</span></code>&thinsp;; expect the syntax&thinsp;/&thinsp;semantics of these symbols to vary widely from one MCU to the next.
+
+In practice, most distro bundles will also contain a <code><span class="filename">com._xx_</span></code>&thinsp; folder alongside their <code class="language-em"><span class="n">_xx_.&ast;._yyyz_</span></code> packages.  While technically an EM package itself, the <code><span class="filename">com._x_</span></code>&thinsp; folder holds a hierarchy of C/C++ header files which collectively define symbols used to access MCU <code><span class="x">_yyyz_</span></code> registers.
+
+=== " ti.cc23xx.A &mdash; LP-EM-CC2340R5"
+
+    <figure markdown id="fig2a">
+    ![Image info](/assets/porting-1-2a.png)
+    <figcaption>Register Headers
+    </figure>
+
+=== "mchp.samd21.A &mdash; FEATHER_M0"
+
+    <figure markdown id="fig2b">
+    ![Image info](/assets/porting-1-2b.png)
+    <figcaption>Register Headers
+    </figure>
+
+=== "sifive.fe310.A &mdash; HIFIVE1_B"
+
+    <figure markdown id="fig2c">
+    ![Image info](/assets/porting-1-2c.png)
+    <figcaption>Register Headers
+    </figure>
+
+Exactly how and where you locate these low-level header files (much like their contents) will vary from one MCU vendor to the next.  With many MCU vendors now providing rich device-driver libraries alongside popular real-time operating systems [FreeRTOS, Zephyr], experience has shown that this foundational software will ultimately <code class="language-em"><span class="k">#include</span></code> these headers.
+
+!!! abstract "But why not simply use this legacy C/C++ code directly&thinsp;???"
+
+As a rule, you should keep the vendor's original hierarchy of header files intact as much as possible; and unless absolutely necessary, you should _not_ modify the contents of these files. Once in place, you'll rarely need to update the <code><span class="filename">com._xx_</span></code>&thinsp; folder as you implement other elements of your <code><span class="filename">_xx_._yyyz_</span></code> distro bundle.
+
+## The <code><span class="filename">_xx_.distro._yyyz_</span></code> package
+
+The <code class="language-em"><span class="nn">BoardC</span></code> and <code class="language-em"><span class="nn">McuC</span></code> composites found in the <code class="language-em"><span class="n">_xx_.distro._yyyz_</span></code> package have minimal content at this stage of the porting process:
+
+<div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">xx.distro.yyyz/BoardC.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span>
+<span class="normal"><a href="#__codelineno-5-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">package</span><span class="x"> </span><span class="n">xx</span><span class="x">.</span><span class="n">distro</span><span class="x">.</span><span class="n">yyyz</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">import</span><span class="x"> </span><span class="nn">McuC</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="hll"><span class="k">from</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">lang</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">RunC</span>
+</span></span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="k">composite</span><span class="x"> </span><span class="nn">BoardC</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="k">end</span>
+</span></code></pre></div></td></tr></table></div>
+
+<div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">xx.distro.yyyz/McuC.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">package</span><span class="x"> </span><span class="n">xx</span><span class="x">.</span><span class="n">distro</span><span class="x">.</span><span class="n">yyyz</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="hll"><span class="k">from</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">arch</span><span class="x">.&lt;</span><span class="n">family</span><span class="x">&gt; </span><span class="k">import</span><span class="x"> </span><span class="nn">IntrVec</span><span class="x">    </span><span class="c1"># where &lt;family&gt; is one of {arm, riscv}</span>
+</span></span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">composite</span><span class="x"> </span><span class="nn">McuC</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">end</span>
+</span></code></pre></div></td></tr></table></div>
+
+The `#!em em.lang/RunC@u` composite imported by <code class="language-em"><span class="nn">BoardC</span></code> provides default <code class="language-em"><span class="k">proxy</span></code> bindings for some foundational elements of the EM runtime; and the `#!em em.arch.<family>/IntrVec@u` module imported by <code class="language-em"><span class="nn">McuC</span></code> implements a skeletal vector table required by the <code><span class="x">_yyyz_</span></code> MCU family.
+
+Needless to say, <code class="language-em"><span class="nn">BoardC</span></code> and <code class="language-em"><span class="nn">McuC</span></code> will evolve as we step through the porting process.
+
+## Generated artifacts
+
+Before diving into the <code class="language-em"><span class="n">_xx_.build._yyyz_</span></code> package, we'll find it helpful to first explore some of the output artifacts produced when building an EM program like <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code> &ndash; all located in a special <code><span class="filename">.out</span></code> sub-folder rooted in your <code><span class="filename">_xx_._yyyz_</span></code> bundle.(1)
+{ .annotate }
+
+1. Invoking the **EM - Clean** command on _any_<br> bundle will remove its <code><span class="filename">.out</span></code> sub-folder
+
+To begin, look inside the <code><span class="filename">.out/load.sh</span></code> script generated when building <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code> and find the command which invokes a _specific_ program loader supported by the <code><span class="filename">_xx_._yyyz_</span></code> distro:(1)
+{ .annotate }
+
+1. Many target MCU <code><span class="x">_yyyz_</span></code> boards in fact support _multiple_<br>loaders through _multiple_ physical interfaces  
+
+=== " ti.cc23xx.A &mdash; LP-EM-CC2340R5"
+
+    <div markdown class="em-ul">
+
+    this distro uses [TI UniFlash](https://www.ti.com/tool/UNIFLASH)&thinsp; as its loader.
+
+    </div>
+
+=== "mchp.samd21.A &mdash; FEATHER_M0"
+
+    <div markdown class="em-ul">
+
+    this distro uses [BOSSA](https://github.com/shumatech/BOSSA/releases)&thinsp; as its loader
+
+    </div>
+
+=== "sifive.fe310.A &mdash; HIFIVE1_B"
+
+    <div markdown class="em-ul">
+
+    this distro uses [Segger J-Link](https://www.segger.com/downloads/jlink/)&thinsp; as its loader
+
+    </div>
+
+The **EM - Load** command internally executes the <code><span class="filename">load.sh</span></code> script with <code><span class="filename">.out</span></code> as its current working directory; you can do the same at the shell (albeit with much more terminal output).
+
+By contrast, the **EM - Build** command generates _and_ executes the <code><span class="filename">.out/build.sh</span></code> script; this command also generates <code><span class="filename">.out/load.sh</span></code> as well, if not already obvious.  Looking inside <code><span class="filename">build.sh</span></code> you'll find a set of symbol definitions [&thinsp;<code class="language-em"><span class="n">CC</span></code>, <code class="language-em"><span class="n">CFLAGS</span></code>, <code class="language-em"><span class="n">CINCS</span></code>, etc.&thinsp;] followed by a series of commands which actually compile and link the program itself.
+
+Since all of our example <code><span class="filename">_xx_._yyyz_</span></code> distros use an LLVM-based C/C++ compiler bundled with Segger's [Embedded Studio](https://www.segger.com/products/development-tools/embedded-studio/)&thinsp; &ndash; which supports RISC-V as well as Arm &ndash; all of the generated <code><span class="filename">build.sh</span></code> scripts appear virtually identical; the magic largely happens inside the portable `#!em em.build.segger/Builder@u` module which we'll visit shortly.(1)
+{ .annotate }
+
+1. <code><span class="filename">build.sh</span></code> scripts generated by EM for other C/C++ compilers<br>[&thinsp;GCC, IAR&thinsp;] would likewise show only minor differences
+
+The `#!em em.build.segger/Builder@u` module also generates an <code><span class="filename">.out/linkcmd.ld</span></code> file, referenced inside the <code><span class="filename">build.sh</span></code> script when linking the program.  Except for some obvious differences in the <code class="language-em"><span class="k">MEMORY</span></code> specifications, these generated linker command files organize the program <code class="language-em"><span class="k">SECTIONS</span></code> in a simple, portable fashion
+
+!!! info "Chip-level configuration"
+    Some MCUs (like the TI CC2340R5) read a block of chip-level configuration parameters from a prescribed location in memory.  We'll shortly see how your <code><span class="filename">_xx_._yyyz_</span></code> distro can add the necessary <code class="language-em"><span class="k">MEMORY</span></code> and <code class="language-em"><span class="k">SECTIONS</span></code> declarations to the generated <code><span class="filename">linkcmd.ld</span></code> file, as well as how to initialize these parameters in program source code.
+
+=== " ti.cc23xx.A &mdash; LP-EM-CC2340R5"
+
+    <div class="language-em highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gr">MEMORY</span><span class="x"> {</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="x">    </span><span class="nc">DMEM</span><span class="x"> : </span><span class="nn">ORIGIN</span><span class="x"> = 0x20000000, </span><span class="nn">LENGTH</span><span class="x"> = 0x00009000</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="x">    </span><span class="nc">IMEM</span><span class="x"> : </span><span class="nn">ORIGIN</span><span class="x"> = 0x00000000, </span><span class="nn">LENGTH</span><span class="x"> = 0x00080000</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="x">    </span><span class="nc">FLASH_CCFG</span><span class="x"> : </span><span class="nn">ORIGIN</span><span class="x"> = 0x4e020000, </span><span class="nn">LENGTH</span><span class="x"> = 0x00000800</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="x">}</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="gr">SECTIONS</span><span class="x"> {</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="x">        ...</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="x">    .</span><span class="n">ccfg</span><span class="x"> : { </span><span class="nn">KEEP</span><span class="x">(*(.</span><span class="n">ccfg</span><span class="x">)); . = 0x00000800; } &gt; </span><span class="nc">FLASH_CCFG</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="x">        ...</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="x">}</span>
+</span></code></pre></div>
+
+=== "mchp.samd21.A &mdash; FEATHER_M0"
+
+    <div class="language-em highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gr">MEMORY</span><span class="x"> {</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="x">    </span><span class="nc">DMEM</span><span class="x"> : </span><span class="nn">ORIGIN</span><span class="x"> = 0x20000000, </span><span class="nn">LENGTH</span><span class="x"> = 0x00008000</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="x">    </span><span class="nc">IMEM</span><span class="x"> : </span><span class="nn">ORIGIN</span><span class="x"> = 0x00002000, </span><span class="nn">LENGTH</span><span class="x"> = 0x0003e000</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="x">}</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="gr">SECTIONS</span><span class="x"> {</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="x">        ...</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="x">}</span>
+</span></code></pre></div>
+
+=== "sifive.fe310.A &mdash; HIFIVE1_B"
+
+    <div class="language-em highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gr">MEMORY</span><span class="x"> {</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="x">    </span><span class="nc">DMEM</span><span class="x"> : </span><span class="nn">ORIGIN</span><span class="x"> = 0x80000000, </span><span class="nn">LENGTH</span><span class="x"> = 0x00004000</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="x">    </span><span class="nc">IMEM</span><span class="x"> : </span><span class="nn">ORIGIN</span><span class="x"> = 0x20010000, </span><span class="nn">LENGTH</span><span class="x"> = 0x0006a120</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="x">}</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="gr">SECTIONS</span><span class="x"> {</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="x">        ...</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="x">}</span>
+</span></code></pre></div>
+
+
+Reviewing the high-level EM build flow first described [here](/intro/to-3/#high-level-build-flow), we turn now to the <code><span class="filename">main.cpp</span></code> and <code><span class="filename">main.out</span></code> files named in the accompanying diagram and found in the <code><span class="filename">.out</span></code> sub-folder:
+
+<figure markdown id="fig3">
+![Image info](/assets/fig1.png)
+<figcaption>EM build flow
+</figure>
+
+Our generated <code><span class="filename">build.sh</span></code> script encapsulates the **compilation** phase shown here &ndash; pro&shy;ducing a <code><span class="filename">main.out</span></code> [&thinsp;ELF&thinsp;] program binary from a single (generated) program source file; <code><span class="filename">build.sh</span></code> also produces a series of <code><span class="filename">main.out.&ast;</span></code> artifacts related to the program binary.
+
+Finally, let's look at three segments of the generated <code><span class="filename">main.cpp</span></code> file &ndash; which collect all of the C/C++ runtime code needed to execute our original <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code> program written in EM.
+
+<div markdown class="em-ul">
+</div>
+
+:material-alpha-a-circle:{ .em-color-tan }&ensp;<code><span class="filename">**xx.yyyz/.out/main.cpp** [prologue]</span></code>
+
+<div class="language-emc highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;xx.build.yyyz/std.h&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="x">                ...</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1">// -------- PROXY BINDINGS -------- //</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="x">                ...</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">// -------- MODULE HEADERS -------- //</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;em.arch.family/IntrVec.hpp&quot;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;em.lang/Atom.hpp&quot;</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;em.lang/Console.hpp&quot;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;em.lang/ConsoleProviderN.hpp&quot;</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;em.lang/Debug.hpp&quot;</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;em.lang/DebugPinN.hpp&quot;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;gist.cc23xx/Gist00_Min.hpp&quot;</span>
+</span></code></pre></div>
+
+Setting aside some other details, the top of <code><span class="filename">main.cpp</span></code> contains <code class="language-em"><span class="k">#include</span></code> directives that reference a range of C/C++ header files &ndash; starting with <code><span class="filename">std.h</span></code>, provided by the distro itself and found in its <code class="language-em"><span class="n">xx.build.yyyz</span></code> package.
+
+The remaining <code><span class="filename">&laquo;pkg&raquo;/&laquo;Mod&raquo;.hpp</span></code> headers track a bottom-up ordering of all EM modules directly&thinsp;/&thinsp;indirectly used by our top-level <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code> program.&thinsp;  Generated automatically in the upstream **translation** phase depicted [above](#fig3) and described [here](/intro/to-3/#unit-translation), you'll find this tree of module headers rooted in the <code><span class="filename">_xx_._yyyz_/.out</span></code> sub-folder itself.
+
+:material-alpha-b-circle:{ .em-color-tan }&ensp;<code><span class="filename">**xx.yyyz/.out/main.cpp** [body]</span></code>
+
+<div class="language-emc highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// -------- MODULE em.arch.family/IntrVec -------- //</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1">//-&gt;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="x">        </span><span class="cm">/* output from em$generateCode() */</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1">//-&gt;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;em.arch.family/IntrVec.cpp&quot;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nn">namespace</span><span class="x"> </span><span class="nc">em_arch_family_IntrVec</span><span class="x"> {</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="x">    </span><span class="nn">const</span><span class="x"> </span><span class="nc">em_uint8</span><span class="x"> </span><span class="n">em$tracePri</span><span class="x"> = (</span><span class="nc">em_uint8</span><span class="x">)0x0;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="x">    </span><span class="nn">const</span><span class="x"> </span><span class="nc">ExceptionHandler</span><span class="x"> </span><span class="n">excHandler</span><span class="x"> = (</span><span class="nc">em_hal_IntrVecI</span><span class="x">::</span><span class="nc">ExceptionHandler</span><span class="x">)0x0;</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="x">};</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="x">                ...</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1">// -------- MODULE gist.yyyz/Gist00_Min -------- //</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;gist.yyyz/Gist00_Min.cpp&quot;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nn">namespace</span><span class="x"> </span><span class="n">gist_yyyz_Gist00_Min</span><span class="x"> {</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="x">    </span><span class="nn">const</span><span class="x"> </span><span class="nc">em_uint8</span><span class="x"> </span><span class="n">em$tracePri</span><span class="x"> = (</span><span class="nc">em_uint8</span><span class="x">)0x0;</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="x">};</span>
+</span></code></pre></div>
+
+Most of <code><span class="filename">main.cpp</span></code> contains static definitions for each <code class="language-em"><span class="k">config</span></code> parameter and private <code class="language-em"><span class="k">var</span></code> declared within the EM modules used by this program.&thinsp; A build-time <code><span class="filename">main.js</span></code> meta-program can compute values for these configs and variables during the upstream **configuration** phase of the EM program life-cycle, as depicted [above](#fig3) and described [here](/intro/to-3/#program-configuration).
+
+After the <code class="language-em"><span class="k">#include</span></code> of a companion <code><span class="filename">&laquo;pkg&raquo;/&laquo;Mod&raquo;.cpp</span></code> file (also generated upstream), members of <code class="language-em"><span class="nn">namespace</span></code> <code class="language-em"><span class="n">&laquo;pkg&raquo;/&laquo;Mod&raquo;</span></code> corresponding to this module's <code class="language-em"><span class="k">config</span></code> and <code class="language-em"><span class="k">var</span></code> declarations receive their initial target values.&thinsp; With <code class="language-em"><span class="k">config</span></code> parameters now frozen as <code class="language-em"><span class="nn">const</span></code> members, the underlying compiler can propagate these (read-only) values throughout the <code><span class="filename">main.out</span></code> image &ndash; reducing program size as well as execution time.
+
+!!! info "Proxy binding"
+    The binding of conformant concrete modules to abstract <code class="language-em"><span class="k">proxy</span></code> declarations also happens within the build-time <code><span class="filename">main.js</span></code> meta-program executed upstream during the **configuration** phase.&thinsp;  Looking closely at the `#!emc PROXY@c BINDING@c` block near the top of an actual <code><span class="filename">main.cpp</span></code> file, you'll appreciate their straightforward mapping into a standard C++ _namespace-alias-definition_.
+
+    As a historical note, early versions of the EM translator generated C (not C++) code for each target module.&thinsp; Mapping a proxy binding into the standard C language required a very complex series of <code class="language-em"><span class="k">#define</span></code> and <code class="language-em"><span class="nn">typedef</span></code> aliases with even _longer_ mangled names; using C++ as  our "object language" has significantly streamlined the EM translator's implementation within the overall program build-flow.
+
+:material-alpha-c-circle:{ .em-color-tan }&ensp;<code><span class="filename">**xx.yyyz/.out/main.cpp** [epilogue]</span></code>
+
+<div class="language-emc highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// -------- EXIT FUNCTIONS -------- //</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nn">static</span><span class="x"> </span><span class="nn">void</span><span class="x"> </span><span class="nf">em__done</span><span class="x">() {</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="x">    </span><span class="nn">volatile</span><span class="x"> </span><span class="nn">int</span><span class="x"> </span><span class="n">dummy</span><span class="x"> = 0xCAFE;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="x">    </span><span class="k">while</span><span class="x"> (</span><span class="n">dummy</span><span class="x">) ;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="x">}</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nn">static</span><span class="x"> </span><span class="nn">void</span><span class="x"> </span><span class="nf">em__fail</span><span class="x">() {</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="x">    </span><span class="nf">em__done</span><span class="x">();</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="x">}</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nn">static</span><span class="x"> </span><span class="nn">void</span><span class="x"> </span><span class="nf">em__halt</span><span class="x">() {</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="x">    </span><span class="nf">em__done</span><span class="x">();</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="x">}</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c1">// -------- MAIN ENTRY -------- //</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="nn">static</span><span class="x"> </span><span class="nn">void</span><span class="x"> </span><span class="nf">em__main</span><span class="x">() {</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="x">    </span><span class="nc">em_arch_family_IntrVec</span><span class="x">::</span><span class="nf">em$startup</span><span class="x">();</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="x">    </span><span class="n">__NOP</span><span class="x">();</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="x">    </span><span class="n">__NOP</span><span class="x">();</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="x">    </span><span class="nc">gist_yyyz_Gist00_Min</span><span class="x">::</span><span class="nf">em$run</span><span class="x">();</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="x">    </span><span class="nf">em__halt</span><span class="x">();</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="x">}</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;xx.build.yyyz/startup.c&quot;</span>
+</span></code></pre></div>
+
+At the bottom of <code><span class="filename">main.cpp</span></code> you'll find default implementations of the EM language `#!em fail` and `#!em halt` statements followed by the special <code class="language-em"><span class="nf">em__main</span></code> function; as we'll see shortly, the source file <code><span class="filename">startup.c</span></code> (provided by the distro and found in its <code class="language-em"><span class="n">xx.build.yyyz</span></code> package) defines the program's <code class="language-em"><span class="nf">main</span></code> entry-point.
+
+Called from <code class="language-em"><span class="nf">main</span></code>, the special <code class="language-em"><span class="nf">em__main</span></code> function shown above in turn calls C++ functions corresponding to any definitions of the EM <code class="language-em"><span class="nf">em$startup</span></code> intrinsic found amongst this program's modules.&thinsp; After inserting a pair of <code><span class="x">nop</span></code> instructions for debug purposes, <code class="language-em"><span class="nf">em__main</span></code> effectively calls the C++ translation of `#!em Gist00_Min@u.em$run@f` followed by <code class="language-em"><span class="k">halt</span></code>.
+
+
+## The <code><span class="filename">_xx_.build._yyyz_</span></code> package
+
+Before exploring use of the (portable) `#!em em.build.segger/Builder@u` module by our <code><span class="filename">_xx_._yyyz_</span></code> distro, let's quickly visit actual <code><span class="filename">std.h</span></code> and <code><span class="filename">startup.c</span></code> files found in the <code><span class="filename">_xx_.build._yyyz_</span></code> package of our model distros: 
+
+=== " ti.cc23xx.A &mdash; LP-EM-CC2340R5"
+
+    <div class="language-emc highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">#include</span><span class="x"> &lt;</span><span class="n">em</span><span class="x">.</span><span class="n">arch</span><span class="x">.</span><span class="n">arm</span><span class="x">/</span><span class="n">std</span><span class="x">.</span><span class="n">h</span><span class="x">&gt;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;cmsis/cc23x0r5.h&quot;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;core_cm0plus.h&quot;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;inc/hw_memmap.h&quot;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;inc/hw_types.h&quot;</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;inc/hw_clkctl.h&quot;</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;inc/hw_ckmd.h&quot;</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;inc/hw_gpio.h&quot;</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;inc/hw_ioc.h&quot;</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;inc/hw_uart.h&quot;</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="cm">/* #include more headers as needed */</span>
+</span></code></pre></div>
+    <div class="em-break"></div>
+    <div class="language-emc highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">#ifdef</span><span class="x"> </span><span class="nn">__EM_COMPILER_segger__</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">#include</span><span class="x"> &lt;</span><span class="n">em</span><span class="x">.</span><span class="n">build</span><span class="x">.</span><span class="n">segger</span><span class="x">/</span><span class="n">startup</span><span class="x">.</span><span class="n">c</span><span class="x">&gt;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">#endif</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nn">extern</span><span class="x"> </span><span class="nn">int</span><span class="x"> </span><span class="nf">main</span><span class="x">() {</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="x">    </span><span class="nf">em__main</span><span class="x">();</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="x">    </span><span class="k">return</span><span class="x"> 0;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="x">}</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="nn">bool</span><span class="x"> </span><span class="nf">__is_warm</span><span class="x">() {</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="x">    </span><span class="k">return</span><span class="x"> </span><span class="nn">false</span><span class="x">;</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="x">}</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="nn">extern</span><span class="x"> </span><span class="s">&quot;C&quot;</span><span class="x"> </span><span class="nn">const</span><span class="x"> </span><span class="nn">uint32_t</span><span class="x"> </span><span class="n">__ccfg</span><span class="x">[] </span><span class="nf">__attribute__</span><span class="x">((</span><span class="nf">section</span><span class="x">(</span><span class="s">&quot;.ccfg&quot;</span><span class="x">), </span><span class="nf">used</span><span class="x">)) = {</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="x">    0xFFFFFFFF, 0x00000000, 0x00000000, 0x00000000,</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="x">    0xFFFFFFFF, 0xFFFFFFFF, 0xAAAAAAAA, 0x0000000F,</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="x">    0xFFFFFFFF, 0xFFFFFFFF, 0x00000000, 0xFFFFFFFF,</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="x">    0x00000000, 0x00000000, 0x00000000, 0x00000000,</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="x">        ...</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="x">    0x00000000, 0x00000000, 0x00000000, 0x00000000,</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="x">    0x0000A55A, 0x03020101, 0x150D0805, 0x36E4D76D,</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="x">    0xDF31F4EB, 0xEE15AE95, 0xE48EBA03, 0xD83FC6C4,</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="x">    0x5E673F45, 0x01C2D774, 0xE558902C, 0x00000000,</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="x">};</span>
+</span></code></pre></div>
+
+=== "mchp.samd21.A &mdash; FEATHER_M0"
+
+    <div class="language-emc highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">#include</span><span class="x"> &lt;</span><span class="n">em</span><span class="x">.</span><span class="n">arch</span><span class="x">.</span><span class="n">arm</span><span class="x">/</span><span class="n">std</span><span class="x">.</span><span class="n">h</span><span class="x">&gt;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;samd21.h&quot;</span>
+</span></code></pre></div>
+    <div class="em-break"></div>
+    <div class="language-emc highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">#ifdef</span><span class="x"> </span><span class="nn">__EM_COMPILER_segger__</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">#include</span><span class="x"> &lt;</span><span class="n">em</span><span class="x">.</span><span class="n">build</span><span class="x">.</span><span class="n">segger</span><span class="x">/</span><span class="n">startup</span><span class="x">.</span><span class="n">c</span><span class="x">&gt;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">#endif</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nn">extern</span><span class="x"> </span><span class="nn">int</span><span class="x"> </span><span class="nf">main</span><span class="x">() {</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="x">    </span><span class="nf">em__main</span><span class="x">();</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="x">    </span><span class="k">return</span><span class="x"> 0;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="x">}</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="nn">bool</span><span class="x"> </span><span class="nf">__is_warm</span><span class="x">() {</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="x">    </span><span class="k">return</span><span class="x"> </span><span class="nn">false</span><span class="x">;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="x">}</span>
+</span></code></pre></div>
+
+=== "sifive.fe310.A &mdash; HIFIVE1_B"
+
+    <div class="language-emc highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">#include</span><span class="x"> &lt;</span><span class="n">em</span><span class="x">.</span><span class="n">arch</span><span class="x">.</span><span class="n">riscv</span><span class="x">/</span><span class="n">std</span><span class="x">.</span><span class="n">h</span><span class="x">&gt;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">#include</span><span class="x"> </span><span class="s">&quot;platform.h&quot;</span>
+</span></code></pre></div>
+    <div class="em-break"></div>
+    <div class="language-emc highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">#ifdef</span><span class="x"> </span><span class="nn">__EM_COMPILER_segger__</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">#include</span><span class="x"> &lt;</span><span class="n">em</span><span class="x">.</span><span class="n">build</span><span class="x">.</span><span class="n">segger</span><span class="x">/</span><span class="n">startup</span><span class="x">.</span><span class="n">c</span><span class="x">&gt;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">#endif</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nn">extern</span><span class="x"> </span><span class="nn">int</span><span class="x"> </span><span class="nf">main</span><span class="x">() {</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="x">    </span><span class="nf">em__main</span><span class="x">();</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="x">    </span><span class="k">return</span><span class="x"> 0;</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="x">}</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="nn">bool</span><span class="x"> </span><span class="nf">__is_warm</span><span class="x">() {</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="x">    </span><span class="k">return</span><span class="x"> </span><span class="nn">false</span><span class="x">;</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="x">}</span>
+</span></code></pre></div>
+
+<div class="language-em highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ti.build.cc23xx/SeggerBuilder.em</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span>
+<span class="normal"><a href="#__codelineno-19-13">13</a></span>
+<span class="normal"><a href="#__codelineno-19-14">14</a></span>
+<span class="normal"><a href="#__codelineno-19-15">15</a></span>
+<span class="normal"><a href="#__codelineno-19-16">16</a></span>
+<span class="normal"><a href="#__codelineno-19-17">17</a></span>
+<span class="normal"><a href="#__codelineno-19-18">18</a></span>
+<span class="normal"><a href="#__codelineno-19-19">19</a></span>
+<span class="normal"><a href="#__codelineno-19-20">20</a></span>
+<span class="normal"><a href="#__codelineno-19-21">21</a></span>
+<span class="normal"><a href="#__codelineno-19-22">22</a></span>
+<span class="normal"><a href="#__codelineno-19-23">23</a></span>
+<span class="normal"><a href="#__codelineno-19-24">24</a></span>
+<span class="normal"><a href="#__codelineno-19-25">25</a></span>
+<span class="normal"><a href="#__codelineno-19-26">26</a></span>
+<span class="normal"><a href="#__codelineno-19-27">27</a></span>
+<span class="normal"><a href="#__codelineno-19-28">28</a></span>
+<span class="normal"><a href="#__codelineno-19-29">29</a></span>
+<span class="normal"><a href="#__codelineno-19-30">30</a></span>
+<span class="normal"><a href="#__codelineno-19-31">31</a></span>
+<span class="normal"><a href="#__codelineno-19-32">32</a></span>
+<span class="normal"><a href="#__codelineno-19-33">33</a></span>
+<span class="normal"><a href="#__codelineno-19-34">34</a></span>
+<span class="normal"><a href="#__codelineno-19-35">35</a></span>
+<span class="normal"><a href="#__codelineno-19-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">package</span><span class="x"> </span><span class="n">ti</span><span class="x">.</span><span class="n">build</span><span class="x">.</span><span class="n">cc23xx</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="k">from</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">build</span><span class="x">.</span><span class="n">misc</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">UniFlash</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="k">from</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">build</span><span class="x">.</span><span class="n">misc</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">Utils</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5"></a>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="k">from</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">build</span><span class="x">.</span><span class="n">segger</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="n">BuilderBase</span><span class="x"> </span><span class="k">as</span><span class="x"> </span><span class="nn">Base</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="k">from</span><span class="x"> </span><span class="n">em</span><span class="x">.</span><span class="n">lang</span><span class="x"> </span><span class="k">import</span><span class="x"> </span><span class="nn">BuilderI</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9"></a>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="k">module</span><span class="x"> </span><span class="nn">SeggerBuilder</span><span class="x">: </span><span class="nn">BuilderI</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11"></a>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="k">end</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13"></a>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="k">def</span><span class="x"> </span><span class="nf">em$configure</span><span class="x">()</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="hll"><span class="x">    </span><span class="nn">Base</span><span class="x">.</span><span class="n">dmemBase</span><span class="x"> ?= 0x20000000</span>
+</span></span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="hll"><span class="x">    </span><span class="nn">Base</span><span class="x">.</span><span class="n">dmemSize</span><span class="x"> ?= 0x9000</span>
+</span></span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="hll"><span class="x">    </span><span class="nn">Base</span><span class="x">.</span><span class="n">imemBase</span><span class="x"> ?= 0x00000000</span>
+</span></span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="hll"><span class="x">    </span><span class="nn">Base</span><span class="x">.</span><span class="n">imemSize</span><span class="x"> ?= 0x80000</span>
+</span></span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="hll"><span class="x">    </span><span class="nn">Utils</span><span class="x">.</span><span class="nf">addInclude</span><span class="x">(</span><span class="s">&quot;com.ti/cc23x0r5&quot;</span><span class="x">)</span>
+</span></span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="hll"><span class="x">    </span><span class="nn">Utils</span><span class="x">.</span><span class="nf">addInclude</span><span class="x">(</span><span class="s">&quot;em.arch.arm/cmsis&quot;</span><span class="x">)</span>
+</span></span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21"></a><span class="hll"><span class="x">    </span><span class="nn">Utils</span><span class="x">.</span><span class="nf">addSection</span><span class="x">(0x4e020000, 0x800, </span><span class="s">&quot;FLASH_CCFG&quot;</span><span class="x">, </span><span class="s">&quot;.ccfg&quot;</span><span class="x">)</span>
+</span></span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22"></a><span class="k">end</span>
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23"></a>
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24"></a><span class="k">def</span><span class="x"> </span><span class="nf">compile</span><span class="x">(</span><span class="n">buildDir</span><span class="x">)</span>
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25"></a><span class="x">    </span><span class="k">return</span><span class="x"> &lt;</span><span class="nc">CompileInfo</span><span class="x">&amp;&gt;</span><span class="nn">Base</span><span class="x">.</span><span class="nf">compile</span><span class="x">(</span><span class="n">buildDir</span><span class="x">)</span>
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26"></a><span class="k">end</span>
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27"></a>
+</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28"></a><span class="k">def</span><span class="x"> </span><span class="nf">getTypeInfo</span><span class="x">()</span>
+</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29"></a><span class="x">    </span><span class="k">return</span><span class="x"> &lt;</span><span class="nc">TypeInfo</span><span class="x">&amp;&gt;</span><span class="nn">Base</span><span class="x">.</span><span class="nf">getTypeInfo</span><span class="x">()</span>
+</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30"></a><span class="k">end</span>
+</span><span id="__span-19-31"><a id="__codelineno-19-31" name="__codelineno-19-31"></a>
+</span><span id="__span-19-32"><a id="__codelineno-19-32" name="__codelineno-19-32"></a><span class="k">def</span><span class="x"> </span><span class="nf">populate</span><span class="x">(</span><span class="n">buildDir</span><span class="x">, </span><span class="n">sysFlag</span><span class="x">)</span>
+</span><span id="__span-19-33"><a id="__codelineno-19-33" name="__codelineno-19-33"></a><span class="hll"><span class="x">    </span><span class="nn">Base</span><span class="x">.</span><span class="nf">populate</span><span class="x">(</span><span class="n">buildDir</span><span class="x">, </span><span class="n">sysFlag</span><span class="x">)</span>
+</span></span><span id="__span-19-34"><a id="__codelineno-19-34" name="__codelineno-19-34"></a><span class="hll"><span class="x">    </span><span class="nn">Utils</span><span class="x">.</span><span class="nf">copy</span><span class="x">(</span><span class="n">buildDir</span><span class="x">, </span><span class="s">&quot;CC2340R5.ccxml&quot;</span><span class="x">, </span><span class="s">&quot;ti.build.cc23xx&quot;</span><span class="x">)</span>
+</span></span><span id="__span-19-35"><a id="__codelineno-19-35" name="__codelineno-19-35"></a><span class="hll"><span class="x">    </span><span class="nn">UniFlash</span><span class="x">.</span><span class="nf">genLoadScript</span><span class="x">(</span><span class="n">buildDir</span><span class="x">, </span><span class="s">&quot;CC2340R5&quot;</span><span class="x">)</span>
+</span></span><span id="__span-19-36"><a id="__codelineno-19-36" name="__codelineno-19-36"></a><span class="k">end</span>
+</span></code></pre></div></td></tr></table></div>
+
+<div class="language-emc highlight"><span class="filename">xx.yyyz.A/setup-default.properties</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="x">[</span><span class="k">em</span><span class="x">.</span><span class="k">lang</span><span class="x">]</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="x">    </span><span class="nn">BundleRequires</span><span class="x"> = </span><span class="n">xx</span><span class="x">.</span><span class="n">yyyz</span><span class="x">.</span><span class="n">A</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="x">    </span><span class="nn">DistroPackage</span><span class="x"> = </span><span class="n">xx</span><span class="x">.</span><span class="n">distro</span><span class="x">.</span><span class="n">yyyz</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="x">    </span><span class="nn">Builder</span><span class="x"> = </span><span class="n">xx</span><span class="x">.</span><span class="n">build</span><span class="x">.</span><span class="n">yyyz</span><span class="x">/</span><span class="n">SeggerBuilder</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="x">[</span><span class="k">em</span><span class="x">.</span><span class="k">build</span><span class="x">]</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="x">    </span><span class="nn">Arch</span><span class="x"> = </span><span class="n">riscv</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="x">    </span><span class="nn">Cpu</span><span class="x"> = </span><span class="n">rv32imc</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="x">    </span><span class="nn">Optimize</span><span class="x"> = </span><span class="n">z</span>
+</span></code></pre></div>
+
+<div class="language-emc highlight"><span class="filename">xx.yyyz.A/bundle.properties</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="x">[</span><span class="k">em</span><span class="x">.</span><span class="k">lang</span><span class="x">]</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="x">    </span><span class="nn">BundleName</span><span class="x"> = </span><span class="n">xx</span><span class="x">.</span><span class="n">yyyz</span><span class="x">.</span><span class="n">A</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="x">    </span><span class="nn">BundleRequires</span><span class="x"> = </span><span class="n">em</span><span class="x">.</span><span class="n">arch</span><span class="x">,</span><span class="n">em</span><span class="x">.</span><span class="n">build</span>
+</span></code></pre></div>
+
+-->
+
+<div class="em-break"></div>
+
+<p><a class="em-link" href="/porting/part-2/"><span class="em-walk"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-84.3 104.5c1-.4 1.9-.8 2.9-1.2l-16.9 63.5c-5.6 21.1-.1 43.6 14.7 59.7l70.7 77.1 22 88.1c4.3 17.1 21.7 27.6 38.8 23.3s27.6-21.7 23.3-38.8l-23-92.1c-1.9-7.8-5.8-14.9-11.2-20.8l-49.5-54 19.3-65.5 9.6 23c4.4 10.6 12.5 19.3 22.8 24.5l26.7 13.3c15.8 7.9 35 1.5 42.9-14.3s1.5-35-14.3-42.9L281 232.7l-15.3-36.8c-17.2-41.1-57.4-67.9-102-67.9-22.8 0-45.3 4.8-66.1 14l-8 3.5c-32.9 14.6-58.1 42.4-69.4 76.5l-2.6 7.8c-5.6 16.8 3.5 34.9 20.2 40.5s34.9-3.5 40.5-20.2l2.6-7.8c5.7-17.1 18.3-30.9 34.7-38.2l8-3.5zm-30 135.1-25 62.4-59.3 59.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l61.6-61.7c4.6-4.6 8.2-10.1 10.6-16.1l14.5-36.2-40.7-44.4c-2.5-2.7-4.8-5.6-7-8.6zm456.9-182.2c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l25.4 25.3H384c-17.7 0-32 14.3-32 32s14.3 32 32 32h146.7l-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l80-80c12.5-12.5 12.5-32.8 0-45.3l-80-80z"/></svg></span></span></a></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 &ndash; The EM Foundation
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/the-em-foundation/about/?viewAsMember=true" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/em-foundation" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="../../extra.js"></script>
+      
+        <script src="../../js/open_in_new_tab.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

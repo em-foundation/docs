@@ -12,7 +12,7 @@
         <link rel="prev" href="../using/using-02/">
       
       
-        <link rel="next" href="../advancing/">
+        <link rel="next" href="part-1/">
       
       
       <link rel="icon" href="../assets/favicon.png">
@@ -702,6 +702,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -729,6 +741,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
@@ -738,6 +755,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5642,6 +5785,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#organization-of-an-em-distro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization of an EM distro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequistics-for-porting-em" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequistics for porting EM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incremental-development-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incremental development plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-your-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparing your workspace
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5656,12 +5843,130 @@
 
 
 <h1 id="managing-hardware-diversity-in-em">Managing hardware diversity in EM</h1>
-<div class="admonition tools">
-<p class="admonition-title">Under Construction &mdash; estimated completion in 1Q24 &thinsp; <img alt="🗓" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f5d3.svg" title=":calendar_spiral:" /></p>
+<p>We've already used the term <strong>EM distro</strong> when referring to bundles like <span class="em-content-bundle-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 10.96a.985.985 0 0 1-.37-1.37L3.13 7c.11-.2.28-.34.47-.42l7.83-4.4c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.19.1.35.26.44.46l1.45 2.52c.28.48.11 1.09-.36 1.36l-1 .58v4.96c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-5.54c-.3.17-.68.18-1 0m10-6.81v6.7l5.96-3.35L12 4.15M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-3.22l-5 2.9c-.33.18-.7.17-1 .01v3.69l6-3.38m-5.15-2.55 6.28-3.63-.58-1.01-6.28 3.63.58 1.01Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx">ti.cc23xx</a></span> &ndash; a collection of build-time as well as run-time software required to support a specific MCU.&nbsp; As emphasized in <a class="em-link" href="/intro/to-4">Introducing EM</a>, distros will work hand-in-hand with EM's generic build-time and run-time bundles [<code><span class="x">em.build</span></code>, <code><span class="x">em.core</span></code>] when targeting a particular hardware platform.</p>
+<p>Unlike <a class="em-link" href="/using/">Using EM</a> &ndash; which focused on portable <code><span class="x">em.core</span></code> programs &ndash; this document tackles the more daunting task of porting the EM runtime to a new hardware platform.&thinsp;  Much of this effort will involve <em>MCU-specific implementations</em> of abstract interfaces you've already encountered &ndash; such as <code class="language-em"><span class="nn">ConsoleUartI</span></code>, <code class="language-em"><span class="nn">GpioI</span></code>, and <code class="language-em"><span class="nn">WakeupTimerI</span></code> found in the <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal">em.hal</a></span> package.</p>
+<p>Said another way, you'll supply concrete modules which implement client-visible functions like <code class="language-em highlight"><span class="nn">GpioI</span><span class="x">.</span><span class="nf">toggle</span></code> and <code class="language-em highlight"><span class="nn">WakeupTimer</span><span class="x">.</span><span class="nf">enable</span></code> by ultimately reading&thinsp;/&thinsp;writing low-level hardware registers in the target MCU &ndash; in other words, by using <em>non-portable</em> code.&thinsp;  But as you'll learn, many of the high(er)-level programming constructs available through the EM language can in fact simplify the task of managing this sort of low(er)-level target software.</p>
+<p>The <strong>configuration</strong> phase of the <a class="em-link" href="/intro/to-3/#program-configuration">EM program life-cycle</a>, as you'll also learn, plays a pivotal role in managing a wide range of hardware platforms &ndash; not only by generating low-level target code in a parameterized fashion, but also by programmtically controlling the compiler and loader tool suite(s) selected for the target MCU.</p>
+<p>Looking ahead, we'll first build on the material covered in <a class="em-link" href="/intro/to-4">Introducing EM</a> and explore the organization of an EM distro in greater detail.&thinsp; We'll then lay out a common pattern and process for developing an EM disto which targets an arbitrary MCU &ndash; incrementally verifying our progress by using the portable example programs covered in <a class="em-link" href="/using/">Using EM</a>.</p>
+<h2 id="organization-of-an-em-distro">Organization of an EM distro</h2>
+<p>While we'll continue to use <span class="em-content-bundle-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 10.96a.985.985 0 0 1-.37-1.37L3.13 7c.11-.2.28-.34.47-.42l7.83-4.4c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.19.1.35.26.44.46l1.45 2.52c.28.48.11 1.09-.36 1.36l-1 .58v4.96c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-5.54c-.3.17-.68.18-1 0m10-6.81v6.7l5.96-3.35L12 4.15M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-3.22l-5 2.9c-.33.18-.7.17-1 .01v3.69l6-3.38m-5.15-2.55 6.28-3.63-.58-1.01-6.28 3.63.58 1.01Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx">ti.cc23xx</a></span> as a concrete example when we dive into the details of implementing an EM distro, we'll take a more abstract perspective for now &ndash; describing a generic distro bundle named <code><span class="x"><em>xx.yyyz</em></span></code>.  Initially, let's just focus on the overall organization of this bundle &ndash; typical of any of the distros we'll visit later on:</p>
+<figure id="fig1">
+<p><a class="glightbox" href="/assets/porting-01.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/porting-01.png" /></a></p>
+<figcaption>EM distro bundle
+</figcaption>
+</figure>
+<p>Like all EM bundles, our generic MCU distro must have a globally-unique name &ndash; typically of the form <code><span class="x"><em>xx.yyyz</em></span></code>, where <code><span class="x"><em>xx</em></span></code> designates the MCU vendor [<code><span class="x">ti</span></code>, <code><span class="x">mchp</span></code>, <code><span class="x">sifive</span></code>] and <code><span class="x"><em>yyyz</em></span></code> identifies the MCU family [<code><span class="x">cc23xx</span></code>, <code><span class="x">samd21</span></code>, <code><span class="x">fe310</span></code>].</p>
+<p>The root of each distro bundle contains two&thinsp;<code><span class="filename">.properties</span></code> files which play distinct roles in the overall EM build flow:</p>
+<div class="em-ul">
+<p><code><span class="filename">bundle.properties</span></code> &mdash; its presence marks a (top-level) workspace folder as an EM bundle; its contents name other bundles required when building elements found in this particular bundle</p>
+<p><code><span class="filename">setup-default.properties</span></code> &mdash; a slice of its name appears in the <strong>EM Setups</strong> menu; its contents define critical parameters required to build&thinsp;/&thinsp;load (portable) programs which depend upon this distro</p>
 </div>
+<p>You may recall from <a class="em-link" href="/install/#target-mcu-hardware">Installing EM</a> that a distro can support multiple <strong>Setups</strong> &ndash; different compilers, different memory configurations, and so on.&thinsp;  In general, our <code><span class="x"><em>xx.yyyz</em></span></code> distro bundle can contain multiple <code><span class="filename">setup-<em>setup&lowbar;name</em>.properties</span></code> files &ndash; discovered by <strong>EM Builder</strong> in your workspace and displayed as <code><span class="x"><em>xx.yyyz</em>://<em>setup&lowbar;name</em></span></code>.</p>
+<p>Turning to the set of EM packages rooted in our distro bundle, <code class="language-em"><span class="n"><em>xx</em>.build.<em>yyyz</em></span></code> will in general contain one or more EM <code class="language-em"><span class="k">host</span></code> modules named <code class="language-em"><span class="nn">&laquo;Abc&raquo;Builder</span></code>, where <code><span class="x">&laquo;Abc&raquo;</span></code> designates a compiler suite [<code class="language-em"><span class="nn">Gcc</span></code>, <code class="language-em"><span class="nn">Iar</span></code>, <code class="language-em"><span class="nn">Segger</span></code>, ...&thinsp;] used to build EM programs targeting <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> MCUs.&thinsp;</p>
+<p>Leveraging re-usable content found in the <code class="language-em"><span class="n">em.build</span></code> package, each <code class="language-em"><span class="nn">&laquo;Abc&raquo;Builder</span></code> module not only coordinates use of an underlying C/C++ compiler when building EM programs, but also implements a strategy for loading program images onto the MCU itself.&thinsp; The <code><span class="filename">std.h</span></code> and <code><span class="filename">startup.c</span></code> files conventionally found in our <code class="language-em"><span class="n"><em>xx</em>.build.<em>yyyz</em></span></code> package support this process.</p>
+<p>The <code class="language-em"><span class="n"><em>xx</em>.distro.<em>yyyz</em></span></code> package provides an entry-point for (portable) applications targeting <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> MCUs.&thinsp; Using the <code class="language-em"><span class="n">em$distro</span></code> language intrinsic, clients can import EM composites such as <code class="language-em"><span class="nn">BoardC</span></code> and <code class="language-em"><span class="nn">McuC</span></code> <em>without</em> hard-coding the name <code class="language-em"><span class="n"><em>xx</em>.distro.<em>yyyz</em></span></code> within their source files; <code><span class="filename">setup-default.properties</span></code> usually assumes responsibility for binding <code class="language-em"><span class="n">em$distro</span></code>.</p>
+<p class="annotate">For now, you should review this material on <a href="/intro/to-4/#target-specific-content/">target-specific content</a> to understand the role played by the <code class="language-em"><span class="nn">BoardC</span></code> and <code class="language-em"><span class="nn">McuC</span></code> composites alongside the special <code class="language-em"><span class="k">host</span></code> <code class="language-em"><span class="nn">BoardInfo</span></code> module found in the <code class="language-em"><span class="n"><em>xx</em>.distro.<em>yyyz</em></span></code> package; and review the opening paragraphs of <a class="em-link" href="/using/using-02">Using EM</a> for insight into the special <code><span class="filename">em-boards</span></code> file.(1)</p>
+<ol>
+<li>We'll deep-dive into each of these files later on, once we start implementing specific distros based on the <code><span class="filename"><em>xx</em>.<em>yyyz</em></span></code> pattern</li>
+</ol>
+<p>Finally, the <code class="language-em"><span class="n"><em>xx</em>.mcu.<em>yyyz</em></span></code> package will contain the <em>MCU-specific implementations</em> of abstract <code class="language-em"><span class="n">em.hal</span></code> interfaces [<code class="language-em"><span class="nn">GpioI</span></code>, <code class="language-em"><span class="nn">WakeupTimerI</span></code>, ...&thinsp;] described earlier; but the exact number and even the names of these <code class="language-em"><span class="n"><em>xx</em>.mcu.<em>yyyz</em></span></code> modules (not to mention their low-level contents) can vary widely from one EM distro to the next &ndash; as we'll discover in due course.</p>
+<!-- TODO
+!!! abstract "EM naming conventions &ndash; best practices"
+-->
+
+<h2 id="prerequistics-for-porting-em">Prerequistics for porting EM</h2>
+<p>Based on prior experience, carefully assess each of the following requirements before implementing your own EM distro for the <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> family of MCUs:</p>
+<div class="em-ul">
+<p><span class="em-color-orange"><strong>Knowledge of EM</strong></span>.&ensp; We assume a working knowledge of EM &ndash; starting with the 10,000' overview found in <a class="em-link" href="/intro/">Introducing EM</a>, and then moving to the ground in <a class="em-link" href="/install/">Installing EM</a> and <a class="em-link" href="/using/">Using EM</a>.</p>
+<p><span class="em-color-orange"><strong>Usage of EM</strong></span>.&ensp; As a pragmatic point of reference, you should already have used a target board supported by an existing <code class="language-em"><span class="n">em$distro</span></code> delivered with the <strong>EM SDK</strong>.</p>
+<p><span class="em-color-orange"><strong>MCU experience</strong></span>.&ensp; You should have prior experience in  building and loading legacy C programs using a development board for the <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> MCU family.</p>
+<p><span class="em-color-orange"><strong>Bare-metal code</strong></span>.&ensp; While MCU vendor <code><span class="x"><em>xx</em></span></code> might supply a rich set of libraries for their <code><span class="x"><em>yyyz</em></span></code> device family, you should locate "bare-metal" C code that directly touches MCU registers.</p>
+<p><span class="em-color-orange"><strong>Hardware documentation</strong></span>.&ensp; You should have access to the datasheets and manuals for the <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> MCU family, as well as schematics for its development board(s).</p>
+<p><span class="em-color-orange"><strong>Saleae logic analyzer</strong></span>.&ensp; Invaluable for timing analysis as well as program tracing, logic captures will often serve as "program output" when working with low-level, bare-metal code.</p>
+</div>
+<p class="annotate">And finally, you should come to "expect the unexpected" when porting EM to the <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> MCU family; while we've tried to normalize and standardize the porting process, every MCU family seems to have its own "special quirks" which only makes the journey that much more interesting.&thinsp; As a wise man(1)once said:</p>
+<ol>
+<li>Doug Gwyn, known for his contributions to the C programming language and a colleague of Dennis Richie at Bell Labs</li>
+</ol>
+<div class="admonition bulb">
+<p class="admonition-title"><em>There is no such thing as portable code, only code that's been ported</em>&thinsp;!!!</p>
+</div>
+<h2 id="incremental-development-plan">Incremental development plan</h2>
+<p>To mitigate the challenges of implementing a new EM distro for the <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> MCU family, we've distilled our prior experience in porting EM to a wide range of resource-constrained MCUs down to a six-step process &ndash; a development plan you can tackle incrementally while regularly validating your progress.</p>
+<figure id="fig2">
+<p><a class="glightbox" href="/assets/porting-02.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/porting-02.png" /></a></p>
+<figcaption>Porting Milestones
+</figcaption>
+</figure>
+<p>Enroute to the final form, we'll create a curated series of <em>approximations</em> to the <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> distro bundle &ndash; each supporting an ever-growing list of portable <code><span class="x">em.core</span></code> examples first described in <a class="em-link" href="/using/using-02/">Using EM</a> and found in the <span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic">em.examples.basic</a></span> package.</p>
+<div class="em-ul">
+<p><code><span class="x"><em>xx</em>.<em>yyyz</em>.A</span></code> &mdash; a minimal distro which supports building&thinsp;/&thinsp;loading the <span class="em-content-unit-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span>&nbsp;<a href="/cargo/em.docs/em.examples.basic/EmptyP">EmptyP</a></span> example</p>
+<p><code><span class="x"><em>xx</em>.<em>yyyz</em>.B</span></code> &mdash; a distro which also supports the functionality covered in <a href="/using/using-02/#tour-00-guided-tours">Tours 00&thinsp;-&thinsp;03</a></p>
+<p><code><span class="x"><em>xx</em>.<em>yyyz</em>.C</span></code> &mdash; a distro which also supports the functionality covered in <a href="/using/using-02/#tour-04-guided-tours">Tours 04&thinsp;-&thinsp;09</a></p>
+<p><code><span class="x"><em>xx</em>.<em>yyyz</em>.D</span></code> &mdash; a distro which also supports the functionality covered in <a href="/using/using-02/#tour-10-guided-tours">Tours 10&thinsp;-&thinsp;12</a></p>
+</div>
+<p>At a finer level of granularity, we'll implement a curated series of small EM test programs named <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code>, <code class="language-em"><span class="nn">Gist01&lowbar;Busy</span></code>, and so forth.  Found in a special <code class="language-em"><span class="n">gist.<em>yyyz</em></span></code> package within the working distro bundle, each of these "throwaway" programs focuses on a particular capability needed by the <em>next</em> distro bundle enroute to <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code>:</p>
+<figure id="fig3">
+<p><a class="glightbox" href="/assets/porting-03.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Image info" src="/assets/porting-03.png" /></a></p>
+<figcaption>Porting Milestones [&thinsp;details&thinsp;]
+</figcaption>
+</figure>
+<p>In step <span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7v2h2v8h2V7h-4m2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span> for example, we'll only implement <code class="language-em"><span class="nn">Gist00&lowbar;Min</span></code> to demonstrate minimal behavior in bundle <code><span class="x"><em>xx</em>.<em>yyyz</em>.A</span></code>&thinsp;; in step <span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4v2h-2a2 2 0 0 0-2 2v4h6v-2h-4v-2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span> however, we'll implement additional gist programs in pre&shy;paration for bundle <code><span class="x"><em>xx</em>.<em>yyyz</em>.B</span></code>&thinsp;.</p>
+<p>As required by many of the gist programs, we'll also add "temporary" modules to the special <code class="language-em"><span class="n">scratch.<i>yyyz</i></span></code> package depicted above.  Used as a staging ground in step <span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4v2h-2a2 2 0 0 0-2 2v4h6v-2h-4v-2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span>, the contents of these modules will find their way into the <code class="language-em"><span class="n"><i>xx</i>.mcu.<i>yyyz</i></span></code> package of the <code><span class="x"><em>xx</em>.<em>yyyz</em>.B</span></code> bundle during step <span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 15v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2H9v2h4v2h-2v2h2v2H9v2h4a2 2 0 0 0 2-2M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span>&thinsp;; we'll also expand the <code class="language-em"><span class="nn">BoardC</span></code> and <code class="language-em"><span class="nn">Mcu</span></code> composites as needed.</p>
+<p>Returning to the original <a href="#fig2">figure</a>, we'll pick up the pace in steps <span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v6h4v4h2V7h-2v4h-2V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span> and <span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v6h4v2H9v2h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V9h4V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span> as we transition from distro <code><span class="x"><em>xx</em>.<em>yyyz</em>.B</span></code> to distro <code><span class="x"><em>xx</em>.<em>yyyz</em>.D</span></code>&thinsp;.&thinsp; Now able to run all of the portable programs in the <code class="language-em"><span class="n">em.examples.basic</span></code> package &ndash; our "80% done" milestone &ndash; step <span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V9h4V7h-4m0 6h2v2h-2v-2m1-11a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span> pivots to size, speed, and power optimizations inside the final <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> distro &ndash; the "other 80%" of the job. <span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2M7 9.5C7 8.7 7.7 8 8.5 8s1.5.7 1.5 1.5S9.3 11 8.5 11 7 10.3 7 9.5m5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81M17 10h-4V9h4v1Z"/></svg></span></p>
+<p>Summarizing our six step process:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7v2h2v8h2V7h-4m2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span>&ensp; <strong><a class="em-link" href="part-1/">The bare minimum</a></strong></td>
+<td style="text-align: left;">&emsp;distro <code><span class="x"><em>xx</em>.<em>yyyz</em>.A</span></code></td>
+<td style="text-align: left;">&thinsp;build&thinsp;/&thinsp;load a target program</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4v2h-2a2 2 0 0 0-2 2v4h6v-2h-4v-2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span>&ensp; <strong><a class="em-link" href="part-2/">Basic MCU Output</a></strong></td>
+<td style="text-align: left;">&emsp;distro <code><span class="x"><em>xx</em>.<em>yyyz</em>.A</span></code></td>
+<td style="text-align: left;">&thinsp;toggle a pin, output a character</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 15v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2H9v2h4v2h-2v2h2v2H9v2h4a2 2 0 0 0 2-2M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span>&ensp; <strong><a class="em-link" href="part-3/">Portable examples</a></strong></td>
+<td style="text-align: left;">&emsp;distro <code><span class="x"><em>xx</em>.<em>yyyz</em>.B</span></code></td>
+<td style="text-align: left;"><code class="language-em"><span class="nn">Blinker&ast;P</span></code>,<code class="language-em"><span class="nn">FiberP</span></code>,<code class="language-em"><span class="nn">HelloP</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v6h4v4h2V7h-2v4h-2V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span>&ensp; <strong><a class="em-link" href="part-4/">Timers and buttons</a></strong></td>
+<td style="text-align: left;">&emsp;distro <code><span class="x"><em>xx</em>.<em>yyyz</em>.C</span></code></td>
+<td style="text-align: left;"><code class="language-em"><span class="nn">Button&ast;P</span></code>,<code class="language-em"><span class="nn">OneShot&ast;P</span></code>,<code class="language-em"><span class="nn">PollerP</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v6h4v2H9v2h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V9h4V7H9m3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span>&ensp; <strong><a class="em-link" href="part-5/">Scheduled wakeups</a></strong></td>
+<td style="text-align: left;">&emsp;distro <code><span class="x"><em>xx</em>.<em>yyyz</em>.D</span></code></td>
+<td style="text-align: left;"><code class="language-em"><span class="nn">Alarm&ast;P</span></code>,<code class="language-em"><span class="nn">TickerP</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="twemoji em-color-tan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V9h4V7h-4m0 6h2v2h-2v-2m1-11a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2Z"/></svg></span>&ensp; <strong><a class="em-link" href="part-6/">Optimizing EM&bull;Mark</a></strong></td>
+<td style="text-align: left;">&emsp;distro <code><span class="x"><em>xx</em>.<em>yyyz</em> [v1.0]</span></code></td>
+<td style="text-align: left;"><code class="language-em"><span class="nn">&lbrace;Active,Sleepy&rbrace;RunnerP</span></code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="preparing-your-workspace">Preparing your workspace</h2>
+<p class="annotate">As we proceed through this process, you'll encounter "real-world" instances of our generic <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> bundle &ndash; using the <code class="language-em"><span class="n">ti.cc23xx</span></code> distro and the <code><span class="x">LP-EM-CC2340R5</span></code> evaluation board described in <a class="em-link" href="/install/#target-mcu-hardware">Installing EM</a> as our primary example.(1)</p>
+<ol>
+<li>At the same time, we'll also present examples for other<br>EM distros to further reinforce <code><span class="x"><em>xx</em>.<em>yyyz</em></span></code> design patterns.</li>
+</ol>
+<p>Assuming you've already made your way through <a class="em-link" href="/using/">Using EM</a> &ndash; and have also run the portable <code class="language-em"><span class="n">em.examples.basic</span></code> programs on <code><span class="x">LP-EM-CC2340R5</span></code> hardware &ndash; let's launch <strong>EM Builder</strong> with a fresh workspace and take our first step in the porting process.</p>
+<!--  TODO: download [A-D] distros -->
+
 <div class="em-break"></div>
 
-<p><a class="em-link" href="/intro/to-4/#learning-more-em"><span class="em-walk"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-84.3 104.5c1-.4 1.9-.8 2.9-1.2l-16.9 63.5c-5.6 21.1-.1 43.6 14.7 59.7l70.7 77.1 22 88.1c4.3 17.1 21.7 27.6 38.8 23.3s27.6-21.7 23.3-38.8l-23-92.1c-1.9-7.8-5.8-14.9-11.2-20.8l-49.5-54 19.3-65.5 9.6 23c4.4 10.6 12.5 19.3 22.8 24.5l26.7 13.3c15.8 7.9 35 1.5 42.9-14.3s1.5-35-14.3-42.9L281 232.7l-15.3-36.8c-17.2-41.1-57.4-67.9-102-67.9-22.8 0-45.3 4.8-66.1 14l-8 3.5c-32.9 14.6-58.1 42.4-69.4 76.5l-2.6 7.8c-5.6 16.8 3.5 34.9 20.2 40.5s34.9-3.5 40.5-20.2l2.6-7.8c5.7-17.1 18.3-30.9 34.7-38.2l8-3.5zm-30 135.1-25 62.4-59.3 59.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l61.6-61.7c4.6-4.6 8.2-10.1 10.6-16.1l14.5-36.2-40.7-44.4c-2.5-2.7-4.8-5.6-7-8.6zm456.9-182.2c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l25.4 25.3H384c-17.7 0-32 14.3-32 32s14.3 32 32 32h146.7l-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l80-80c12.5-12.5 12.5-32.8 0-45.3l-80-80z"/></svg></span></span></a></p>
+<p><a class="em-link" href="/porting/part-1/"><span class="em-walk"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M208 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-84.3 104.5c1-.4 1.9-.8 2.9-1.2l-16.9 63.5c-5.6 21.1-.1 43.6 14.7 59.7l70.7 77.1 22 88.1c4.3 17.1 21.7 27.6 38.8 23.3s27.6-21.7 23.3-38.8l-23-92.1c-1.9-7.8-5.8-14.9-11.2-20.8l-49.5-54 19.3-65.5 9.6 23c4.4 10.6 12.5 19.3 22.8 24.5l26.7 13.3c15.8 7.9 35 1.5 42.9-14.3s1.5-35-14.3-42.9L281 232.7l-15.3-36.8c-17.2-41.1-57.4-67.9-102-67.9-22.8 0-45.3 4.8-66.1 14l-8 3.5c-32.9 14.6-58.1 42.4-69.4 76.5l-2.6 7.8c-5.6 16.8 3.5 34.9 20.2 40.5s34.9-3.5 40.5-20.2l2.6-7.8c5.7-17.1 18.3-30.9 34.7-38.2l8-3.5zm-30 135.1-25 62.4-59.3 59.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l61.6-61.7c4.6-4.6 8.2-10.1 10.6-16.1l14.5-36.2-40.7-44.4c-2.5-2.7-4.8-5.6-7-8.6zm456.9-182.2c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l25.4 25.3H384c-17.7 0-32 14.3-32 32s14.3 32 32 32h146.7l-25.4 25.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l80-80c12.5-12.5 12.5-32.8 0-45.3l-80-80z"/></svg></span></span></a></p>
 
 
 

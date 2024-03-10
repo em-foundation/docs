@@ -778,6 +778,18 @@
           
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -805,6 +817,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -814,6 +831,132 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The bare minimum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic MCU output
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portable examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Timers and buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled wakeups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../porting/part-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing EM&bull;Mark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -5777,7 +5920,7 @@
 
 <h1 id="software-platform-content">Software platform content</h1>
 <p>While software design and development focuses on individual&thinsp;<code><span class="filename">.em</span></code> files &ndash; modules, interfaces, composites, templates &ndash; a more coarse-grained construct known as a <strong>bundle</strong> serves as the unit of software delivery within the EM platform. Like the packages they ultimately contain, each EM bundle bears a globally-unique qualified name suggestive of its publisher and purpose &ndash; though individual&thinsp;<code><span class="filename">.em</span></code> files will only reference packages by name, and never the containing bundle itself.</p>
-<p>Representing "components-in-the-large", an EM bundle will not only publicize the elements it <em>provides</em> but will also identify other bundles it <em>requires</em> for successful deployment; de&shy;pendent bundles may in turn require other bundles &ndash; reminiscent of the hierarchic <code class="language-em highlight"><span class="k">import</span></code> relation between individual&thinsp;<code><span class="filename">.em</span></code> files. Bundles can also serve as a unit of software versioning within the platform, with dependencies optionally constrained to particular labeled releases.</p>
+<p>Representing "components-in-the-large", an EM bundle will not only publicize the elements it <em>provides</em> but will also identify other bundles it <em>requires</em> for successful deployment; de&shy;pendent bundles may in turn require other bundles &ndash; reminiscent of the hierarchic <code class="language-em"><span class="k">import</span></code> relation between individual&thinsp;<code><span class="filename">.em</span></code> files. Bundles can also serve as a unit of software versioning within the platform, with dependencies optionally constrained to particular labeled releases.</p>
 <p>In the sections that follow, we'll respectively explore these three EM bundles:</p>
 <dl>
 <dt><span class="em-content-bundle-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 10.96a.985.985 0 0 1-.37-1.37L3.13 7c.11-.2.28-.34.47-.42l7.83-4.4c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.19.1.35.26.44.46l1.45 2.52c.28.48.11 1.09-.36 1.36l-1 .58v4.96c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-5.54c-.3.17-.68.18-1 0m10-6.81v6.7l5.96-3.35L12 4.15M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-3.22l-5 2.9c-.33.18-.7.17-1 .01v3.69l6-3.38m-5.15-2.55 6.28-3.63-.58-1.01-6.28 3.63.58 1.01Z"/></svg></span>&nbsp;<a href="/cargo/em.core">em.core</a></span></dt>
@@ -5794,23 +5937,23 @@
 </dd>
 </dl>
 <h2 id="portable-content">Portable content</h2>
-<p>As its name suggests, the <code><span class="filename">em.core</span></code> bundle incorporates rudimentary and essential content present in all distributions of the EM software platform &ndash; some of which we've already visited earlier in this document. Through aggressive use of the <code class="language-em highlight"><span class="k">proxy</span></code>&thinsp;&ndash;&thinsp;<code class="language-em highlight"><span class="k">interface</span></code> pattern, a critical subset of the <code><span class="filename">em.core</span></code> bundle &ndash; specifically, its <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">mcu</span></code> and <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">utils</span></code> packages &ndash; in fact remain 100% portable across all target environments.</p>
+<p>As its name suggests, the <code><span class="filename">em.core</span></code> bundle incorporates rudimentary and essential content present in all distributions of the EM software platform &ndash; some of which we've already visited earlier in this document. Through aggressive use of the <code class="language-em"><span class="k">proxy</span></code>&thinsp;&ndash;&thinsp;<code class="language-em"><span class="k">interface</span></code> pattern, a critical subset of the <code><span class="filename">em.core</span></code> bundle &ndash; specifically, its <code class="language-em"><span class="n">em.mcu</span></code> and <code class="language-em"><span class="n">em.utils</span></code> packages &ndash; in fact remain 100% portable across all target environments.</p>
 <dl>
 <dt><span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.hal">em.hal</a></span></dt>
 <dd>
-<p>This package contains abstract interfaces reflecting the functionality of low-level hardware elements found within embedded MCUs &ndash; <code class="language-em highlight"><span class="nn">ConsoleUartI</span></code>, <code class="language-em highlight"><span class="nn">LedI</span></code>, <code class="language-em highlight"><span class="nn">WakeupTimerI</span></code>, and many others; this package contains also contains "empty" implementations of these interfaces (<code class="language-em highlight"><span class="nn">ConsoleUartN</span></code>, <code class="language-em highlight"><span class="nn">LedN</span></code>, etc), often used as default <code class="language-em highlight"><span class="k">proxy</span></code> bindings. As such, this package serves as a critical <em>hardware abstraction layer</em> (HAL) &ndash; prescribing a fundamental architectural boundary that insulates portable (hardware-independent) content from target-specific (hardware-dependent) content.</p>
+<p>This package contains abstract interfaces reflecting the functionality of low-level hardware elements found within embedded MCUs &ndash; <code class="language-em"><span class="nn">ConsoleUartI</span></code>, <code class="language-em"><span class="nn">LedI</span></code>, <code class="language-em"><span class="nn">WakeupTimerI</span></code>, and many others; this package contains also contains "empty" implementations of these interfaces (<code class="language-em"><span class="nn">ConsoleUartN</span></code>, <code class="language-em"><span class="nn">LedN</span></code>, etc), often used as default <code class="language-em"><span class="k">proxy</span></code> bindings. As such, this package serves as a critical <em>hardware abstraction layer</em> (HAL) &ndash; prescribing a fundamental architectural boundary that insulates portable (hardware-independent) content from target-specific (hardware-dependent) content.</p>
 </dd>
 <dt><span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.utils">em.utils</a></span></dt>
 <dd>
-<p>This package comprises a somewhat eclectic (and ever-expanding) collection of run-time application services &ndash; ranging from elementary modules like <code class="language-em highlight"><span class="nn">ListMgr</span></code> and <code class="language-em highlight"><span class="nn">FiberMgr</span></code> up to more sophisticated templates like <code class="language-em highlight"><span class="nn">ButtonT</span></code> and <code class="language-em highlight"><span class="nn">LedT</span></code>.  While mostly supporting program <em>run-time</em>, special <code class="language-em highlight"><span class="k">host</span></code> modules like <code class="language-em highlight"><span class="nn">BoardInfo</span></code> and <code class="language-em highlight"><span class="nn">BoardMeta</span></code> offer (portable) services used by EM distros at program <em>build-time</em>.</p>
+<p>This package comprises a somewhat eclectic (and ever-expanding) collection of run-time application services &ndash; ranging from elementary modules like <code class="language-em"><span class="nn">ListMgr</span></code> and <code class="language-em"><span class="nn">FiberMgr</span></code> up to more sophisticated templates like <code class="language-em"><span class="nn">ButtonT</span></code> and <code class="language-em"><span class="nn">LedT</span></code>.  While mostly supporting program <em>run-time</em>, special <code class="language-em"><span class="k">host</span></code> modules like <code class="language-em"><span class="nn">BoardInfo</span></code> and <code class="language-em"><span class="nn">BoardMeta</span></code> offer (portable) services used by EM distros at program <em>build-time</em>.</p>
 </dd>
 <dt><span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.mcu">em.mcu</a></span></dt>
 <dd>
-<p>Unlike <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">utils</span></code>, this package generally limits its contents to what we'll term as <em>global proxies</em> &ndash; a set of well-known modules that implement certain <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">hal</span></code> interfaces by effectively forwarding function calls to a conformant delegate; <code class="language-em highlight"><span class="nn">ConsoleUart</span></code> and <code class="language-em highlight"><span class="nn">Poller</span></code> illustrate this pattern. This package also contains the widely-used <code class="language-em highlight"><span class="nn">Common</span></code> module, which conveniently aggregates additional global proxies into a single unit.</p>
+<p>Unlike <code class="language-em"><span class="n">em.utils</span></code>, this package generally limits its contents to what we'll term as <em>global proxies</em> &ndash; a set of well-known modules that implement certain <code class="language-em"><span class="n">em.hal</span></code> interfaces by effectively forwarding function calls to a conformant delegate; <code class="language-em"><span class="nn">ConsoleUart</span></code> and <code class="language-em"><span class="nn">Poller</span></code> illustrate this pattern. This package also contains the widely-used <code class="language-em"><span class="nn">Common</span></code> module, which conveniently aggregates additional global proxies into a single unit.</p>
 </dd>
 <dt><span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/em.core/em.lang">em.lang</a></span></dt>
 <dd>
-<p>Invisible to most clients, this package helps bootstrap the implementation of the EM language itself through several distinguished interfaces declaring intrinsic configs and functions:&nbsp;  <code class="language-em highlight"><span class="nn">ModuleI</span></code>, that all modules or interfaces will inherit; <code class="language-em highlight"><span class="nn">CompositeI</span></code>, that all composites will inherit; and <code class="language-em highlight"><span class="nn">TemplateI</span></code>, that all templates will inherit. This package also contains the <code class="language-em highlight"><span class="nn">Console</span></code> module and its <code class="language-em highlight"><span class="nn">ConsoleProviderI</span></code> interface &ndash; supporting <code class="language-em highlight"><span class="nb">printf</span></code> statements innate to the language. Finally, this package houses common C/C++ and JavaScript code fragments interpolated during the EM program build-flow.</p>
+<p>Invisible to most clients, this package helps bootstrap the implementation of the EM language itself through several distinguished interfaces declaring intrinsic configs and functions:&nbsp;  <code class="language-em"><span class="nn">ModuleI</span></code>, that all modules or interfaces will inherit; <code class="language-em"><span class="nn">CompositeI</span></code>, that all composites will inherit; and <code class="language-em"><span class="nn">TemplateI</span></code>, that all templates will inherit. This package also contains the <code class="language-em"><span class="nn">Console</span></code> module and its <code class="language-em"><span class="nn">ConsoleProviderI</span></code> interface &ndash; supporting <code class="language-em highlight"><span class="nb">printf</span></code> statements innate to the language. Finally, this package houses common C/C++ and JavaScript code fragments interpolated during the EM program build-flow.</p>
 </dd>
 </dl>
 <p><a class="em-link" href="/using">Using EM</a> will take a more detailed look at the source code of specific&thinsp;<code><span class="filename">.em</span></code> files found in the first three of these packages.</p>
@@ -5819,15 +5962,15 @@
 <dl>
 <dt><span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.distro.cc23xx">ti.distro.cc23xx</a></span></dt>
 <dd>
-<p>This package (and in fact the entire <code><span class="filename">ti.cc23xx</span></code> distro bundle) revolves around a single composite conventionally named <code class="language-em highlight"><span class="nn">BoardC</span></code> &ndash; responsible for configuring parameters as well as binding proxies exposed by elements of <code><span class="filename">em.core</span></code>. This package also contains two other conventionally named units found in any EM distro:&nbsp; the <code class="language-em highlight"><span class="nn">McuC</span></code> composite, which (in this case) focuses on the <code class="language-em highlight"><span class="n">ti</span><span class="x">.</span><span class="n">mcu</span><span class="x">.</span><span class="n">cc23xx</span></code> package; and the special <code class="language-em highlight"><span class="k">host</span></code> <code class="language-em highlight"><span class="nn">BoardMeta</span></code> module, which effectively defines the <em>schema</em> of the board-specific YAML file mentioned earlier in the context of <a href="/intro/to-2/#more-configuration">configuration</a> and <a href="/intro/to-3/#more-pre-configuration">pre-configuration</a>. </p>
+<p>This package (and in fact the entire <code><span class="filename">ti.cc23xx</span></code> distro bundle) revolves around a single composite conventionally named <code class="language-em"><span class="nn">BoardC</span></code> &ndash; responsible for configuring parameters as well as binding proxies exposed by elements of <code><span class="filename">em.core</span></code>. This package also contains two other conventionally named units found in any EM distro:&nbsp; the <code class="language-em"><span class="nn">McuC</span></code> composite, which (in this case) focuses on the <code class="language-em"><span class="n">ti.mcu.cc23xx</span></code> package; and the special <code class="language-em"><span class="k">host</span></code> <code class="language-em"><span class="nn">BoardMeta</span></code> module, which effectively defines the <em>schema</em> of the board-specific YAML file mentioned earlier in the context of <a href="/intro/to-2/#more-configuration">configuration</a> and <a href="/intro/to-3/#more-pre-configuration">pre-configuration</a>. </p>
 </dd>
 <dt><span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.mcu.cc23xx">ti.mcu.cc23xx</a></span></dt>
 <dd>
-<p>Many of the modules in this package provide MCU-specific implementations of abstract interfaces found in <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">hal</span></code> &ndash; <code class="language-em highlight"><span class="nn">ConsoleUart0</span></code>, <code class="language-em highlight"><span class="nn">Idle</span></code>, <code class="language-em highlight"><span class="nn">OneShotGpt3</span></code>, and others.  Likewise, this package features templates such as <code class="language-em highlight"><span class="nn">GpioT</span></code> and <code class="language-em highlight"><span class="nn">InterruptT</span></code> whose <code class="language-em highlight"><span class="nf">em$generateUnit</span></code> intrinsics synthesize MCU-specific implementations of other HAL interfaces at program build-time.  Finally, this package contains even lower-level auxiliary modules (eg, <code class="language-em highlight"><span class="nn">Regs</span></code> and <code class="language-em highlight"><span class="nn">Rtc</span></code>) whose clients typically remain within the distro itself.</p>
+<p>Many of the modules in this package provide MCU-specific implementations of abstract interfaces found in <code class="language-em highlight"><span class="n">em</span><span class="x">.</span><span class="n">hal</span></code> &ndash; <code class="language-em"><span class="nn">ConsoleUart0</span></code>, <code class="language-em"><span class="nn">Idle</span></code>, <code class="language-em"><span class="nn">OneShotGpt3</span></code>, and others.  Likewise, this package features templates such as <code class="language-em"><span class="nn">GpioT</span></code> and <code class="language-em"><span class="nn">InterruptT</span></code> whose <code class="language-em"><span class="nf">em$generateUnit</span></code> intrinsics synthesize MCU-specific implementations of other HAL interfaces at program build-time.  Finally, this package contains even lower-level auxiliary modules (eg, <code class="language-em"><span class="nn">Regs</span></code> and <code class="language-em"><span class="nn">Rtc</span></code>) whose clients typically remain within the distro itself.</p>
 </dd>
 <dt><span class="em-content-pkg-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"/></svg></span>&nbsp;<a href="/cargo/ti.cc23xx/ti.build.cc23xx">ti.build.cc23xx</a></span></dt>
 <dd>
-<p>This package contains <code class="language-em highlight"><span class="k">host</span></code> modules that control the compiling&thinsp;/&thinsp;linking of target EM programs using a particular C/C++ toolchain.  The modules typically pass target-specific information such as memory maps or register declarations to generic modules found in a special <code><span class="filename">em.build</span></code> bundle, which we'll discuss in a later document.</p>
+<p>This package contains <code class="language-em"><span class="k">host</span></code> modules that control the compiling&thinsp;/&thinsp;linking of target EM programs using a particular C/C++ toolchain.  The modules typically pass target-specific information such as memory maps or register declarations to generic modules found in a special <code><span class="filename">em.build</span></code> bundle, which we'll discuss in a later document.</p>
 </dd>
 </dl>
 <p><a class="em-link" href="/porting">Porting EM</a> will dive into virtually all of the&thinsp;<code><span class="filename">.em</span></code> source files found in these three packages, as well as explore the <code><span class="filename">em.build</span></code> bundle mentioned above.</p>
@@ -5909,7 +6052,7 @@
 </tr>
 </tbody>
 </table>
-<p>To ensure their portability, none of these programs explicitly reference the "current" EM distro package [&thinsp;<code class="language-em highlight"><span class="n">ti</span><span class="x">.</span><span class="n">distro</span><span class="x">.</span><span class="n">cc23xx</span></code>&thinsp;] by name; rather, these programs use a special language intrinsic [&thinsp;<code class="language-em highlight"><span class="n">em$distro</span></code>&thinsp;] as a logical name which you will <em>bind</em> to a particular distro package.</p>
+<p>To ensure their portability, none of these programs explicitly reference the "current" EM distro package [&thinsp;<code class="language-em highlight"><span class="n">ti</span><span class="x">.</span><span class="n">distro</span><span class="x">.</span><span class="n">cc23xx</span></code>&thinsp;] by name; rather, these programs use a special language intrinsic [&thinsp;<code class="language-em"><span class="n">em$distro</span></code>&thinsp;] as a logical name which you will <em>bind</em> to a particular distro package.</p>
 <h2 id="learning-more-em">Learning more EM</h2>
 <p>If you want to learn more about EM &ndash; but continue to fly at 10,000' for now &ndash; we strongly recommend reading through <a class="em-link" href="/using">Using EM</a> to get a sense for the platform's tooling and runtime from a ground-level perspective; a quick pass through the other documents at this site should prove informative as well.</p>
 <p>When you want to hit the ground running and start coding, however, you'll definitely need to first work through <a class="em-link" href="/install">Installing EM</a> before proceeding onward to <a class="em-link" href="/using">Using EM</a>.  Both of these documents also accomodate a special <span class="em-figcaption">**&thinsp;FAST-TRACK&thinsp;**</span> option, which enables you to rapidly experience the EM development environment as well as learn more about <span class="em-content-bundle-link"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 10.96a.985.985 0 0 1-.37-1.37L3.13 7c.11-.2.28-.34.47-.42l7.83-4.4c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.19.1.35.26.44.46l1.45 2.52c.28.48.11 1.09-.36 1.36l-1 .58v4.96c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-5.54c-.3.17-.68.18-1 0m10-6.81v6.7l5.96-3.35L12 4.15M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-3.22l-5 2.9c-.33.18-.7.17-1 .01v3.69l6-3.38m-5.15-2.55 6.28-3.63-.58-1.01-6.28 3.63.58 1.01Z"/></svg></span>&nbsp;<a href="/cargo/em.core">em.core</a></span>.</p>
