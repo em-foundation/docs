@@ -300,7 +300,7 @@
   
     
   
-  Advancing EM
+  Mastering EM
 
         </a>
       </li>
@@ -1008,7 +1008,7 @@
               
   
   <span class="md-ellipsis">
-    Advancing EM
+    Mastering EM
   </span>
   
 
@@ -1024,7 +1024,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Advancing EM
+            Mastering EM
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -5956,17 +5956,14 @@
 <h2 id="software-development-kit">Software development kit</h2>
 <p>The <strong>EM SDK</strong> comprises two distinct components:</p>
 <p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>&emsp;a VS Code extension named <strong>EM Builder</strong> with which you'll interact directly; and</p>
-<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>&emsp;a special <code><span class="filename">&laquo;EM-SDK&raquo;</span></code> folder automatically managed by <span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>, which you can largely ignore.</p>
-<p class="annotate">Under the <code><span class="filename">&laquo;EM-SDK&raquo;</span></code> folder you'll find a sub-folder named <code><span class="filename">tools</span></code>, which will contain C/C++ compilers as well as emulation utilities &ndash; all used internally by EM to build&thinsp;/&thinsp;load executable target programs.&nbsp; Already found in a <em>well-known</em> place on your PC(1), EM requires no further action on your part to setup these tools.</p>
-<ol>
-<li><code><span class="filename">&laquo;EM-SDK&raquo;</span></code>&nbsp;=&ensp;<code class="language-em highlight"><span class="si">~/em-sdk</span></code></li>
-</ol>
+<p><span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>&emsp;a special <code><span class="filename">~/em-sdk</span></code> folder automatically managed by <span class="twemoji em-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/></svg></span>, which you can largely ignore.</p>
+<p>Under the <code><span class="filename">~/em-sdk</span></code> folder you'll find a sub-folder named <code><span class="filename">tools</span></code>, which will contain C/C++ compilers as well as emulation utilities &ndash; all used internally by EM to build&thinsp;/&thinsp;load executable target programs.&nbsp; Already found in a <em>well-known</em> place on your PC, EM requires no further action on your part to setup these tools.</p>
 <details class="abstract">
 <summary>Additional artifacts</summary>
-<p>Looking inside your <code><span class="filename">&laquo;EM-SDK&raquo;</span></code> folder, you'll also find some <code><span class="filename">package*.json</span></code> files as well as a <code><span class="filename">node_modules</span></code> sub-folder &ndash; characteristic of an <code class="language-em highlight"><span class="si">npm</span></code> package.&nbsp;  Unless instructed otherwise, please leave these (and any other&thinsp;!!&thinsp;) artifacts housed in <code><span class="filename">&laquo;EM-SDK&raquo;</span></code> undisturbed.</p>
+<p>Looking inside your <code><span class="filename">~/em-sdk</span></code> folder, you'll also find some <code><span class="filename">package*.json</span></code> files as well as a <code><span class="filename">node_modules</span></code> sub-folder &ndash; characteristic of an <code class="language-em highlight"><span class="si">npm</span></code> package.&nbsp;  Unless instructed otherwise, please leave these (and any other&thinsp;!!&thinsp;) artifacts housed in <code><span class="filename">~/em-sdk</span></code> undisturbed.</p>
 </details>
 <div class="admonition warning">
-<p class="admonition-title">Unless instructed otherwise, do <em>NOT</em> disturb the contents of your &thinsp;&laquo;EM-SDK&raquo;&thinsp; folder&thinsp;!!!</p>
+<p class="admonition-title">Unless instructed otherwise, do <em>NOT</em> disturb the contents of your <strong><code><span class="x">~/em-sdk</span></code></strong> folder&thinsp;!!!</p>
 </div>
 <h2 id="target-mcu-hardware">Target MCU hardware</h2>
 <p>The <strong>EM SDK</strong> will contain <em>all</em> of the tools required to build&thinsp;/&thinsp;load EM programs targeting <em>any</em> of the following boards; you won't need to download any additional, vendor-specific software.&nbsp;  While we encourage you to purchase one (or more) of these boards, you can still learn a great deal about EM <em>without</em> target hardware &ndash; by taking the <b><code><span class="x">**FAST-TRACK**</span></code></b> option.</p>
@@ -5974,7 +5971,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The Texas Instruments <a href="https://www.ti.com/product/CC2340R5">CC2340R5</a> wireless MCU features an Arm Cortex-M0+ CPU together with a familiar suite of peripherals &ndash; including a generic 2.4&thinsp;GHz radio with BLE 5.x support.  Texas Instruments also offers an inexpensive <a href="https://www.ti.com/tool/LP-EM-CC2340R5">LP-EM-CC2340R5</a> evaluation board in their familiar <strong>LaunchPad</strong> format &ndash; available from TI as well as their distributors.</p>
-<p>You should also purchase this <a href="https://www.ti.com/tool/LP-XDS110ET">emulator board</a> from TI &ndash; unless you already own a "classic" TI LaunchPad with on-board XDS110 support.  In that case, you can easily connect this legacy LP to your new LP-EM-CC2340R5 board using a cable supplied by TI.  If you haven't used an XDS110 before, run the <code><span class="filename">one_time_setup</span></code> script found in <code><span class="filename">&laquo;EM-SDK&raquo;/tools/ti-uniflash</span></code>.</p>
+<p>You should also purchase this <a href="https://www.ti.com/tool/LP-XDS110ET">emulator board</a> from TI &ndash; unless you already own a "classic" TI LaunchPad with on-board XDS110 support.  In that case, you can easily connect this legacy LP to your new LP-EM-CC2340R5 board using a cable supplied by TI.  If you haven't used an XDS110 before, run the <code><span class="filename">one_time_setup</span></code> script found in <code><span class="filename">~/em-sdk/tools/ti-uniflash</span></code>.</p>
 <p>The <code class="language-em"><span class="n">ti.cc23xx</span></code> distro supports the following <strong>Setups</strong> for the <strong>EM-SDK</strong> tools:</p>
 <table>
 <thead>
@@ -6026,7 +6023,7 @@
 <p class="admonition-title">Which MCU board(s) would you want to see EM support&thinsp;??? <a class="em-link em-float-right" href="/discuss/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1ZM1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg></span></a></p>
 </div>
 <h2 id="em-builder-extension">EM Builder extension</h2>
-<p>At this stage, we can launch VS Code and install its <strong>EM Builder</strong> extension. To begin, first create an empty folder <em>anywhere</em> on your PC (outside of <code><span class="filename">&laquo;EM-SDK&raquo;</span></code>); this folder will serve as your initial VS Code workspace.</p>
+<p>At this stage, we can launch VS Code and install its <strong>EM Builder</strong> extension. To begin, first create an empty folder <em>anywhere</em> on your PC (outside of <code><span class="filename">~/em-sdk</span></code>); this folder will serve as your initial VS Code workspace.</p>
 <p>Next, enter the command <code class="language-em highlight"><span class="si">code</span></code>&thinsp;<code class="language-em highlight"><span class="si"><em>workspace</em></span></code> to launch VS Code (where <code class="language-em highlight"><span class="si"><em>workspace</em></span></code> represents a path to the folder created above).&nbsp; Unless you've already installed <strong>EM Builder</strong>, you'll see something like the default <code><span class="x">Welcome</span></code> layout shown within the following screen capture:</p>
 <div class="em-screen" id="fig1-dead">
 <p><button onclick="screenSwap(document.getElementById('fig1-dead'), document.getElementById('fig1-live'))"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h14m0-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-9 5v8l5-4-5-4Z"/></svg></span></button></p>
@@ -6066,7 +6063,7 @@
 <figcaption>Activating EM Builder</figcaption>
 </figure>
 </div>
-<p class="annotate">The [<strong>&thinsp;Command Palette&thinsp;&gt;&thinsp;Reload Window&thinsp;</strong>] sequence effectively restarts VS Code which in turn will activate <strong>EM Builder</strong>.&thinsp;  Always checking the status of the <code><span class="filename">&laquo;EM-SDK&raquo;</span></code> folder, the extension will prompt you to install the <strong>EM SDK</strong> components whenever absent or outdated.(1)</p>
+<p class="annotate">The [<strong>&thinsp;Command Palette&thinsp;&gt;&thinsp;Reload Window&thinsp;</strong>] sequence effectively restarts VS Code which in turn will activate <strong>EM Builder</strong>.&thinsp;  Always checking the status of the <code><span class="filename">~/em-sdk</span></code> folder, the extension will prompt you to install the <strong>EM SDK</strong> components whenever absent or outdated.(1)</p>
 <ol>
 <li>Things will go faster the next time you'll launch VS Code.</li>
 </ol>
